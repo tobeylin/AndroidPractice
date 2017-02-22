@@ -23,4 +23,10 @@
         android:layout_height="wrap_content"
         android:text="Activity Leak by Handler"/>
 
+    <Button
+        android:id="@+id/main_viewPagerActivityButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="View Pager Activity"/>
+
 </LinearLayout>

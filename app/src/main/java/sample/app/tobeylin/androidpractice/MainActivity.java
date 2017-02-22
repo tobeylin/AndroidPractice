@@ -8,6 +8,7 @@ import android.widget.Button;
 
 import sample.app.tobeylin.androidpractice.asynclistutil.AsyncListUtilActivity;
 import sample.app.tobeylin.androidpractice.handleractivityleak.HandlerLeakActivity;
+import sample.app.tobeylin.androidpractice.viewpager.ViewPagerActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -21,6 +22,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Button handlerActivityLeakButton = (Button) findViewById(R.id.main_handlerActivityLeakButton);
         handlerActivityLeakButton.setOnClickListener(this);
+
+        Button viewPagerActivityButton = (Button) findViewById(R.id.main_viewPagerActivityButton);
+        viewPagerActivityButton.setOnClickListener(this);
     }
 
     @Override
@@ -31,6 +35,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.main_handlerActivityLeakButton:
                 startActivity(new Intent().setClass(getApplicationContext(), HandlerLeakActivity.class));
+                break;
+            case R.id.main_viewPagerActivityButton:
+                startActivity(new Intent().setClass(getApplicationContext(), ViewPagerActivity.class));
                 break;
             default:
         }
