@@ -24,7 +24,8 @@
             android:name=".handleractivityleak.HandlerLeakActivity"
             android:exported="false"
             android:launchMode="singleTask" />
-        <activity android:name=".viewpager.ViewPagerActivity"></activity>
+        <activity android:name=".viewpager.ViewPagerActivity" />
+        <activity android:name=".media.LoadAllSongsByLoaderActivity"></activity>
     </application>
 
 </manifest>
