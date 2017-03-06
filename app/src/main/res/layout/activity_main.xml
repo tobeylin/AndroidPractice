@@ -35,4 +35,16 @@
         android:layout_height="wrap_content"
         android:text="All Songs"/>
 
+    <Button
+        android:id="@+id/main_syncAllSongsActivityButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sync All Songs"/>
+
+    <Button
+        android:id="@+id/main_mountPointActivityButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Get Mount Points By ContextCompat"/>
+
 </LinearLayout>

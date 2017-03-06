@@ -1,4 +1,4 @@
-package sample.app.tobeylin.androidpractice.media;
+package sample.app.tobeylin.androidpractice.media.loader;
 
 import android.database.Cursor;
 import android.support.v7.widget.RecyclerView;

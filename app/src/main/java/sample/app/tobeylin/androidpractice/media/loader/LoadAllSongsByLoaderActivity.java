@@ -1,4 +1,4 @@
-package sample.app.tobeylin.androidpractice.media;
+package sample.app.tobeylin.androidpractice.media.loader;
 
 import android.app.LoaderManager;
 import android.content.CursorLoader;

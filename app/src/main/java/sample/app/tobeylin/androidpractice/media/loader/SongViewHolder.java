@@ -1,4 +1,4 @@
-package sample.app.tobeylin.androidpractice.media;
+package sample.app.tobeylin.androidpractice.media.loader;
 
 import android.content.Context;
 import android.database.Cursor;

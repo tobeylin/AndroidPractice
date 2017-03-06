@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="sample.app.tobeylin.androidpractice">
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:name=".MainApplication"
         android:allowBackup="true"
@@ -25,7 +27,9 @@
             android:exported="false"
             android:launchMode="singleTask" />
         <activity android:name=".viewpager.ViewPagerActivity" />
-        <activity android:name=".media.LoadAllSongsByLoaderActivity"></activity>
+        <activity android:name=".media.loader.LoadAllSongsByLoaderActivity" />
+        <activity android:name=".media.sync.SyncAllSongsActivity" />
+        <activity android:name=".storage.MountPointActivity" />
     </application>
 
 </manifest>

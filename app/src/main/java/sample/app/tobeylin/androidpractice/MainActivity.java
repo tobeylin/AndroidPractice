@@ -8,7 +8,9 @@ import android.widget.Button;
 
 import sample.app.tobeylin.androidpractice.asynclistutil.AsyncListUtilActivity;
 import sample.app.tobeylin.androidpractice.handleractivityleak.HandlerLeakActivity;
-import sample.app.tobeylin.androidpractice.media.LoadAllSongsByLoaderActivity;
+import sample.app.tobeylin.androidpractice.media.loader.LoadAllSongsByLoaderActivity;
+import sample.app.tobeylin.androidpractice.media.sync.SyncAllSongsActivity;
+import sample.app.tobeylin.androidpractice.storage.MountPointActivity;
 import sample.app.tobeylin.androidpractice.viewpager.ViewPagerActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -29,6 +31,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Button allSongsActivityButton = (Button) findViewById(R.id.main_loadAllSongsByLoaderActivityButton);
         allSongsActivityButton.setOnClickListener(this);
+
+        Button syncAllSongsActivityButton = (Button) findViewById(R.id.main_syncAllSongsActivityButton);
+        syncAllSongsActivityButton.setOnClickListener(this);
+
+        Button mountPointActivityButton = (Button) findViewById(R.id.main_mountPointActivityButton);
+        mountPointActivityButton.setOnClickListener(this);
     }
 
     @Override
@@ -45,6 +53,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.main_loadAllSongsByLoaderActivityButton:
                 startActivity(new Intent().setClass(getApplicationContext(), LoadAllSongsByLoaderActivity.class));
+                break;
+            case R.id.main_syncAllSongsActivityButton:
+                startActivity(new Intent().setClass(getApplicationContext(), SyncAllSongsActivity.class));
+                break;
+            case R.id.main_mountPointActivityButton:
+                startActivity(new Intent().setClass(getApplicationContext(), MountPointActivity.class));
                 break;
             default:
         }
