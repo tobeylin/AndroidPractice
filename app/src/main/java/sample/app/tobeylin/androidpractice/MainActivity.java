@@ -10,7 +10,8 @@ import sample.app.tobeylin.androidpractice.asynclistutil.AsyncListUtilActivity;
 import sample.app.tobeylin.androidpractice.handleractivityleak.HandlerLeakActivity;
 import sample.app.tobeylin.androidpractice.media.loader.LoadAllSongsByLoaderActivity;
 import sample.app.tobeylin.androidpractice.media.sync.SyncAllSongsActivity;
-import sample.app.tobeylin.androidpractice.storage.MountPointActivity;
+import sample.app.tobeylin.androidpractice.storage.afterkitkat.MountPointAfterKitKatActivity;
+import sample.app.tobeylin.androidpractice.storage.beforekitkat.MountPointBeforeKitKatActivity;
 import sample.app.tobeylin.androidpractice.viewpager.ViewPagerActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -35,8 +36,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button syncAllSongsActivityButton = (Button) findViewById(R.id.main_syncAllSongsActivityButton);
         syncAllSongsActivityButton.setOnClickListener(this);
 
-        Button mountPointActivityButton = (Button) findViewById(R.id.main_mountPointActivityButton);
-        mountPointActivityButton.setOnClickListener(this);
+        Button mountPointAfterKitKatActivityButton = (Button) findViewById(R.id.main_mountPointAfterKitKatActivityButton);
+        mountPointAfterKitKatActivityButton.setOnClickListener(this);
+
+        Button mountPointBeforeKitKatActivityButton = (Button) findViewById(R.id.main_mountPointBeforeKitKatActivityButton);
+        mountPointBeforeKitKatActivityButton.setOnClickListener(this);
     }
 
     @Override
@@ -57,8 +61,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.main_syncAllSongsActivityButton:
                 startActivity(new Intent().setClass(getApplicationContext(), SyncAllSongsActivity.class));
                 break;
-            case R.id.main_mountPointActivityButton:
-                startActivity(new Intent().setClass(getApplicationContext(), MountPointActivity.class));
+            case R.id.main_mountPointAfterKitKatActivityButton:
+                startActivity(new Intent().setClass(getApplicationContext(), MountPointAfterKitKatActivity.class));
+                break;
+            case R.id.main_mountPointBeforeKitKatActivityButton:
+                startActivity(new Intent().setClass(getApplicationContext(), MountPointBeforeKitKatActivity.class));
                 break;
             default:
         }

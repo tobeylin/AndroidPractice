@@ -13,38 +13,44 @@
 
     <Button
         android:id="@+id/main_asyncListUtilButton"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Async List Util" />
 
     <Button
         android:id="@+id/main_handlerActivityLeakButton"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Activity Leak by Handler"/>
 
     <Button
         android:id="@+id/main_viewPagerActivityButton"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="View Pager Activity"/>
 
     <Button
         android:id="@+id/main_loadAllSongsByLoaderActivityButton"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="All Songs"/>
 
     <Button
         android:id="@+id/main_syncAllSongsActivityButton"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Sync All Songs"/>
 
     <Button
-        android:id="@+id/main_mountPointActivityButton"
-        android:layout_width="wrap_content"
+        android:id="@+id/main_mountPointAfterKitKatActivityButton"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Get Mount Points By ContextCompat"/>
+        android:text="Get Mount Points\nBy ContextCompat After KitKat"/>
+
+    <Button
+        android:id="@+id/main_mountPointBeforeKitKatActivityButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Get Mount Points\nBy StorageManager Before KitKat"/>
 
 </LinearLayout>

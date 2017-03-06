@@ -1,4 +1,4 @@
-package sample.app.tobeylin.androidpractice.storage;
+package sample.app.tobeylin.androidpractice.storage.afterkitkat;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -7,22 +7,26 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.TextView;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
 import sample.app.tobeylin.androidpractice.R;
+import sample.app.tobeylin.androidpractice.storage.MountPointAdapter;
 
-public class MountPointActivity extends AppCompatActivity {
+public class MountPointAfterKitKatActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mount_point);
 
+        TextView textView = (TextView) findViewById(R.id.mountPoint_titleTextView);
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.mountPoint_recycleView);
 
+        textView.setText("Get Mount Points By ContextCompat After KitKat");
         MountPointAdapter mountPointAdapter = new MountPointAdapter(getAllMountPoint(this));
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(mountPointAdapter);
