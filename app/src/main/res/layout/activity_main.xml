@@ -53,4 +53,10 @@
         android:layout_height="wrap_content"
         android:text="Get Mount Points\nBy StorageManager Before KitKat"/>
 
+    <Button
+        android:id="@+id/main_createFolderInSDCardActivityButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Create a Folder in SDCard"/>
+
 </LinearLayout>
