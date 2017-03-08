@@ -3,6 +3,7 @@
     package="sample.app.tobeylin.androidpractice">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:name=".MainApplication"
@@ -32,6 +33,7 @@
         <activity android:name=".storage.afterkitkat.MountPointAfterKitKatActivity" />
         <activity android:name=".storage.beforekitkat.MountPointBeforeKitKatActivity" />
         <activity android:name=".storage.beforekitkat.CreateFolderInSDCardActivity" />
+        <activity android:name=".storage.afterkitkat.CreateFolderInSDCardAfterKitKatActivity" />
     </application>
 
 </manifest>

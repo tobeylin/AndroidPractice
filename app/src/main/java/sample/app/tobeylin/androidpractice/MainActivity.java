@@ -10,6 +10,7 @@ import sample.app.tobeylin.androidpractice.asynclistutil.AsyncListUtilActivity;
 import sample.app.tobeylin.androidpractice.handleractivityleak.HandlerLeakActivity;
 import sample.app.tobeylin.androidpractice.media.loader.LoadAllSongsByLoaderActivity;
 import sample.app.tobeylin.androidpractice.media.sync.SyncAllSongsActivity;
+import sample.app.tobeylin.androidpractice.storage.afterkitkat.CreateFolderInSDCardAfterKitKatActivity;
 import sample.app.tobeylin.androidpractice.storage.afterkitkat.MountPointAfterKitKatActivity;
 import sample.app.tobeylin.androidpractice.storage.beforekitkat.CreateFolderInSDCardActivity;
 import sample.app.tobeylin.androidpractice.storage.beforekitkat.MountPointBeforeKitKatActivity;
@@ -45,6 +46,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Button createFolderInSDCardActivityButton = (Button) findViewById(R.id.main_createFolderInSDCardActivityButton);
         createFolderInSDCardActivityButton.setOnClickListener(this);
+
+        Button createFolderInSDCardAfterKitKatActivityButton = (Button) findViewById(R.id.main_createFolderInSDCardAfterKitKatActivityButton);
+        createFolderInSDCardAfterKitKatActivityButton.setOnClickListener(this);
     }
 
     @Override
@@ -73,6 +77,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.main_createFolderInSDCardActivityButton:
                 startActivity(new Intent().setClass(getApplicationContext(), CreateFolderInSDCardActivity.class));
+                break;
+            case R.id.main_createFolderInSDCardAfterKitKatActivityButton:
+                startActivity(new Intent().setClass(getApplicationContext(), CreateFolderInSDCardAfterKitKatActivity.class));
                 break;
             default:
         }
