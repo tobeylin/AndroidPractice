@@ -12,7 +12,7 @@ import sample.app.tobeylin.androidpractice.media.loader.LoadAllSongsByLoaderActi
 import sample.app.tobeylin.androidpractice.media.sync.SyncAllSongsActivity;
 import sample.app.tobeylin.androidpractice.storage.afterkitkat.CreateFolderInSDCardAfterKitKatActivity;
 import sample.app.tobeylin.androidpractice.storage.afterkitkat.MountPointAfterKitKatActivity;
-import sample.app.tobeylin.androidpractice.storage.beforekitkat.CreateFolderInSDCardActivity;
+import sample.app.tobeylin.androidpractice.storage.beforekitkat.CreateFolderInSDCardBeforeKitKatActivity;
 import sample.app.tobeylin.androidpractice.storage.beforekitkat.MountPointBeforeKitKatActivity;
 import sample.app.tobeylin.androidpractice.viewpager.ViewPagerActivity;
 
@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(new Intent().setClass(getApplicationContext(), MountPointBeforeKitKatActivity.class));
                 break;
             case R.id.main_createFolderInSDCardActivityButton:
-                startActivity(new Intent().setClass(getApplicationContext(), CreateFolderInSDCardActivity.class));
+                startActivity(new Intent().setClass(getApplicationContext(), CreateFolderInSDCardBeforeKitKatActivity.class));
                 break;
             case R.id.main_createFolderInSDCardAfterKitKatActivityButton:
                 startActivity(new Intent().setClass(getApplicationContext(), CreateFolderInSDCardAfterKitKatActivity.class));

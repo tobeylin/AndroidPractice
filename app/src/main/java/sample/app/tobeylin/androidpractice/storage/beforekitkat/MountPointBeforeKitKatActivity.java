@@ -80,48 +80,11 @@ public class MountPointBeforeKitKatActivity extends AppCompatActivity {
             this.storageVolume = storageVolume;
         }
 
-        public boolean hasStorageVolumeClass() {
-            try {
-                Class clazz = getStorageVolumeClass();
-                return clazz != null;
-            } catch (Exception e) {
-                return false;
-            }
-        }
-
         public String getFilePath() {
             try {
                 return (String) getStorageVolumeClass().getMethod("getPath").invoke(storageVolume);
             } catch (Exception e) {
                 throw new RuntimeException("StorageVolume#getPath() should be available", e);
-            }
-        }
-
-        public int getStorageId() {
-            try {
-                return (int) getStorageVolumeClass().getMethod("getStorageId").invoke(storageVolume);
-            } catch (Exception e) {
-                throw new RuntimeException("StorageVolume#getStorageId() should be available", e);
-            }
-        }
-
-        public String getStorageUuid() throws NoSuchMethodException {
-            try {
-                return (String) getStorageVolumeClass().getMethod("getUuid").invoke(storageVolume);
-            } catch (IllegalAccessException e) {
-                throw new RuntimeException(e);
-            } catch (InvocationTargetException e) {
-                throw new RuntimeException(e);
-            }
-        }
-
-        public String getState() throws NoSuchMethodException {
-            try {
-                return (String) getStorageVolumeClass().getMethod("getState").invoke(storageVolume);
-            } catch (IllegalAccessException e) {
-                throw new RuntimeException(e);
-            } catch (InvocationTargetException e) {
-                throw new RuntimeException(e);
             }
         }
 
