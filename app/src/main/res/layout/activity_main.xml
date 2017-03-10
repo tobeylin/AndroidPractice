@@ -69,6 +69,12 @@
             android:layout_height="wrap_content"
             android:text="Create a Folder in SDCard After KitKat" />
 
+        <Button
+            android:id="@+id/main_attachDatabaseActivityButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Attach External Database"/>
+
     </LinearLayout>
 
 </ScrollView>

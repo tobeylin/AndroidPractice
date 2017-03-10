@@ -1,0 +1,6 @@
+CREATE TABLE customers (
+    _id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL
+);
+
+INSERT INTO customers (_id, name) VALUES (1, 'Tobey'), (2, 'Zoey'), (3, 'Ken');

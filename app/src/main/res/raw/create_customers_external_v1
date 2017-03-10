@@ -1,0 +1,8 @@
+CREATE TABLE orders (
+    _id INTEGER PRIMARY KEY AUTOINCREMENT,
+    customer_id INTEGER NOT NULL,
+    item TEXT NOT NULL
+);
+
+INSERT INTO orders (_id, customer_id, item)
+VALUES (1, 1, 'Apple'), (2, 1, 'Tea'), (3, 2, 'CD'), (4, 3, 'Coffee');

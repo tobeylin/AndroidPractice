@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 import sample.app.tobeylin.androidpractice.asynclistutil.AsyncListUtilActivity;
+import sample.app.tobeylin.androidpractice.database.AttachDatabaseActivity;
 import sample.app.tobeylin.androidpractice.handleractivityleak.HandlerLeakActivity;
 import sample.app.tobeylin.androidpractice.media.loader.LoadAllSongsByLoaderActivity;
 import sample.app.tobeylin.androidpractice.media.sync.SyncAllSongsActivity;
@@ -49,6 +50,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Button createFolderInSDCardAfterKitKatActivityButton = (Button) findViewById(R.id.main_createFolderInSDCardAfterKitKatActivityButton);
         createFolderInSDCardAfterKitKatActivityButton.setOnClickListener(this);
+
+        Button attachDatabaseActivityButton = (Button) findViewById(R.id.main_attachDatabaseActivityButton);
+        attachDatabaseActivityButton.setOnClickListener(this);
     }
 
     @Override
@@ -80,6 +84,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.main_createFolderInSDCardAfterKitKatActivityButton:
                 startActivity(new Intent().setClass(getApplicationContext(), CreateFolderInSDCardAfterKitKatActivity.class));
+                break;
+            case R.id.main_attachDatabaseActivityButton:
+                startActivity(new Intent().setClass(getApplicationContext(), AttachDatabaseActivity.class));
                 break;
             default:
         }
