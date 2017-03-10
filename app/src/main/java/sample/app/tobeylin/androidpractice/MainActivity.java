@@ -44,8 +44,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button mountPointBeforeKitKatActivityButton = (Button) findViewById(R.id.main_mountPointBeforeKitKatActivityButton);
         mountPointBeforeKitKatActivityButton.setOnClickListener(this);
 
-        Button createFolderInSDCardActivityButton = (Button) findViewById(R.id.main_createFolderInSDCardActivityButton);
-        createFolderInSDCardActivityButton.setOnClickListener(this);
+        Button createFolderInSDCardBeforeKitKatActivityButton = (Button) findViewById(R.id.main_createFolderInSDCardActivityButton);
+        createFolderInSDCardBeforeKitKatActivityButton.setOnClickListener(this);
 
         Button createFolderInSDCardAfterKitKatActivityButton = (Button) findViewById(R.id.main_createFolderInSDCardAfterKitKatActivityButton);
         createFolderInSDCardAfterKitKatActivityButton.setOnClickListener(this);
