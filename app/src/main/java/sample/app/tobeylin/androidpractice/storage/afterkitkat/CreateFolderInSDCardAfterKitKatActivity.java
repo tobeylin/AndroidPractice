@@ -51,7 +51,7 @@ public class CreateFolderInSDCardAfterKitKatActivity extends AppCompatActivity {
     }
 
     private void createFileInPackageFolder(Context context) {
-        File[] externalStorageFiles = ContextCompat.getExternalFilesDirs(context, "AndroidPractice");
+        File[] externalStorageFiles = ContextCompat.getExternalFilesDirs(context, null);
         for (File external : externalStorageFiles) {
             if (!external.exists()) {
                 if (external.mkdirs()) {
