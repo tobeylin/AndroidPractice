@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import sample.app.tobeylin.androidpractice.BuildConfig;
 import sample.app.tobeylin.androidpractice.R;
 
 public class CreateFolderInSDCardBeforeKitKatActivity extends AppCompatActivity {
@@ -58,7 +59,7 @@ public class CreateFolderInSDCardBeforeKitKatActivity extends AppCompatActivity 
     private void createFileInPackageFolder(Context context) {
         List<String> mountPoints = getAllMountPoint(context);
         for (String mountPoint : mountPoints) {
-            File publicPackageDir = createPackageFolder(context, mountPoint);
+            File publicPackageDir = createPackageFolder(mountPoint);
 
             if (publicPackageDir != null) {
                 File tmpFile = new File(publicPackageDir.getAbsolutePath() + File.separator + "test.txt");
@@ -78,8 +79,8 @@ public class CreateFolderInSDCardBeforeKitKatActivity extends AppCompatActivity 
         }
     }
 
-    private File createPackageFolder(Context context, String mountPoint) {
-        final String publicPackageDirPath = mountPoint + File.separator + "Android" + File.separator + "data" + File.separator + context.getPackageName() + File.separator;
+    private File createPackageFolder(String mountPoint) {
+        final String publicPackageDirPath = mountPoint + File.separator + "Android" + File.separator + "data" + File.separator + BuildConfig.APPLICATION_ID + File.separator;
         File publicPackageDir = new File(publicPackageDirPath);
         if (!publicPackageDir.exists()) {
             return publicPackageDir.mkdirs() ? publicPackageDir : null;
