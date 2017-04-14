@@ -55,12 +55,13 @@ public class ExternalOrderDBHelper extends SQLiteOpenHelper {
         @Override
         public File getDatabasePath(String name) {
             File[] externalStorageFiles = ContextCompat.getExternalFilesDirs(this, null);
-            File databaseFile = new File(externalStorageFiles[1].getAbsolutePath() + File.separator + name);
+            File externalStorageFile = (externalStorageFiles.length < 2) ? externalStorageFiles[0] : externalStorageFiles[1];
+            File databaseFile = new File(externalStorageFile.getAbsolutePath() + File.separator + name);
             if (!databaseFile.getParentFile().exists()) {
                 databaseFile.getParentFile().mkdirs();
             }
 
-            Log.i(TAG, "External path = " + externalStorageFiles[1].getAbsolutePath());
+            Log.i(TAG, "External path = " + externalStorageFile.getAbsolutePath());
 
             return databaseFile;
         }
