@@ -35,6 +35,7 @@
         <activity android:name=".storage.beforekitkat.CreateFolderInSDCardBeforeKitKatActivity" />
         <activity android:name=".storage.afterkitkat.CreateFolderInSDCardAfterKitKatActivity" />
         <activity android:name=".database.AttachDatabaseActivity" />
+        <activity android:name=".grouprecyclerview.GroupRecyclerViewActivity" />
     </application>
 
 </manifest>

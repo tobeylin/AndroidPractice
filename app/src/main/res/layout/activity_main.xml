@@ -73,7 +73,13 @@
             android:id="@+id/main_attachDatabaseActivityButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Attach External Database"/>
+            android:text="Attach External Database" />
+
+        <Button
+            android:id="@+id/main_groupRecyclerViewActivityButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Group Recycler View" />
 
     </LinearLayout>
 

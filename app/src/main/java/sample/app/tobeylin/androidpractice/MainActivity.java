@@ -8,6 +8,7 @@ import android.widget.Button;
 
 import sample.app.tobeylin.androidpractice.asynclistutil.AsyncListUtilActivity;
 import sample.app.tobeylin.androidpractice.database.AttachDatabaseActivity;
+import sample.app.tobeylin.androidpractice.grouprecyclerview.GroupRecyclerViewActivity;
 import sample.app.tobeylin.androidpractice.handleractivityleak.HandlerLeakActivity;
 import sample.app.tobeylin.androidpractice.media.loader.LoadAllSongsByLoaderActivity;
 import sample.app.tobeylin.androidpractice.media.sync.SyncAllSongsActivity;
@@ -53,6 +54,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Button attachDatabaseActivityButton = (Button) findViewById(R.id.main_attachDatabaseActivityButton);
         attachDatabaseActivityButton.setOnClickListener(this);
+
+        Button groupRecyclerViewActivityButton = (Button) findViewById(R.id.main_groupRecyclerViewActivityButton);
+        groupRecyclerViewActivityButton.setOnClickListener(this);
     }
 
     @Override
@@ -87,6 +91,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.main_attachDatabaseActivityButton:
                 startActivity(new Intent().setClass(getApplicationContext(), AttachDatabaseActivity.class));
+                break;
+            case R.id.main_groupRecyclerViewActivityButton:
+                startActivity(new Intent().setClass(getApplicationContext(), GroupRecyclerViewActivity.class));
                 break;
             default:
         }
