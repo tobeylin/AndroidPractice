@@ -84,6 +84,7 @@ public class GroupRecyclerViewActivity extends AppCompatActivity {
             String childQuery = SQLite.select(SimpleTextRecord_Table.header_text, SimpleTextRecord_Table.simple_text)
                     .from(SimpleTextRecord.class)
                     .where(SimpleTextRecord_Table.header_text.eq(header.title))
+                    .orderBy(SimpleTextRecord_Table.simple_text, true)
                     .getQuery();
             LazyChildGroupItem<Header> groupItem = new LazyChildGroupItem<>(
                     String.valueOf(groupItemCursor.getGroupTitle().hashCode()),
