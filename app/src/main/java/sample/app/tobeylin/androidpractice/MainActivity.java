@@ -12,6 +12,7 @@ import sample.app.tobeylin.androidpractice.grouprecyclerview.GroupRecyclerViewAc
 import sample.app.tobeylin.androidpractice.handleractivityleak.HandlerLeakActivity;
 import sample.app.tobeylin.androidpractice.media.loader.LoadAllSongsByLoaderActivity;
 import sample.app.tobeylin.androidpractice.media.sync.SyncAllSongsActivity;
+import sample.app.tobeylin.androidpractice.media.trackinfo.TrackInfoActivity;
 import sample.app.tobeylin.androidpractice.storage.afterkitkat.CreateFolderInSDCardAfterKitKatActivity;
 import sample.app.tobeylin.androidpractice.storage.afterkitkat.MountPointAfterKitKatActivity;
 import sample.app.tobeylin.androidpractice.storage.beforekitkat.CreateFolderInSDCardBeforeKitKatActivity;
@@ -57,6 +58,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Button groupRecyclerViewActivityButton = (Button) findViewById(R.id.main_groupRecyclerViewActivityButton);
         groupRecyclerViewActivityButton.setOnClickListener(this);
+
+        Button trackActivityButton = (Button) findViewById(R.id.main_trackInfoActivityButton);
+        trackActivityButton.setOnClickListener(this);
     }
 
     @Override
@@ -94,6 +98,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.main_groupRecyclerViewActivityButton:
                 startActivity(new Intent().setClass(getApplicationContext(), GroupRecyclerViewActivity.class));
+                break;
+            case R.id.main_trackInfoActivityButton:
+                startActivity(new Intent().setClass(getApplicationContext(), TrackInfoActivity.class));
                 break;
             default:
         }

@@ -81,6 +81,12 @@
             android:layout_height="wrap_content"
             android:text="Group Recycler View" />
 
+        <Button
+            android:id="@+id/main_trackInfoActivityButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Track Info" />
+
     </LinearLayout>
 
 </ScrollView>
