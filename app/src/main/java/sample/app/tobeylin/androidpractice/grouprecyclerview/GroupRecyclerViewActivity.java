@@ -25,9 +25,7 @@ import sample.app.tobeylin.androidpractice.grouprecyclerview.database.SimpleText
 import sample.app.tobeylin.androidpractice.grouprecyclerview.database.SimpleTextRecord;
 import sample.app.tobeylin.androidpractice.grouprecyclerview.database.SimpleTextRecord_Table;
 import sample.app.tobeylin.androidpractice.grouprecyclerview.model.Cheeses;
-import sample.app.tobeylin.androidpractice.grouprecyclerview.model.DatabaseRawQuery;
-import sample.app.tobeylin.androidpractice.grouprecyclerview.model.group.GroupList;
-import sample.app.tobeylin.androidpractice.grouprecyclerview.model.group.ExpandableGroupListAdapter;
+import sample.app.tobeylin.androidpractice.grouprecyclerview.model.query.DatabaseRawQuery;
 import sample.app.tobeylin.androidpractice.grouprecyclerview.model.group.LazyChildGroupItem;
 import sample.app.tobeylin.androidpractice.grouprecyclerview.model.group.expandable.ExpandableGroupList;
 

@@ -3,7 +3,7 @@ package sample.app.tobeylin.androidpractice.grouprecyclerview.model.group;
 import android.database.Cursor;
 import android.os.AsyncTask;
 
-import sample.app.tobeylin.androidpractice.grouprecyclerview.model.DatabaseRawQuery;
+import sample.app.tobeylin.androidpractice.grouprecyclerview.model.query.DatabaseRawQuery;
 import sample.app.tobeylin.androidpractice.grouprecyclerview.model.group.expandable.ExpandableGroupItem;
 
 public class LazyChildGroupItem<T> extends ExpandableGroupItem<T> {
