@@ -5,8 +5,8 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import sample.app.tobeylin.androidpractice.grouprecyclerview.model.GroupChild;
-import sample.app.tobeylin.androidpractice.grouprecyclerview.model.GroupItem;
+import sample.app.tobeylin.androidpractice.grouprecyclerview.model.group.GroupChild;
+import sample.app.tobeylin.androidpractice.grouprecyclerview.model.group.GroupItem;
 
 import static org.junit.Assert.*;
 

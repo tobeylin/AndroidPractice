@@ -26,9 +26,10 @@ import sample.app.tobeylin.androidpractice.grouprecyclerview.database.SimpleText
 import sample.app.tobeylin.androidpractice.grouprecyclerview.database.SimpleTextRecord_Table;
 import sample.app.tobeylin.androidpractice.grouprecyclerview.model.Cheeses;
 import sample.app.tobeylin.androidpractice.grouprecyclerview.model.DatabaseRawQuery;
-import sample.app.tobeylin.androidpractice.grouprecyclerview.model.GroupItem;
-import sample.app.tobeylin.androidpractice.grouprecyclerview.model.GroupList;
-import sample.app.tobeylin.androidpractice.grouprecyclerview.model.LazyChildGroupItem;
+import sample.app.tobeylin.androidpractice.grouprecyclerview.model.group.GroupList;
+import sample.app.tobeylin.androidpractice.grouprecyclerview.model.group.ExpandableGroupListAdapter;
+import sample.app.tobeylin.androidpractice.grouprecyclerview.model.group.LazyChildGroupItem;
+import sample.app.tobeylin.androidpractice.grouprecyclerview.model.group.expandable.ExpandableGroupList;
 
 public class GroupRecyclerViewActivity extends AppCompatActivity {
 
@@ -41,9 +42,9 @@ public class GroupRecyclerViewActivity extends AppCompatActivity {
 
         recyclerView = (RecyclerView) findViewById(R.id.groupRecyclerView_recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        GroupListAdapter groupListAdapter = new GroupListAdapter();
-        groupListAdapter.setGroupList(getGroupList());
-        recyclerView.setAdapter(groupListAdapter);
+        CheeseAdapter cheeseAdapter = new CheeseAdapter();
+        cheeseAdapter.setGroupList(getGroupList());
+        recyclerView.setAdapter(cheeseAdapter);
     }
 
     @Override
@@ -66,7 +67,7 @@ public class GroupRecyclerViewActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private GroupList getGroupList() {
+    private ExpandableGroupList getGroupList() {
         Cursor cursor = SQLite.select(SimpleTextRecord_Table.header_text, Method.count(SimpleTextRecord_Table._id))
                 .from(SimpleTextRecord.class)
                 .groupBy(SimpleTextRecord_Table.header_text)
@@ -75,8 +76,8 @@ public class GroupRecyclerViewActivity extends AppCompatActivity {
         return toGroupList(groupItemCursor);
     }
 
-    private GroupList toGroupList(GroupItemCursor groupItemCursor) {
-        GroupList groupList = new GroupList();
+    private ExpandableGroupList toGroupList(GroupItemCursor groupItemCursor) {
+        ExpandableGroupList<LazyChildGroupItem> groupList = new ExpandableGroupList<>();
         groupItemCursor.moveToFirst();
         do {
             Header header = new Header(groupItemCursor.getGroupTitle());

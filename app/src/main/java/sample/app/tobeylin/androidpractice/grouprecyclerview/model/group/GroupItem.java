@@ -1,4 +1,4 @@
-package sample.app.tobeylin.androidpractice.grouprecyclerview.model;
+package sample.app.tobeylin.androidpractice.grouprecyclerview.model.group;
 
 import java.util.ArrayList;
 import java.util.List;

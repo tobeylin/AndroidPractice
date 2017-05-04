@@ -1,4 +1,4 @@
-package sample.app.tobeylin.androidpractice.grouprecyclerview.model;
+package sample.app.tobeylin.androidpractice.grouprecyclerview.model.group;
 
 public class GroupChild<T> {
 

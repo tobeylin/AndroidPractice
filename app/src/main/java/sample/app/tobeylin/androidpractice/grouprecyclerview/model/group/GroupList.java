@@ -1,12 +1,11 @@
-package sample.app.tobeylin.androidpractice.grouprecyclerview.model;
+package sample.app.tobeylin.androidpractice.grouprecyclerview.model.group;
 
 import android.support.annotation.NonNull;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.NoSuchElementException;
 
-public class GroupList extends ArrayList<GroupItem> {
+public class GroupList<T extends GroupItem> extends ArrayList<T> {
 
     private static final long serialVersionUID = 9088342100991009332L;
 
@@ -24,16 +23,16 @@ public class GroupList extends ArrayList<GroupItem> {
         return childCount;
     }
 
-    public GroupItem getGroupItem(int groupIndex) {
+    public T getGroupItem(int groupIndex) {
         return get(groupIndex);
     }
 
-    public GroupItem getGroupItem(String groupId) {
+    public T getGroupItem(String groupId) {
         if (groupId == null || groupId.isEmpty()) {
             throw new IllegalArgumentException("groupId should be a non empty string");
         }
 
-        for (GroupItem groupItem : this) {
+        for (T groupItem : this) {
             if (groupItem.getGroupId().equals(groupId)) {
                 return groupItem;
             }
