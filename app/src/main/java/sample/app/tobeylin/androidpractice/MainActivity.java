@@ -13,6 +13,7 @@ import sample.app.tobeylin.androidpractice.handleractivityleak.HandlerLeakActivi
 import sample.app.tobeylin.androidpractice.media.loader.LoadAllSongsByLoaderActivity;
 import sample.app.tobeylin.androidpractice.media.sync.SyncAllSongsActivity;
 import sample.app.tobeylin.androidpractice.media.trackinfo.TrackInfoActivity;
+import sample.app.tobeylin.androidpractice.storage.StorageMountChangedActivity;
 import sample.app.tobeylin.androidpractice.storage.afterkitkat.CreateFolderInSDCardAfterKitKatActivity;
 import sample.app.tobeylin.androidpractice.storage.afterkitkat.MountPointAfterKitKatActivity;
 import sample.app.tobeylin.androidpractice.storage.beforekitkat.CreateFolderInSDCardBeforeKitKatActivity;
@@ -61,6 +62,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Button trackActivityButton = (Button) findViewById(R.id.main_trackInfoActivityButton);
         trackActivityButton.setOnClickListener(this);
+
+        Button storageMountChangedActivityButton = (Button) findViewById(R.id.main_storageMountChangedActivityButton);
+        storageMountChangedActivityButton.setOnClickListener(this);
     }
 
     @Override
@@ -101,6 +105,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.main_trackInfoActivityButton:
                 startActivity(new Intent().setClass(getApplicationContext(), TrackInfoActivity.class));
+                break;
+            case R.id.main_storageMountChangedActivityButton:
+                startActivity(new Intent().setClass(getApplicationContext(), StorageMountChangedActivity.class));
                 break;
             default:
         }

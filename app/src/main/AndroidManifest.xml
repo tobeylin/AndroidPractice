@@ -37,6 +37,7 @@
         <activity android:name=".database.AttachDatabaseActivity" />
         <activity android:name=".grouprecyclerview.GroupRecyclerViewActivity" />
         <activity android:name=".media.trackinfo.TrackInfoActivity" />
+        <activity android:name=".storage.StorageMountChangedActivity" />
     </application>
 
 </manifest>

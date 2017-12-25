@@ -11,16 +11,12 @@ import com.raizlabs.android.dbflow.structure.database.OpenHelper;
 import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
 
-import sample.app.tobeylin.androidpractice.database.CustomerDBHelper;
-import sample.app.tobeylin.androidpractice.database.ExternalOrderDBHelper;
 import sample.app.tobeylin.androidpractice.media.sync.database.TrackDBHelper;
 import sample.app.tobeylin.androidpractice.media.sync.database.TrackDatabase;
 
 public class MainApplication extends Application {
 
     private RefWatcher refWatcher;
-    private CustomerDBHelper customerDBHelper;
-    private ExternalOrderDBHelper externalOrderDBHelper;
 
     public static RefWatcher getRefWatcher(Application application) {
         return ((MainApplication) application).getRefWatcher();
@@ -30,23 +26,12 @@ public class MainApplication extends Application {
         return refWatcher;
     }
 
-    public CustomerDBHelper getCustomerDBHelper() {
-        return customerDBHelper;
-    }
-
-    public ExternalOrderDBHelper getExternalOrderDBHelper() {
-        return externalOrderDBHelper;
-    }
-
     @Override
     public void onCreate() {
         super.onCreate();
 
         initLeakCanary();
         initDBFlow();
-        initInternalCustomerDatabase();
-        initExternalOrderDatabase();
-
     }
 
     private void initLeakCanary() {
@@ -72,16 +57,6 @@ public class MainApplication extends Application {
                 .openDatabasesOnInit(true)
                 .build();
         FlowManager.init(flowConfig);
-    }
-
-    private void initInternalCustomerDatabase() {
-        customerDBHelper = new CustomerDBHelper(this);
-        customerDBHelper.getWritableDatabase();
-    }
-
-    private void initExternalOrderDatabase() {
-        externalOrderDBHelper = new ExternalOrderDBHelper(this);
-        externalOrderDBHelper.getWritableDatabase();
     }
 
 }

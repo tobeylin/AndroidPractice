@@ -32,8 +32,8 @@ public class AttachDatabaseActivity extends AppCompatActivity {
     }
 
     private Cursor attachExternalDatabase(MainApplication application) {
-        CustomerDBHelper customerDBHelper = application.getCustomerDBHelper();
-        ExternalOrderDBHelper externalOrderDBHelper = application.getExternalOrderDBHelper();
+        CustomerDBHelper customerDBHelper = new CustomerDBHelper(application);
+        ExternalOrderDBHelper externalOrderDBHelper = new ExternalOrderDBHelper(this);
         Cursor cursor = null;
 
         try {

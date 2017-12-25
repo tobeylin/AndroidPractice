@@ -87,6 +87,12 @@
             android:layout_height="wrap_content"
             android:text="Track Info" />
 
+        <Button
+            android:id="@+id/main_storageMountChangedActivityButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Storage Mount Point Changed" />
+
     </LinearLayout>
 
 </ScrollView>
