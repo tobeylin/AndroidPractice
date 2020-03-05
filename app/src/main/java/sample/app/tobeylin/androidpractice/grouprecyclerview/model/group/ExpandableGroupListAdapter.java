@@ -1,6 +1,6 @@
 package sample.app.tobeylin.androidpractice.grouprecyclerview.model.group;
 
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 

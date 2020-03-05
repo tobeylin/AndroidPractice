@@ -2,17 +2,8 @@ package sample.app.tobeylin.androidpractice;
 
 import android.app.Application;
 
-import com.raizlabs.android.dbflow.config.DatabaseConfig;
-import com.raizlabs.android.dbflow.config.DatabaseDefinition;
-import com.raizlabs.android.dbflow.config.FlowConfig;
-import com.raizlabs.android.dbflow.config.FlowManager;
-import com.raizlabs.android.dbflow.structure.database.DatabaseHelperListener;
-import com.raizlabs.android.dbflow.structure.database.OpenHelper;
 import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
-
-import sample.app.tobeylin.androidpractice.media.sync.database.TrackDBHelper;
-import sample.app.tobeylin.androidpractice.media.sync.database.TrackDatabase;
 
 public class MainApplication extends Application {
 
@@ -31,7 +22,7 @@ public class MainApplication extends Application {
         super.onCreate();
 
         initLeakCanary();
-        initDBFlow();
+//        initDBFlow();
     }
 
     private void initLeakCanary() {
@@ -43,20 +34,20 @@ public class MainApplication extends Application {
         refWatcher = LeakCanary.install(this);
     }
 
-    private void initDBFlow() {
-        FlowConfig flowConfig = new FlowConfig.Builder(this)
-                .addDatabaseConfig(
-                        new DatabaseConfig.Builder(TrackDatabase.class)
-                        .openHelper(new DatabaseConfig.OpenHelperCreator() {
-                            @Override
-                            public OpenHelper createHelper(DatabaseDefinition databaseDefinition, DatabaseHelperListener helperListener) {
-                                return new TrackDBHelper(databaseDefinition, helperListener, MainApplication.this);
-                            }
-                        }).build()
-                )
-                .openDatabasesOnInit(true)
-                .build();
-        FlowManager.init(flowConfig);
-    }
+//    private void initDBFlow() {
+//        FlowConfig flowConfig = new FlowConfig.Builder(this)
+//                .addDatabaseConfig(
+//                        new DatabaseConfig.Builder(TrackDatabase.class)
+//                        .openHelper(new DatabaseConfig.OpenHelperCreator() {
+//                            @Override
+//                            public OpenHelper createHelper(DatabaseDefinition databaseDefinition, DatabaseHelperListener helperListener) {
+//                                return new TrackDBHelper(databaseDefinition, helperListener, MainApplication.this);
+//                            }
+//                        }).build()
+//                )
+//                .openDatabasesOnInit(true)
+//                .build();
+//        FlowManager.init(flowConfig);
+//    }
 
 }

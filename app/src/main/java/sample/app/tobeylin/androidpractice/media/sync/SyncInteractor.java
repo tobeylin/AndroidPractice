@@ -8,7 +8,6 @@ import android.os.AsyncTask;
 import android.provider.MediaStore;
 import android.widget.Toast;
 
-import sample.app.tobeylin.androidpractice.media.sync.database.table.ActiveTrackTable;
 import sample.app.tobeylin.androidpractice.media.sync.model.TrackType;
 
 public class SyncInteractor {
@@ -42,10 +41,10 @@ public class SyncInteractor {
                     final int DATA_INDEX = cursor.getColumnIndex(MediaStore.Audio.Media.DATA);
                     do {
                         String data = cursor.getString(DATA_INDEX);
-                        ActiveTrackTable activeTrack = new ActiveTrackTable();
-                        activeTrack.fileAbsolutePath = data;
-                        activeTrack.type = TrackType.AUDIO;
-                        activeTrack.save();
+//                        ActiveTrackTable activeTrack = new ActiveTrackTable();
+//                        activeTrack.fileAbsolutePath = data;
+//                        activeTrack.type = TrackType.AUDIO;
+//                        activeTrack.save();
                     } while (cursor.moveToNext());
                 } finally {
                     cursor.close();

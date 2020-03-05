@@ -1,8 +1,9 @@
 package sample.app.tobeylin.androidpractice.database;
 
 import android.database.Cursor;
-import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 public class OrderAdapter extends RecyclerView.Adapter<OrderViewHolder> {
 

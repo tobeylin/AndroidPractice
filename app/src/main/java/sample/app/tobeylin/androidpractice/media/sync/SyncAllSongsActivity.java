@@ -1,7 +1,7 @@
 package sample.app.tobeylin.androidpractice.media.sync;
 
-import android.support.v4.view.MenuItemCompat;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.MenuItemCompat;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;

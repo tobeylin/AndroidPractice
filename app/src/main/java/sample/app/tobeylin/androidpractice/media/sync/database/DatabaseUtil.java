@@ -2,8 +2,9 @@ package sample.app.tobeylin.androidpractice.media.sync.database;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
-import android.support.annotation.RawRes;
 import android.util.Log;
+
+import androidx.annotation.RawRes;
 
 import java.io.ByteArrayOutputStream;
 import java.io.Closeable;

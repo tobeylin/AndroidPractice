@@ -1,9 +1,11 @@
 package sample.app.tobeylin.androidpractice.viewpager.tab;
 
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentStatePagerAdapter;
 import android.view.ViewGroup;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentStatePagerAdapter;
+
+import com.google.android.material.tabs.TabLayout;
 
 public class VisibleTabListener implements TabLayout.OnTabSelectedListener {
 

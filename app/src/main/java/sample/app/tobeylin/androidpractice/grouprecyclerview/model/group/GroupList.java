@@ -1,6 +1,6 @@
 package sample.app.tobeylin.androidpractice.grouprecyclerview.model.group;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import java.util.ArrayList;
 import java.util.List;

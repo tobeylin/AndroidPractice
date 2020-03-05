@@ -1,8 +1,8 @@
 package sample.app.tobeylin.androidpractice.asynclistutil;
 
-import android.support.v7.util.AsyncListUtil;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.AsyncListUtil;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 

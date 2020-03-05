@@ -12,7 +12,7 @@
         android:textStyle="bold"
         android:layout_margin="16dp"/>
     
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/mountPoint_recycleView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

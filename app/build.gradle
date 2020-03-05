@@ -1,15 +1,15 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
     defaultConfig {
         applicationId "sample.app.tobeylin.androidpractice"
         minSdkVersion 16
-        targetSdkVersion 25
+        targetSdkVersion 29
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
@@ -19,24 +19,27 @@ android {
     }
 }
 
+def dbflow_version = "4.2.4"
+
 dependencies {
-    annotationProcessor "com.github.Raizlabs.DBFlow:dbflow-processor:4.0.0-beta5"
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'androidx.appcompat:appcompat:1.0.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:design:25.2.0'
-    compile 'com.android.support:appcompat-v7:25.2.0'
-    compile 'com.android.support:support-v4:25.2.0'
-    compile "com.github.Raizlabs.DBFlow:dbflow-core:4.0.0-beta5"
-    compile "com.github.Raizlabs.DBFlow:dbflow:4.0.0-beta5"
+    // DBFlow
+//    annotationProcessor "com.github.agrosner.dbflow:processor:${dbflow_version}"
+//    implementation "com.github.agrosner.dbflow:core:${dbflow_version}"
+//    implementation "com.github.agrosner.dbflow:lib:${dbflow_version}"
 
-    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
-    debugCompile 'com.amitshekhar.android:debug-db:1.0.0'
-    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.5'
+    debugImplementation 'com.amitshekhar.android:debug-db:1.0.0'
+    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
 
-    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
-    testCompile 'junit:junit:4.12'
+    testImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+    testImplementation 'junit:junit:4.12'
 
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    androidTestImplementation('androidx.test.espresso:espresso-core:3.1.0', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
 }
