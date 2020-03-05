@@ -22,5 +22,5 @@ jobs:
     - name: Upload APK
       uses: actions/upload-artifact@v1.0.0
       with:
-        name: AndroidPractice APK
-        path: jenkins_output
+        name: AndroidPractice Debug APK
+        path: app/build/outputs/apk/debug/app-debug.apk
