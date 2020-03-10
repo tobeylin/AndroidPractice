@@ -27,6 +27,10 @@
             android:name=".handleractivityleak.HandlerLeakActivity"
             android:exported="false"
             android:launchMode="singleTask" />
+        <activity
+            android:name=".handleractivityleak.HandlerNoLeakActivity"
+            android:exported="false"
+            android:launchMode="singleTask" />
         <activity android:name=".viewpager.ViewPagerActivity" />
         <activity android:name=".media.loader.LoadAllSongsByLoaderActivity" />
         <activity android:name=".media.sync.SyncAllSongsActivity" />
