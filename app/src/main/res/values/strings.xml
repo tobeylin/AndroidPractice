@@ -6,4 +6,7 @@
     <string name="order_customer_name">Customer Name: %s</string>
     <string name="order_item">Item: %s</string>
 
+    <!-- AsyncListUtil -->
+    <string name="async_list_util_loading">Loading</string>
+
 </resources>

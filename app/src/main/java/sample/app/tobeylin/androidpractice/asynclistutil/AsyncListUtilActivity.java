@@ -3,8 +3,8 @@ package sample.app.tobeylin.androidpractice.asynclistutil;
 import android.content.Context;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.MenuItemCompat;
 import androidx.recyclerview.widget.AsyncListUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,6 +18,8 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import sample.app.tobeylin.androidpractice.R;
 
 public class AsyncListUtilActivity extends AppCompatActivity {
 
@@ -35,8 +37,7 @@ public class AsyncListUtilActivity extends AppCompatActivity {
         textList.addAll(Arrays.asList(Cheeses.sCheeseStrings));
         mRecyclerView.setLayoutManager(mLinearLayoutManager);
         mRecyclerView.setHasFixedSize(true);
-        final ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+        final ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         mRecyclerView.setLayoutParams(layoutParams);
         mRecyclerView.setAdapter(new AsyncAdapter(textList));
         setContentView(mRecyclerView);
@@ -45,19 +46,23 @@ public class AsyncListUtilActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
-        MenuItemCompat.setShowAsAction(menu.add("Layout"), MenuItemCompat.SHOW_AS_ACTION_IF_ROOM);
+        MenuItem layoutItem = menu.add("Show the last 6 items");
+        layoutItem.setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
         return true;
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         List<String> tmpList = new ArrayList<>(6);
         for (int i = textList.size() - 1; i >= textList.size() - 6; --i) {
             tmpList.add(textList.get(i));
         }
         textList.clear();
         textList.addAll(tmpList);
-        ((AsyncAdapter) mRecyclerView.getAdapter()).refresh();
+        AsyncAdapter adapter = (AsyncAdapter) mRecyclerView.getAdapter();
+        if (adapter != null) {
+            adapter.refresh();
+        }
         return super.onOptionsItemSelected(item);
     }
 
@@ -83,16 +88,17 @@ public class AsyncListUtilActivity extends AppCompatActivity {
             mAsyncListUtil = new AsyncStringListUtil(textList);
         }
 
+        @NonNull
         @Override
-        public TextViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        public TextViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             return new TextViewHolder(parent.getContext());
         }
 
         @Override
-        public void onBindViewHolder(TextViewHolder holder, int position) {
+        public void onBindViewHolder(@NonNull TextViewHolder holder, int position) {
             final String itemString = mAsyncListUtil.getItem(position);
             if (itemString == null) {
-                holder.textView.setText("loading...");
+                holder.textView.setText(R.string.async_list_util_loading);
             } else {
                 holder.textView.setText(itemString);
             }
@@ -128,7 +134,7 @@ public class AsyncListUtilActivity extends AppCompatActivity {
                         }
 
                         @Override
-                        public void fillData(String[] data, int startPosition, int itemCount) {
+                        public void fillData(@NonNull String[] data, int startPosition, int itemCount) {
                             sleep();
                             for (int i = 0; i < itemCount; i++) {
                                 data[i] = textList.get(startPosition + i);
@@ -145,24 +151,30 @@ public class AsyncListUtilActivity extends AppCompatActivity {
                     },
                     new AsyncListUtil.ViewCallback() {
                         @Override
-                        public void getItemRangeInto(int[] outRange) {
+                        public void getItemRangeInto(@NonNull int[] outRange) {
                             outRange[0] = mLinearLayoutManager.findFirstVisibleItemPosition();
                             outRange[1] = mLinearLayoutManager.findLastVisibleItemPosition();
                         }
 
                         @Override
                         public void onDataRefresh() {
-                            mRecyclerView.getAdapter().notifyDataSetChanged();
+                            RecyclerView.Adapter adapter = mRecyclerView.getAdapter();
+                            if (adapter != null) {
+                                adapter.notifyDataSetChanged();
+                            }
                         }
 
                         @Override
                         public void onItemLoaded(int position) {
-                            mRecyclerView.getAdapter().notifyItemChanged(position);
+                            RecyclerView.Adapter adapter = mRecyclerView.getAdapter();
+                            if (adapter != null) {
+                                adapter.notifyItemChanged(position);
+                            }
                         }
                     });
             mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
                 @Override
-                public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
                     onRangeChanged();
                 }
             });
