@@ -28,43 +28,43 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button asyncListUtilSampleButton = (Button) findViewById(R.id.main_asyncListUtilButton);
+        Button asyncListUtilSampleButton = findViewById(R.id.main_asyncListUtilButton);
         asyncListUtilSampleButton.setOnClickListener(this);
 
-        Button handlerActivityLeakButton = (Button) findViewById(R.id.main_handlerActivityLeakButton);
+        Button handlerActivityLeakButton = findViewById(R.id.main_handlerActivityLeakButton);
         handlerActivityLeakButton.setOnClickListener(this);
 
-        Button viewPagerActivityButton = (Button) findViewById(R.id.main_viewPagerActivityButton);
+        Button viewPagerActivityButton = findViewById(R.id.main_viewPagerActivityButton);
         viewPagerActivityButton.setOnClickListener(this);
 
-        Button allSongsActivityButton = (Button) findViewById(R.id.main_loadAllSongsByLoaderActivityButton);
+        Button allSongsActivityButton = findViewById(R.id.main_loadAllSongsByLoaderActivityButton);
         allSongsActivityButton.setOnClickListener(this);
 
-        Button syncAllSongsActivityButton = (Button) findViewById(R.id.main_syncAllSongsActivityButton);
+        Button syncAllSongsActivityButton = findViewById(R.id.main_syncAllSongsActivityButton);
         syncAllSongsActivityButton.setOnClickListener(this);
 
-        Button mountPointAfterKitKatActivityButton = (Button) findViewById(R.id.main_mountPointAfterKitKatActivityButton);
+        Button mountPointAfterKitKatActivityButton = findViewById(R.id.main_mountPointAfterKitKatActivityButton);
         mountPointAfterKitKatActivityButton.setOnClickListener(this);
 
-        Button mountPointBeforeKitKatActivityButton = (Button) findViewById(R.id.main_mountPointBeforeKitKatActivityButton);
+        Button mountPointBeforeKitKatActivityButton = findViewById(R.id.main_mountPointBeforeKitKatActivityButton);
         mountPointBeforeKitKatActivityButton.setOnClickListener(this);
 
-        Button createFolderInSDCardBeforeKitKatActivityButton = (Button) findViewById(R.id.main_createFolderInSDCardActivityButton);
+        Button createFolderInSDCardBeforeKitKatActivityButton = findViewById(R.id.main_createFolderInSDCardActivityButton);
         createFolderInSDCardBeforeKitKatActivityButton.setOnClickListener(this);
 
-        Button createFolderInSDCardAfterKitKatActivityButton = (Button) findViewById(R.id.main_createFolderInSDCardAfterKitKatActivityButton);
+        Button createFolderInSDCardAfterKitKatActivityButton = findViewById(R.id.main_createFolderInSDCardAfterKitKatActivityButton);
         createFolderInSDCardAfterKitKatActivityButton.setOnClickListener(this);
 
-        Button attachDatabaseActivityButton = (Button) findViewById(R.id.main_attachDatabaseActivityButton);
+        Button attachDatabaseActivityButton = findViewById(R.id.main_attachDatabaseActivityButton);
         attachDatabaseActivityButton.setOnClickListener(this);
 
-        Button groupRecyclerViewActivityButton = (Button) findViewById(R.id.main_groupRecyclerViewActivityButton);
+        Button groupRecyclerViewActivityButton = findViewById(R.id.main_groupRecyclerViewActivityButton);
         groupRecyclerViewActivityButton.setOnClickListener(this);
 
-        Button trackActivityButton = (Button) findViewById(R.id.main_trackInfoActivityButton);
+        Button trackActivityButton = findViewById(R.id.main_trackInfoActivityButton);
         trackActivityButton.setOnClickListener(this);
 
-        Button storageMountChangedActivityButton = (Button) findViewById(R.id.main_storageMountChangedActivityButton);
+        Button storageMountChangedActivityButton = findViewById(R.id.main_storageMountChangedActivityButton);
         storageMountChangedActivityButton.setOnClickListener(this);
     }
 
