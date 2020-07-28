@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import sample.app.tobeylin.androidpractice.asynclistutil.AsyncListUtilActivity;
 import sample.app.tobeylin.androidpractice.database.AttachDatabaseActivity;
+import sample.app.tobeylin.androidpractice.downloadmanager.DownloadManagerActivity;
 import sample.app.tobeylin.androidpractice.grouprecyclerview.GroupRecyclerViewActivity;
 import sample.app.tobeylin.androidpractice.handleractivityleak.HandlerLeakActivity;
 import sample.app.tobeylin.androidpractice.media.loader.LoadAllSongsByLoaderActivity;
@@ -66,6 +67,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Button storageMountChangedActivityButton = findViewById(R.id.main_storageMountChangedActivityButton);
         storageMountChangedActivityButton.setOnClickListener(this);
+
+        Button downloadManagerActivityButton = findViewById(R.id.main_downloadManagerActivityButton);
+        downloadManagerActivityButton.setOnClickListener(this);
     }
 
     @Override
@@ -109,6 +113,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.main_storageMountChangedActivityButton:
                 startActivity(new Intent().setClass(getApplicationContext(), StorageMountChangedActivity.class));
+                break;
+            case R.id.main_downloadManagerActivityButton:
+                startActivity(new Intent().setClass(getApplicationContext(), DownloadManagerActivity.class));
                 break;
             default:
         }

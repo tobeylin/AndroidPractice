@@ -93,6 +93,12 @@
             android:layout_height="wrap_content"
             android:text="Storage Mount Point Changed" />
 
+        <Button
+            android:id="@+id/main_downloadManagerActivityButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Download Manager" />
+
     </LinearLayout>
 
 </ScrollView>

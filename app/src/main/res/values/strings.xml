@@ -17,4 +17,11 @@
     <string name="handler_leak_description">You can observe LeakCanary after clicking Plus and Close. If LeakCanary popups the warning notification, it means that the memory leak happened somewhere in the app.</string>
     <string name="handler_leak_plus_and_close">Plus and Close</string>
 
+    <!-- Download Manager -->
+    <string name="download_manager_description">Click download button to start downloading the file from FileSamples.</string>
+    <string name="download_manager_download_button">Download</string>
+    <string name="download_manager_downloading">Downloading…</string>
+    <string name="download_manager_downloaded">Downloaded</string>
+    <string name="download_manager_log_title">Detail Log</string>
+
 </resources>
