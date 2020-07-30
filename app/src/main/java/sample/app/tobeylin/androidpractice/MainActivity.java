@@ -21,6 +21,7 @@ import sample.app.tobeylin.androidpractice.storage.afterkitkat.MountPointAfterKi
 import sample.app.tobeylin.androidpractice.storage.beforekitkat.CreateFolderInSDCardBeforeKitKatActivity;
 import sample.app.tobeylin.androidpractice.storage.beforekitkat.MountPointBeforeKitKatActivity;
 import sample.app.tobeylin.androidpractice.viewpager.ViewPagerActivity;
+import sample.app.tobeylin.androidpractice.viewpager2.ViewPager2Activity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -37,6 +38,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Button viewPagerActivityButton = findViewById(R.id.main_viewPagerActivityButton);
         viewPagerActivityButton.setOnClickListener(this);
+
+        Button viewPager2ActivityButton = findViewById(R.id.main_viewPager2ActivityButton);
+        viewPager2ActivityButton.setOnClickListener(this);
 
         Button allSongsActivityButton = findViewById(R.id.main_loadAllSongsByLoaderActivityButton);
         allSongsActivityButton.setOnClickListener(this);
@@ -83,6 +87,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.main_viewPagerActivityButton:
                 startActivity(new Intent().setClass(getApplicationContext(), ViewPagerActivity.class));
+                break;
+            case R.id.main_viewPager2ActivityButton:
+                startActivity(new Intent().setClass(getApplicationContext(), ViewPager2Activity.class));
                 break;
             case R.id.main_loadAllSongsByLoaderActivityButton:
                 startActivity(new Intent().setClass(getApplicationContext(), LoadAllSongsByLoaderActivity.class));

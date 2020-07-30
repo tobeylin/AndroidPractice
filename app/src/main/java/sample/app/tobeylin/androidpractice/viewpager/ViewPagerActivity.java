@@ -15,9 +15,9 @@ public class ViewPagerActivity extends AppCompatActivity {
         setContentView(R.layout.activity_view_pager);
 
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
-        viewPagerAdapter.addFragment(BlankFragment.newInstance());
-        viewPagerAdapter.addFragment(BlankFragment.newInstance());
-        viewPagerAdapter.addFragment(BlankFragment.newInstance());
+        viewPagerAdapter.addFragment(ViewPagerFragment.newInstance());
+        viewPagerAdapter.addFragment(ViewPagerFragment.newInstance());
+        viewPagerAdapter.addFragment(ViewPagerFragment.newInstance());
         ViewPager viewPager = findViewById(R.id.viewpager);
         viewPager.setAdapter(viewPagerAdapter);
         viewPager.setOffscreenPageLimit(2);

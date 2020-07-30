@@ -8,96 +8,117 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingBottom="@dimen/activity_vertical_margin"
         android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingTop="@dimen/activity_vertical_margin">
+        android:paddingBottom="@dimen/activity_vertical_margin">
 
         <Button
             android:id="@+id/main_asyncListUtilButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Async List Util" />
+            android:text="Async List Util"
+            android:textAllCaps="false" />
 
         <Button
             android:id="@+id/main_handlerActivityLeakButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Activity Leak by Handler" />
+            android:text="Activity Leak by Handler"
+            android:textAllCaps="false" />
 
         <Button
             android:id="@+id/main_viewPagerActivityButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="View Pager Activity" />
+            android:text="View Pager Activity"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/main_viewPager2ActivityButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="View Pager 2 Activity"
+            android:textAllCaps="false" />
 
         <Button
             android:id="@+id/main_loadAllSongsByLoaderActivityButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="All Songs" />
+            android:text="All Songs"
+            android:textAllCaps="false" />
 
         <Button
             android:id="@+id/main_syncAllSongsActivityButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Sync All Songs" />
+            android:text="Sync All Songs"
+            android:textAllCaps="false" />
 
         <Button
             android:id="@+id/main_mountPointAfterKitKatActivityButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Get Mount Points\nBy ContextCompat After KitKat" />
+            android:text="Get Mount Points\nBy ContextCompat After KitKat"
+            android:textAllCaps="false" />
 
         <Button
             android:id="@+id/main_mountPointBeforeKitKatActivityButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Get Mount Points\nBy StorageManager Before KitKat" />
+            android:text="Get Mount Points\nBy StorageManager Before KitKat"
+            android:textAllCaps="false" />
 
         <Button
             android:id="@+id/main_createFolderInSDCardActivityButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Create a Folder in SDCard Before KitKat" />
+            android:text="Create a Folder in SDCard Before KitKat"
+            android:textAllCaps="false" />
 
         <Button
             android:id="@+id/main_createFolderInSDCardAfterKitKatActivityButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Create a Folder in SDCard After KitKat" />
+            android:text="Create a Folder in SDCard After KitKat"
+            android:textAllCaps="false" />
 
         <Button
             android:id="@+id/main_attachDatabaseActivityButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Attach External Database" />
+            android:text="Attach External Database"
+            android:textAllCaps="false" />
 
         <Button
             android:id="@+id/main_groupRecyclerViewActivityButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Group Recycler View" />
+            android:text="Group Recycler View"
+            android:textAllCaps="false" />
 
         <Button
             android:id="@+id/main_trackInfoActivityButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Track Info" />
+            android:text="Track Info"
+            android:textAllCaps="false" />
 
         <Button
             android:id="@+id/main_storageMountChangedActivityButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Storage Mount Point Changed" />
+            android:text="Storage Mount Point Changed"
+            android:textAllCaps="false" />
 
         <Button
             android:id="@+id/main_downloadManagerActivityButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Download Manager" />
+            android:text="Download Manager"
+            android:textAllCaps="false" />
 
     </LinearLayout>
 

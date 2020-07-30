@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@android:color/white"
-    tools:context="sample.app.tobeylin.androidpractice.viewpager.BlankFragment">
+    tools:context="sample.app.tobeylin.androidpractice.viewpager.ViewPagerFragment">
 
     <TextView
         android:layout_width="match_parent"
