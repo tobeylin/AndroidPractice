@@ -30,6 +30,8 @@ class ModelTest {
             condition = "Clouds",
             conditionDescription = "broken clouds",
             iconCode = "04d",
+            tempMax = 28.0,
+            tempMin = 22.0,
             timestamp = 1625097600L
         )
 
