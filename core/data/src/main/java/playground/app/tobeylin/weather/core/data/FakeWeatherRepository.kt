@@ -26,6 +26,7 @@ class FakeWeatherRepository : WeatherRepository {
     )
 
     var shouldThrowError: Boolean = false
+    var shouldThrowForecastError: Boolean = false
 
     override suspend fun getCurrentWeather(latitude: Double, longitude: Double): CurrentWeather {
         if (shouldThrowError) throw IOException("Fake error")
@@ -33,7 +34,7 @@ class FakeWeatherRepository : WeatherRepository {
     }
 
     override suspend fun getDailyForecasts(latitude: Double, longitude: Double): List<DailyForecast> {
-        if (shouldThrowError) throw IOException("Fake error")
+        if (shouldThrowForecastError || shouldThrowError) throw IOException("Fake forecast error")
         return dailyForecastsResult
     }
 }
