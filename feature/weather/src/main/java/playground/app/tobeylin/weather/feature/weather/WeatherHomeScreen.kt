@@ -99,19 +99,40 @@ fun WeatherHomeScreen(
 @Preview(showBackground = true)
 @Composable
 private fun WeatherHomeScreenPreview() {
-    TodayWeatherCard(
-        uiState = WeatherUiState.Success(
-            cityName = "Taipei",
-            temperature = 24.0,
-            tempMax = 28.0,
-            tempMin = 18.0,
-            condition = "Clear",
-            conditionDescription = "clear sky",
-            iconCode = "01d",
-            humidity = 64,
-            windSpeedKmh = 12.0,
-            windDirection = "NW",
-            dewPoint = 14.0,
-        ),
+    val state = WeatherUiState.Success(
+        cityName = "Taipei",
+        temperature = 24.0,
+        tempMax = 28.0,
+        tempMin = 18.0,
+        condition = "Clear",
+        conditionDescription = "clear sky",
+        iconCode = "01d",
+        humidity = 64,
+        windSpeedKmh = 12.0,
+        windDirection = "NW",
+        dewPoint = 14.0,
     )
+    Column(modifier = Modifier.padding(16.dp)) {
+        TodayWeatherCard(uiState = state, modifier = Modifier.fillMaxWidth())
+        Spacer(modifier = Modifier.height(16.dp))
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.spacedBy(12.dp),
+        ) {
+            WeatherMetricCard(
+                icon = Icons.Filled.WaterDrop,
+                label = "Humidity",
+                value = "${state.humidity}%",
+                subtitle = "Dew point is ${state.dewPoint.toInt()}°",
+                modifier = Modifier.weight(1f),
+            )
+            WeatherMetricCard(
+                icon = Icons.Filled.Air,
+                label = "Wind",
+                value = "${state.windSpeedKmh.toInt()} km/h",
+                subtitle = if (state.windDirection.isNotEmpty()) "${state.windDirection} Direction" else "",
+                modifier = Modifier.weight(1f),
+            )
+        }
+    }
 }
