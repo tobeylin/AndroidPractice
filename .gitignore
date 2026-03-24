@@ -49,3 +49,6 @@ Thumbs.db
 
 # Native libraries (uncomment if not intentionally committed)
 # *.so
+
+# AI orchestration scaffolding
+.sisyphus/
