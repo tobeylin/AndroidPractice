@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -153,4 +154,25 @@ private fun TodayWeatherCardPreview() {
             iconCode = "01d",
         ),
     )
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun TodayWeatherCardLoadingPreview() {
+    val colors = listOf(
+        MaterialTheme.colorScheme.primary,
+        MaterialTheme.colorScheme.primaryContainer,
+    )
+    val brush = Brush.linearGradient(colors = colors)
+
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(200.dp)
+            .clip(MaterialTheme.shapes.large)
+            .background(brush),
+        contentAlignment = Alignment.Center,
+    ) {
+        CircularProgressIndicator(color = MaterialTheme.colorScheme.onPrimary)
+    }
 }

@@ -5,6 +5,7 @@ import androidx.compose.material.icons.filled.AcUnit
 import androidx.compose.material.icons.filled.Cloud
 import androidx.compose.material.icons.filled.Thunderstorm
 import androidx.compose.material.icons.filled.WaterDrop
+import androidx.compose.material.icons.filled.Dehaze
 import androidx.compose.material.icons.filled.WbCloudy
 import androidx.compose.material.icons.filled.WbSunny
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -16,7 +17,7 @@ internal fun weatherIconFor(iconCode: String): ImageVector = when (iconCode) {
     "09d", "09n", "10d", "10n" -> Icons.Filled.WaterDrop
     "11d", "11n" -> Icons.Filled.Thunderstorm
     "13d", "13n" -> Icons.Filled.AcUnit
-    "50d", "50n" -> Icons.Filled.Cloud
+    "50d", "50n" -> Icons.Filled.Dehaze
     else -> Icons.Filled.Cloud
 }
 
