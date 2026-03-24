@@ -13,6 +13,7 @@ class FakeWeatherRepository : WeatherRepository {
         feelsLike = 31.2,
         humidity = 70,
         windSpeed = 3.5,
+        windDeg = 180,
         condition = "Clouds",
         conditionDescription = "scattered clouds",
         iconCode = "03d",

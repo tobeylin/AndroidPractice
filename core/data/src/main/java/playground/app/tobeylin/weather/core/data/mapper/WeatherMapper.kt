@@ -10,6 +10,7 @@ internal fun NetworkCurrentWeatherResponse.asExternalModel(): CurrentWeather = C
     feelsLike = main.feelsLike,
     humidity = main.humidity,
     windSpeed = wind.speed,
+    windDeg = wind.deg,
     condition = weather.firstOrNull()?.main ?: "Unknown",
     conditionDescription = weather.firstOrNull()?.description ?: "",
     iconCode = weather.firstOrNull()?.icon ?: "",

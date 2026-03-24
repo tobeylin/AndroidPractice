@@ -29,7 +29,7 @@ class WeatherMapperTest {
                 tempMax = 30.0,
                 humidity = 70,
             ),
-            wind = NetworkWind(speed = 3.5),
+            wind = NetworkWind(speed = 3.5, deg = 180),
             dt = 1711296000L,
             name = "Taipei",
         )
@@ -42,6 +42,7 @@ class WeatherMapperTest {
         assertEquals(31.2, result.feelsLike, 0.001)
         assertEquals(70, result.humidity)
         assertEquals(3.5, result.windSpeed, 0.001)
+        assertEquals(180, result.windDeg)
         assertEquals("Clouds", result.condition)
         assertEquals("scattered clouds", result.conditionDescription)
         assertEquals("03d", result.iconCode)
@@ -106,5 +107,27 @@ class WeatherMapperTest {
         assertEquals("Rain", result.condition)
         assertEquals("light rain", result.conditionDescription)
         assertEquals("10d", result.iconCode)
+    }
+
+    @Test
+    fun null_wind_deg_is_mapped_to_null() {
+        val response = NetworkCurrentWeatherResponse(
+            coord = NetworkCoord(lat = 0.0, lon = 0.0),
+            weather = emptyList(),
+            main = NetworkMain(
+                temp = 20.0,
+                feelsLike = 19.0,
+                tempMin = 18.0,
+                tempMax = 22.0,
+                humidity = 50,
+            ),
+            wind = NetworkWind(speed = 1.0, deg = null),
+            dt = 1711300000L,
+            name = "Unknown City",
+        )
+
+        val result = response.asExternalModel()
+
+        assertEquals(null, result.windDeg)
     }
 }

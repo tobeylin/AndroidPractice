@@ -26,7 +26,7 @@ class FakeWeatherApi : WeatherApi {
                 NetworkWeatherItem(id = 802, main = "Clouds", description = "scattered clouds", icon = "03d"),
             ),
             main = NetworkMain(temp = 28.5, feelsLike = 31.2, tempMin = 27.0, tempMax = 30.0, humidity = 70),
-            wind = NetworkWind(speed = 3.5),
+            wind = NetworkWind(speed = 3.5, deg = 180),
             dt = 1711296000L,
             name = "Taipei",
         )

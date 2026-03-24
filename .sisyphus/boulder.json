@@ -1,21 +1,9 @@
 {
-  "active_plan": "/Users/tobeylin/AndroidStudioProjects/PlaygroundWeather/.sisyphus/plans/today-weather-card.md",
-  "started_at": "2026-03-24T12:00:00.000Z",
+  "active_plan": "/Users/tobeylin/AndroidStudioProjects/PlaygroundWeather/.sisyphus/plans/humidity-wind-cards.md",
+  "started_at": "2026-03-24T14:29:08.360Z",
   "session_ids": [
-    "ses_2e01fdaf6ffe00VnVoLBIC3F6d",
-    "ses_2e002c11effeJQU1N1APIEhQfm",
-    "ses_2dffeb3b1ffe5qPqfc1yuJTgY5",
-    "ses_2dffb72abffeNP4baTWXOJZexr",
-    "ses_2dff541deffekmxrm7C8FKokMx",
-    "ses_2dff13cbcffekYd7vhSgz5M1AP",
-    "ses_2dfec2096ffeEcNCotVTEhnEdU",
-    "ses_2dfebdc94ffeTnRsraECOcAWP9",
-    "ses_2dfeb7312ffecQRBC4NL3YY6qD",
-    "ses_2dfe977ceffeIxiy6GmTAbFYoY",
-    "ses_2dfeb24d1ffet8zDL1bs04EwQf",
-    "ses_2dfe5f59affeNycpxTLgucQa11",
-    "ses_2dfe0564bffeZzMo50k096Un06"
+    "ses_2dfd7a779ffeJDB9RI1Kp45i4r"
   ],
-  "plan_name": "today-weather-card",
+  "plan_name": "humidity-wind-cards",
   "agent": "atlas"
 }

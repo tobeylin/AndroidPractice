@@ -39,4 +39,5 @@ data class NetworkMain(
 @Serializable
 data class NetworkWind(
     @SerialName("speed") val speed: Double,
+    @SerialName("deg") val deg: Int? = null,
 )
