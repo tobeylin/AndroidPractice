@@ -37,6 +37,10 @@ class WeatherViewModel @Inject constructor(
                     condition = weather.condition,
                     conditionDescription = weather.conditionDescription,
                     iconCode = weather.iconCode,
+                    humidity = weather.humidity,
+                    windSpeedKmh = metersPerSecondToKmh(weather.windSpeed),
+                    windDirection = windDegreesToCompass(weather.windDeg),
+                    dewPoint = calculateDewPoint(weather.temperature, weather.humidity),
                 )
             } catch (e: Exception) {
                 _uiState.value = WeatherUiState.Error(e.message ?: "Unknown error")

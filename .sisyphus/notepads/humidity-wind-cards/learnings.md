@@ -24,3 +24,20 @@
 - WeatherMapper uses: NetworkCurrentWeatherResponse.asExternalModel() extension function
 - WeatherUiState.Success has 7 fields currently
 - WeatherViewModel calls weatherRepository.getCurrentWeather() + cityRepository.getCities().first()
+- Added `windDeg` to `CurrentWeather` domain model and `deg` to `NetworkWind` DTO.
+- Wind direction is nullable (`Int?`) because OpenWeatherMap API doesn't always provide it.
+- `WeatherMapper` now handles the mapping from `wind.deg` to `windDeg`.
+- Updated fakes (`FakeWeatherRepository`, `FakeWeatherApi`) to provide a consistent `windDeg = 180` for testing.
+- Verified that `kotlinx-serialization` correctly handles missing `deg` field in JSON by defaulting it to `null`.
+## Weather Conversion Learnings (2026-03-24)
+
+- **Wind Direction Calculation**: Use `(((degrees.toDouble() % 360 + 360) % 360 + 11.25) / 22.5).toInt() % 16` for a robust compass index that handles negative values and 360-degree wraps.
+- **Dew Point Accuracy**: The Magnus formula provides a good approximation (±0.5°C) for typical outdoor temperatures. Coercing humidity to ≥1% prevents `ln(0)` mathematical errors.
+- **TDD Flow**: Writing tests first helped identify the exact boundary behavior for compass directions (e.g., 348.75 being the cutoff for North).
+
+## UI State Extension (Task 3 - 2026-03-24)
+
+- **WeatherUiState.Success** now has 11 fields (was 7): added `humidity`, `windSpeedKmh`, `windDirection`, `dewPoint` after `iconCode`.
+- **Callsite cascade**: Adding non-default fields to a data class breaks ALL constructor callsites. `ast_grep_search` found exactly 3 callsites: ViewModel (production), WeatherHomeScreen (preview), TodayWeatherCard (preview). The second TodayWeatherCard preview is a loading state and doesn't use `WeatherUiState.Success`.
+- **Conversion functions in same package**: `metersPerSecondToKmh`, `windDegreesToCompass`, `calculateDewPoint` are `internal` in `playground.app.tobeylin.weather.feature.weather` — no import needed in ViewModel since it's the same package.
+- **Test delta values**: `assertEquals(12.6, success.windSpeedKmh, 0.1)` and `assertEquals(22.6, success.dewPoint, 0.5)` — dew point needs a wider delta due to Magnus formula approximation.

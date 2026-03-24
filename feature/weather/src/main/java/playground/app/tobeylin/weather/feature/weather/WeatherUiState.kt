@@ -10,6 +10,10 @@ sealed interface WeatherUiState {
         val condition: String,
         val conditionDescription: String,
         val iconCode: String,
+        val humidity: Int,
+        val windSpeedKmh: Double,
+        val windDirection: String,
+        val dewPoint: Double,
     ) : WeatherUiState
     data class Error(val message: String) : WeatherUiState
 }

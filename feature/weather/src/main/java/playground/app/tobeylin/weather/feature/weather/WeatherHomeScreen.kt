@@ -79,6 +79,10 @@ private fun WeatherHomeScreenPreview() {
             condition = "Clear",
             conditionDescription = "clear sky",
             iconCode = "01d",
+            humidity = 64,
+            windSpeedKmh = 12.0,
+            windDirection = "NW",
+            dewPoint = 14.0,
         ),
     )
 }

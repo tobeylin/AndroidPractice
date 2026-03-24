@@ -48,6 +48,10 @@ class WeatherViewModelTest {
         assertEquals(25.0, success.tempMin, 0.01)
         assertEquals("Clouds", success.condition)
         assertEquals("03d", success.iconCode)
+        assertEquals(70, success.humidity)
+        assertEquals(12.6, success.windSpeedKmh, 0.1)
+        assertEquals("S", success.windDirection)
+        assertEquals(22.6, success.dewPoint, 0.5)
     }
 
     @Test
