@@ -32,6 +32,7 @@ fun WeatherHomeScreen(
     viewModel: WeatherViewModel = hiltViewModel(),
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
+    val forecastState by viewModel.forecastUiState.collectAsStateWithLifecycle()
 
     Column(
         modifier = modifier
@@ -76,6 +77,15 @@ fun WeatherHomeScreen(
                         value = "${state.windSpeedKmh.toInt()} km/h",
                         subtitle = if (state.windDirection.isNotEmpty()) "${state.windDirection} Direction" else "",
                         modifier = Modifier.weight(1f),
+                    )
+                }
+
+                val forecast = forecastState
+                if (forecast is ForecastUiState.Success && forecast.items.isNotEmpty()) {
+                    Spacer(modifier = Modifier.height(16.dp))
+                    FiveDayForecastCard(
+                        items = forecast.items,
+                        modifier = Modifier.fillMaxWidth(),
                     )
                 }
             }
@@ -134,5 +144,16 @@ private fun WeatherHomeScreenPreview() {
                 modifier = Modifier.weight(1f),
             )
         }
+        Spacer(modifier = Modifier.height(16.dp))
+        FiveDayForecastCard(
+            items = listOf(
+                DailyForecastItem("Tue", "01d", "Sunny", "26°", "17°"),
+                DailyForecastItem("Wed", "02d", "Partly Cloudy", "24°", "16°"),
+                DailyForecastItem("Thu", "04d", "Cloudy", "22°", "15°"),
+                DailyForecastItem("Fri", "10d", "Light Rain", "19°", "14°"),
+                DailyForecastItem("Sat", "04d", "Cloudy", "21°", "15°"),
+            ),
+            modifier = Modifier.fillMaxWidth(),
+        )
     }
 }
