@@ -1,0 +1,31 @@
+=== Scenario 6: Key Source File Verification ===
+
+CHECK 1: HiltAndroidApp in WeatherApplication.kt
+Found: @HiltAndroidApp (import + annotation)
+✅ PASS
+
+CHECK 2: ComponentActivity in MainActivity.kt
+Found: class MainActivity : ComponentActivity()
+✅ PASS
+
+CHECK 3: INTERNET permission in AndroidManifest.xml
+Found: <uses-permission android:name="android.permission.INTERNET" />
+✅ PASS
+
+CHECK 4: Font files (TTF count)
+Found: 5 TTF files
+- inter_medium.ttf
+- inter_regular.ttf
+- inter_semibold.ttf
+- manrope_bold.ttf
+- manrope_extrabold.ttf
+✅ PASS (5/5 expected)
+
+CHECK 5: Color tokens in Color.kt
+File: ./app/src/main/java/playground/app/tobeylin/weather/ui/theme/Color.kt
+Color token count: 33 val declarations
+✅ PASS (≥30 required, got 33)
+
+All 5/5 source file checks PASS.
+
+RESULT: ✅ PASS

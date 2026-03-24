@@ -1,0 +1,187 @@
+
+> Configure project :app
+WARNING: The option setting 'android.disallowKotlinSourceSets=false' is experimental.
+The current default is 'true'.
+
+> Task :core:model:clean
+> Task :core:model:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :core:model:compileKotlin NO-SOURCE
+> Task :core:model:compileJava NO-SOURCE
+> Task :core:model:processResources NO-SOURCE
+> Task :core:model:classes UP-TO-DATE
+> Task :core:model:jar
+> Task :core:data:clean
+> Task :feature:weather:clean
+> Task :core:network:clean
+> Task :core:data:preBuild UP-TO-DATE
+> Task :feature:weather:preBuild UP-TO-DATE
+> Task :core:data:preDebugBuild UP-TO-DATE
+> Task :core:network:preBuild UP-TO-DATE
+> Task :core:network:preDebugBuild UP-TO-DATE
+> Task :feature:weather:preDebugBuild UP-TO-DATE
+> Task :core:data:processDebugNavigationResources
+> Task :core:network:processDebugNavigationResources
+> Task :feature:weather:processDebugNavigationResources
+> Task :core:data:generateDebugResources
+> Task :feature:weather:generateDebugResources
+> Task :core:network:generateDebugResources
+> Task :feature:weather:packageDebugResources
+> Task :core:network:packageDebugResources
+> Task :core:data:packageDebugResources
+> Task :core:network:parseDebugLocalResources
+> Task :core:data:parseDebugLocalResources
+> Task :feature:weather:parseDebugLocalResources
+> Task :core:network:generateDebugAssets UP-TO-DATE
+> Task :core:network:mergeDebugAssets
+> Task :core:data:generateDebugAssets UP-TO-DATE
+> Task :feature:weather:generateDebugRFile
+> Task :feature:weather:generateDebugAssets UP-TO-DATE
+> Task :core:data:mergeDebugAssets
+> Task :core:data:generateDebugRFile
+> Task :core:network:generateDebugRFile
+> Task :core:data:javaPreCompileDebug
+> Task :feature:weather:javaPreCompileDebug
+> Task :core:network:javaPreCompileDebug
+> Task :feature:weather:mergeDebugAssets
+> Task :core:network:kspDebugKotlin NO-SOURCE
+> Task :core:network:writeDebugAarMetadata
+> Task :feature:weather:writeDebugAarMetadata
+> Task :core:network:compileDebugKotlin NO-SOURCE
+> Task :core:network:compileDebugJavaWithJavac NO-SOURCE
+> Task :core:data:writeDebugAarMetadata
+> Task :core:data:extractDeepLinksDebug
+> Task :feature:weather:extractDeepLinksDebug
+> Task :feature:weather:mapDebugSourceSetPaths
+> Task :core:data:mapDebugSourceSetPaths
+> Task :feature:weather:processDebugManifest
+> Task :core:data:processDebugManifest
+> Task :core:data:compileDebugLibraryResources
+> Task :feature:weather:compileDebugLibraryResources
+> Task :feature:weather:mergeDebugJniLibFolders
+> Task :core:data:mergeDebugJniLibFolders
+> Task :feature:weather:mergeDebugNativeLibs NO-SOURCE
+> Task :core:data:mergeDebugNativeLibs NO-SOURCE
+> Task :core:data:copyDebugJniLibsProjectOnly
+> Task :feature:weather:copyDebugJniLibsProjectOnly
+> Task :core:data:stripDebugDebugSymbols NO-SOURCE
+> Task :core:data:copyDebugJniLibsProjectAndLocalJars
+> Task :core:data:extractDeepLinksForAarDebug UP-TO-DATE
+> Task :core:data:prepareDebugArtProfile UP-TO-DATE
+> Task :core:data:prepareLintJarForPublish UP-TO-DATE
+> Task :core:network:processDebugJavaRes NO-SOURCE
+> Task :core:data:checkDebugAarMetadata
+> Task :core:network:extractDeepLinksDebug
+> Task :core:network:mapDebugSourceSetPaths
+> Task :core:network:compileDebugLibraryResources
+> Task :core:network:processDebugManifest
+> Task :core:network:mergeDebugJniLibFolders
+> Task :core:network:mergeDebugNativeLibs NO-SOURCE
+> Task :core:network:copyDebugJniLibsProjectOnly
+> Task :core:network:transformDebugClassesWithAsm
+> Task :core:network:checkDebugAarMetadata
+> Task :core:network:bundleLibCompileToJarDebug
+> Task :core:network:stripDebugDebugSymbols NO-SOURCE
+> Task :core:network:bundleLibRuntimeToJarDebug
+> Task :core:data:kspDebugKotlin NO-SOURCE
+> Task :core:network:bundleLibRuntimeToDirDebug
+> Task :core:network:copyDebugJniLibsProjectAndLocalJars
+> Task :core:data:compileDebugKotlin NO-SOURCE
+> Task :core:data:compileDebugJavaWithJavac NO-SOURCE
+> Task :core:data:processDebugJavaRes NO-SOURCE
+> Task :core:data:transformDebugClassesWithAsm
+> Task :core:data:extractDebugAnnotations
+> Task :core:data:bundleLibCompileToJarDebug
+> Task :core:network:extractDebugAnnotations
+> Task :core:data:bundleLibRuntimeToJarDebug
+> Task :core:network:extractDeepLinksForAarDebug UP-TO-DATE
+> Task :core:network:mergeDebugGeneratedProguardFiles UP-TO-DATE
+> Task :core:data:mergeDebugGeneratedProguardFiles UP-TO-DATE
+> Task :core:data:mergeDebugConsumerProguardFiles UP-TO-DATE
+> Task :core:data:bundleLibRuntimeToDirDebug
+> Task :core:network:mergeDebugConsumerProguardFiles
+> Task :core:network:prepareDebugArtProfile UP-TO-DATE
+> Task :core:network:prepareLintJarForPublish UP-TO-DATE
+> Task :core:data:mergeDebugJavaResource
+> Task :core:network:mergeDebugJavaResource
+> Task :feature:weather:kspDebugKotlin NO-SOURCE
+> Task :core:data:syncDebugLibJars
+> Task :core:network:syncDebugLibJars
+> Task :feature:weather:compileDebugKotlin NO-SOURCE
+> Task :feature:weather:compileDebugJavaWithJavac NO-SOURCE
+> Task :core:network:bundleDebugAar
+> Task :core:network:assembleDebug
+> Task :core:data:bundleDebugAar
+> Task :core:data:assembleDebug
+> Task :feature:weather:processDebugJavaRes NO-SOURCE
+> Task :feature:weather:stripDebugDebugSymbols NO-SOURCE
+> Task :feature:weather:copyDebugJniLibsProjectAndLocalJars
+> Task :feature:weather:checkDebugAarMetadata
+> Task :feature:weather:extractDebugAnnotations
+> Task :feature:weather:extractDeepLinksForAarDebug UP-TO-DATE
+> Task :feature:weather:prepareDebugArtProfile UP-TO-DATE
+> Task :feature:weather:prepareLintJarForPublish UP-TO-DATE
+> Task :feature:weather:mergeDebugJavaResource
+> Task :feature:weather:transformDebugClassesWithAsm
+> Task :feature:weather:mergeDebugGeneratedProguardFiles UP-TO-DATE
+> Task :feature:weather:bundleLibCompileToJarDebug
+> Task :feature:weather:bundleLibRuntimeToDirDebug
+> Task :feature:weather:bundleLibRuntimeToJarDebug
+> Task :feature:weather:mergeDebugConsumerProguardFiles
+> Task :feature:weather:syncDebugLibJars
+> Task :feature:weather:bundleDebugAar
+> Task :feature:weather:assembleDebug
+> Task :app:clean
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :app:generateDebugBuildConfig
+> Task :app:generateDebugResources
+> Task :app:packageDebugResources
+> Task :app:processDebugNavigationResources
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :app:mergeDebugAssets
+> Task :app:javaPreCompileDebug
+> Task :app:compressDebugAssets
+> Task :app:desugarDebugFileDependencies
+> Task :app:parseDebugLocalResources
+> Task :app:mapDebugSourceSetPaths
+> Task :app:checkDebugAarMetadata
+> Task :app:compileDebugNavigationResources
+> Task :app:generateDebugRFile
+> Task :app:checkDebugDuplicateClasses
+> Task :app:createDebugCompatibleScreenManifests
+> Task :app:extractDeepLinksDebug
+> Task :app:mergeDebugResources
+> Task :app:mergeLibDexDebug
+> Task :app:kspDebugKotlin
+> Task :app:processDebugMainManifest
+> Task :app:mergeExtDexDebug
+> Task :app:processDebugManifest
+> Task :app:mergeDebugJniLibFolders
+> Task :app:validateSigningDebug
+> Task :app:writeDebugAppMetadata
+> Task :app:writeDebugSigningConfigVersions
+> Task :app:processDebugManifestForPackage
+> Task :app:mergeDebugNativeLibs
+
+> Task :app:stripDebugDebugSymbols
+Unable to strip the following libraries, packaging them as they are: libandroidx.graphics.path.so. Run with --info option to learn more.
+
+> Task :app:processDebugResources
+> Task :app:compileDebugKotlin
+> Task :app:compileDebugJavaWithJavac
+> Task :app:processDebugJavaRes
+> Task :app:hiltSyncDebug
+> Task :app:hiltAggregateDepsDebug
+> Task :app:mergeDebugJavaResource
+> Task :app:hiltJavaCompileDebug
+> Task :app:transformDebugClassesWithAsm
+> Task :app:dexBuilderDebug
+> Task :app:mergeProjectDexDebug
+> Task :app:packageDebug
+> Task :app:createDebugApkListingFileRedirect
+> Task :app:assembleDebug
+
+BUILD SUCCESSFUL in 1m 9s
+134 actionable tasks: 121 executed, 13 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.3.1/userguide/configuration_cache_enabling.html

@@ -1,0 +1,5 @@
+-rw-r--r--  1 tobeylin  staff  417300  3 24 16:56 app/src/main/res/font/inter_medium.ttf
+-rw-r--r--  1 tobeylin  staff  411640  3 24 16:56 app/src/main/res/font/inter_regular.ttf
+-rw-r--r--  1 tobeylin  staff  419744  3 24 16:56 app/src/main/res/font/inter_semibold.ttf
+-rw-r--r--  1 tobeylin  staff  165420  3 24 16:56 app/src/main/res/font/manrope_bold.ttf
+-rw-r--r--  1 tobeylin  staff  165420  3 24 16:56 app/src/main/res/font/manrope_extrabold.ttf

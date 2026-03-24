@@ -1,0 +1,29 @@
+=== Scenario 4: Anti-Scope-Creep Checks ===
+
+CHECK 1: grep -r "org.jetbrains.kotlin.android" --include="*.kts" .
+Result: No matches (exit code 1) ✅
+Expected: No matches — standalone kotlin.android plugin must not be used (KGP applied via alias)
+
+CHECK 2: grep -r "AppCompatActivity" app/src/
+Result: No matches (exit code 1) ✅
+Expected: No matches — must use ComponentActivity
+
+CHECK 3: grep -r "R.layout" app/src/main/java/
+Result: No matches (exit code 1) ✅
+Expected: No matches — Compose only, no XML layouts
+
+CHECK 4: ls app/src/main/res/layout/
+Result: "No such file or directory" (exit code 1) ✅
+Expected: Directory absent or empty — no layout XMLs
+
+CHECK 5: grep -r "NavHost|navigation" --include="*.kts" .
+Result: No matches (exit code 1) ✅
+Expected: No matches — navigation not in scope for Phase 1
+
+CHECK 6: grep -r "Room|DataStore" --include="*.kts" .
+Result: No matches (exit code 1) ✅
+Expected: No matches — persistence not in scope for Phase 1
+
+All 6/6 anti-scope-creep checks PASS.
+
+RESULT: ✅ PASS

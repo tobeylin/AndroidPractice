@@ -1,0 +1,23 @@
+=== Scenario 5: Preserved Resources ===
+
+--- XML/Value Resources (all exist, non-empty) ---
+✅ app/src/main/res/values/themes.xml (423 bytes)
+✅ app/src/main/res/values-night/themes.xml (337 bytes)
+✅ app/src/main/res/values/strings.xml (79 bytes)
+✅ app/src/main/res/values/colors.xml (147 bytes)
+✅ app/src/main/res/xml/backup_rules.xml (478 bytes)
+✅ app/src/main/res/xml/data_extraction_rules.xml (551 bytes)
+✅ app/src/main/res/drawable/ic_launcher_background.xml (5606 bytes)
+✅ app/src/main/res/drawable/ic_launcher_foreground.xml (1702 bytes)
+
+--- Mipmap Directories (all present with launcher files) ---
+✅ mipmap-anydpi-v26 (2 files): ic_launcher.xml, ic_launcher_round.xml
+✅ mipmap-hdpi (2 files): ic_launcher.webp, ic_launcher_round.webp
+✅ mipmap-mdpi (2 files): ic_launcher.webp, ic_launcher_round.webp
+✅ mipmap-xhdpi (2 files): ic_launcher.webp, ic_launcher_round.webp
+✅ mipmap-xxhdpi (2 files): ic_launcher.webp, ic_launcher_round.webp
+✅ mipmap-xxxhdpi (2 files): ic_launcher.webp, ic_launcher_round.webp
+
+Total: 8/8 resource files ✅ | 6/6 mipmap directories ✅
+
+RESULT: ✅ PASS

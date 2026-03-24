@@ -1,0 +1,69 @@
+Initialized native services in: /Users/tobeylin/.gradle/native
+Initialized jansi services in: /Users/tobeylin/.gradle/native
+Found daemon DaemonInfo{pid=17483, address=[c5d3c39d-b085-43b4-b161-fa3ed1b0e17a port:53054, addresses:[/127.0.0.1]], state=Idle, lastBusy=1774339597439, context=DefaultDaemonContext[uid=449abb7e-325b-4ba7-83fa-5d09b685a3d5,javaHome=/Users/tobeylin/Library/Java/JavaVirtualMachines/jbr-17.0.11/Contents/Home,javaVersion=17,javaVendor=JetBrains s.r.o.,daemonRegistryDir=/Users/tobeylin/.gradle/daemon,pid=17483,idleTimeout=10800000,priority=NORMAL,applyInstrumentationAgent=true,nativeServicesMode=ENABLED,daemonOpts=-Xmx2048m,-Dfile.encoding=UTF-8,-Duser.country=TW,-Duser.language=zh,-Duser.variant]} however its context does not match the desired criteria.
+JVM is incompatible.
+Wanted: DaemonRequestContext{jvmCriteria=Compatible with Java 21, any vendor, nativeImageCapable=false (from gradle/gradle-daemon-jvm.properties), daemonOpts=[-Xmx2048m, -Dfile.encoding=UTF-8, -Duser.country=TW, -Duser.language=zh, -Duser.variant], applyInstrumentationAgent=true, nativeServicesMode=ENABLED, priority=NORMAL}
+Actual: DefaultDaemonContext[uid=449abb7e-325b-4ba7-83fa-5d09b685a3d5,javaHome=/Users/tobeylin/Library/Java/JavaVirtualMachines/jbr-17.0.11/Contents/Home,javaVersion=17,javaVendor=JetBrains s.r.o.,daemonRegistryDir=/Users/tobeylin/.gradle/daemon,pid=17483,idleTimeout=10800000,priority=NORMAL,applyInstrumentationAgent=true,nativeServicesMode=ENABLED,daemonOpts=-Xmx2048m,-Dfile.encoding=UTF-8,-Duser.country=TW,-Duser.language=zh,-Duser.variant]
+
+  Looking for a different daemon...
+Found daemon DaemonInfo{pid=26996, address=[3825ef59-80c1-4fcf-a65e-4f26cc330d76 port:55377, addresses:[/127.0.0.1]], state=Idle, lastBusy=1774340727970, context=DefaultDaemonContext[uid=07a170f1-f02e-48fd-9ded-ae71e527c7ef,javaHome=/Users/tobeylin/Library/Java/JavaVirtualMachines/jbr-17.0.11/Contents/Home,javaVersion=17,javaVendor=JetBrains s.r.o.,daemonRegistryDir=/Users/tobeylin/.gradle/daemon,pid=26996,idleTimeout=10800000,priority=NORMAL,applyInstrumentationAgent=true,nativeServicesMode=ENABLED,daemonOpts=-Xmx4g,-Dfile.encoding=UTF-8,-Duser.country=TW,-Duser.language=zh,-Duser.variant]} however its context does not match the desired criteria.
+JVM is incompatible.
+Wanted: DaemonRequestContext{jvmCriteria=Compatible with Java 21, any vendor, nativeImageCapable=false (from gradle/gradle-daemon-jvm.properties), daemonOpts=[-Xmx2048m, -Dfile.encoding=UTF-8, -Duser.country=TW, -Duser.language=zh, -Duser.variant], applyInstrumentationAgent=true, nativeServicesMode=ENABLED, priority=NORMAL}
+Actual: DefaultDaemonContext[uid=07a170f1-f02e-48fd-9ded-ae71e527c7ef,javaHome=/Users/tobeylin/Library/Java/JavaVirtualMachines/jbr-17.0.11/Contents/Home,javaVersion=17,javaVendor=JetBrains s.r.o.,daemonRegistryDir=/Users/tobeylin/.gradle/daemon,pid=26996,idleTimeout=10800000,priority=NORMAL,applyInstrumentationAgent=true,nativeServicesMode=ENABLED,daemonOpts=-Xmx4g,-Dfile.encoding=UTF-8,-Duser.country=TW,-Duser.language=zh,-Duser.variant]
+
+  Looking for a different daemon...
+The client will now receive all logging from the daemon (pid: 25249). The daemon log file: /Users/tobeylin/.gradle/daemon/9.3.1/daemon-25249.out.log
+Starting 41st build in daemon [uptime: 29 mins 18.746 secs, performance: 99%, GC rate: 0.00/s, heap usage: 1% of 2 GiB]
+Using 8 worker leases.
+Operational build model parameters: {requiresToolingModels=false, parallelProjectExecution=true, configureOnDemand=false, configurationCache=false, configurationCacheParallelStore=false, configurationCacheParallelLoad=true, isolatedProjects=false, parallelProjectConfiguration=false, intermediateModelCache=false, parallelToolingApiActions=true, invalidateCoupledProjects=false, modelAsProjectDependency=false, resilientModelBuilding=false}
+Now considering [/Users/tobeylin/AndroidStudioProjects/PlaygroundWeather] as hierarchies to watch
+Watching the file system is configured to be enabled if available
+File system watching is active
+Starting Build
+Resolved plugin [id: 'org.gradle.toolchains.foojay-resolver-convention', version: '1.0.0']
+Invalidating in-memory cache of /Users/tobeylin/.gradle/caches/journal-1/file-access.bin
+Invalidating in-memory cache of /Users/tobeylin/.gradle/caches/9.3.1/fileHashes/kotlinDslCompileAvoidanceClasspathHashCache.bin
+Invalidating in-memory cache of /Users/tobeylin/.gradle/caches/9.3.1/fileHashes/fileHashes.bin
+Invalidating in-memory cache of /Users/tobeylin/.gradle/caches/9.3.1/fileHashes/resourceHashesCache.bin
+Settings evaluated using settings file '/Users/tobeylin/AndroidStudioProjects/PlaygroundWeather/settings.gradle.kts'.
+Projects loaded. Root project using build file '/Users/tobeylin/AndroidStudioProjects/PlaygroundWeather/build.gradle.kts'.
+Included projects: [root project 'PlaygroundWeather', project ':app', project ':core', project ':feature', project ':core:data', project ':core:model', project ':core:network', project ':feature:weather']
+
+> Configure project :
+Evaluating root project 'PlaygroundWeather' using build file '/Users/tobeylin/AndroidStudioProjects/PlaygroundWeather/build.gradle.kts'.
+Resolved plugin [id: 'com.android.application', version: '9.1.0', apply: false]
+Resolved plugin [id: 'com.android.library', version: '9.1.0', apply: false]
+Resolved plugin [id: 'org.jetbrains.kotlin.plugin.compose', version: '2.1.0', apply: false]
+Resolved plugin [id: 'org.jetbrains.kotlin.plugin.serialization', version: '2.1.0', apply: false]
+Resolved plugin [id: 'org.jetbrains.kotlin.jvm', version: '2.1.0', apply: false]
+Resolved plugin [id: 'com.google.devtools.ksp', version: '2.1.0-1.0.29', apply: false]
+Resolved plugin [id: 'com.google.dagger.hilt.android', version: '2.56.1', apply: false]
+
+> Configure project :app
+Evaluating project ':app' using build file '/Users/tobeylin/AndroidStudioProjects/PlaygroundWeather/app/build.gradle.kts'.
+Resolved plugin [id: 'com.android.application', version: '9.1.0']
+Resolved plugin [id: 'org.jetbrains.kotlin.plugin.compose', version: '2.1.0']
+Resolved plugin [id: 'com.google.devtools.ksp', version: '2.1.0-1.0.29']
+Resolved plugin [id: 'com.google.dagger.hilt.android', version: '2.56.1']
+Build 08ea2e26-6567-42c4-a4e0-8b5c5db922d7 is started
+Using default execution profile
+Build 08ea2e26-6567-42c4-a4e0-8b5c5db922d7 is closed
+
+FAILURE: Build failed with an exception.
+
+* Where:
+Build file '/Users/tobeylin/AndroidStudioProjects/PlaygroundWeather/app/build.gradle.kts' line: 1
+
+* What went wrong:
+An exception occurred applying plugin request [id: 'com.google.dagger.hilt.android', version: '2.56.1']
+> Failed to apply plugin 'com.google.dagger.hilt.android'.
+   > Android BaseExtension not found.
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --debug option to get more log output.
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 4s
+Watched directory hierarchies: [/Users/tobeylin/AndroidStudioProjects/PlaygroundWeather]

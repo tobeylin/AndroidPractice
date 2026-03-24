@@ -1,0 +1,5 @@
+> Task :core:network:assembleDebug UP-TO-DATE
+
+BUILD SUCCESSFUL in 31s
+23 actionable tasks: 23 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.3.1/userguide/configuration_cache_enabling.html

@@ -1,0 +1,30 @@
+Starting a Gradle Daemon, 2 busy and 2 incompatible and 6 stopped Daemons could not be reused, use --status for details
+
+> Configure project :app
+WARNING: The option setting 'android.disallowKotlinSourceSets=false' is experimental.
+The current default is 'true'.
+
+> Task :app:dependencies
+
+------------------------------------------------------------
+Project ':app'
+------------------------------------------------------------
+
+implementation - Implementation only dependencies for 'main' sources. (n)
++--- project weather (n)
++--- androidx.core:core-ktx:1.18.0 (n)
++--- com.google.android.material:material:1.13.0 (n)
++--- androidx.compose:compose-bom:2026.02.00 (n)
++--- androidx.compose.ui:ui (n)
++--- androidx.compose.ui:ui-graphics (n)
++--- androidx.compose.material3:material3 (n)
++--- androidx.compose.ui:ui-tooling-preview (n)
++--- androidx.activity:activity-compose:1.13.0 (n)
+\--- com.google.dagger:hilt-android:2.59.2 (n)
+
+(n) - A dependency or dependency configuration that cannot be resolved.
+
+A web-based, searchable dependency report is available by adding the --scan option.
+
+BUILD SUCCESSFUL in 30s
+1 actionable task: 1 executed

@@ -1,0 +1,342 @@
+
+> Configure project :app
+WARNING: The option setting 'android.disallowKotlinSourceSets=false' is experimental.
+The current default is 'true'.
+
+> Task :core:model:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :core:model:compileKotlin NO-SOURCE
+> Task :core:model:compileJava NO-SOURCE
+> Task :core:model:processResources NO-SOURCE
+> Task :core:model:classes UP-TO-DATE
+> Task :core:model:jar UP-TO-DATE
+> Task :core:model:assemble UP-TO-DATE
+
+BUILD SUCCESSFUL in 3s
+1 actionable task: 1 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.3.1/userguide/configuration_cache_enabling.html
+
+> Configure project :app
+WARNING: The option setting 'android.disallowKotlinSourceSets=false' is experimental.
+The current default is 'true'.
+
+> Task :core:network:preBuild UP-TO-DATE
+> Task :core:model:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :core:network:preDebugBuild UP-TO-DATE
+> Task :core:model:compileKotlin NO-SOURCE
+> Task :core:model:compileJava NO-SOURCE
+> Task :core:model:processResources NO-SOURCE
+> Task :core:model:classes UP-TO-DATE
+> Task :core:model:jar UP-TO-DATE
+> Task :core:network:checkDebugAarMetadata UP-TO-DATE
+> Task :core:network:mergeDebugJniLibFolders UP-TO-DATE
+> Task :core:network:mergeDebugNativeLibs NO-SOURCE
+> Task :core:network:stripDebugDebugSymbols NO-SOURCE
+> Task :core:network:copyDebugJniLibsProjectAndLocalJars UP-TO-DATE
+> Task :core:network:generateDebugResources UP-TO-DATE
+> Task :core:network:packageDebugResources UP-TO-DATE
+> Task :core:network:processDebugNavigationResources UP-TO-DATE
+> Task :core:network:parseDebugLocalResources UP-TO-DATE
+> Task :core:network:generateDebugRFile UP-TO-DATE
+> Task :core:network:extractDebugAnnotations UP-TO-DATE
+> Task :core:network:extractDeepLinksForAarDebug UP-TO-DATE
+> Task :core:network:generateDebugAssets UP-TO-DATE
+> Task :core:network:mergeDebugAssets UP-TO-DATE
+> Task :core:network:kspDebugKotlin NO-SOURCE
+> Task :core:network:compileDebugKotlin NO-SOURCE
+> Task :core:network:javaPreCompileDebug UP-TO-DATE
+> Task :core:network:compileDebugJavaWithJavac NO-SOURCE
+> Task :core:network:transformDebugClassesWithAsm UP-TO-DATE
+> Task :core:network:mergeDebugGeneratedProguardFiles UP-TO-DATE
+> Task :core:network:mergeDebugConsumerProguardFiles UP-TO-DATE
+> Task :core:network:prepareDebugArtProfile UP-TO-DATE
+> Task :core:network:prepareLintJarForPublish UP-TO-DATE
+> Task :core:network:processDebugManifest UP-TO-DATE
+> Task :core:network:processDebugJavaRes NO-SOURCE
+> Task :core:network:mergeDebugJavaResource UP-TO-DATE
+> Task :core:network:syncDebugLibJars UP-TO-DATE
+> Task :core:network:writeDebugAarMetadata UP-TO-DATE
+> Task :core:network:bundleDebugAar UP-TO-DATE
+> Task :core:network:assembleDebug UP-TO-DATE
+
+BUILD SUCCESSFUL in 1s
+23 actionable tasks: 23 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.3.1/userguide/configuration_cache_enabling.html
+
+> Configure project :app
+WARNING: The option setting 'android.disallowKotlinSourceSets=false' is experimental.
+The current default is 'true'.
+
+> Task :core:data:preBuild UP-TO-DATE
+> Task :core:network:preBuild UP-TO-DATE
+> Task :core:data:preDebugBuild UP-TO-DATE
+> Task :core:network:preDebugBuild UP-TO-DATE
+> Task :core:model:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :core:data:mergeDebugJniLibFolders UP-TO-DATE
+> Task :core:data:mergeDebugNativeLibs NO-SOURCE
+> Task :core:network:writeDebugAarMetadata UP-TO-DATE
+> Task :core:model:compileKotlin NO-SOURCE
+> Task :core:data:stripDebugDebugSymbols NO-SOURCE
+> Task :core:model:compileJava NO-SOURCE
+> Task :core:model:processResources NO-SOURCE
+> Task :core:model:classes UP-TO-DATE
+> Task :core:network:generateDebugResources UP-TO-DATE
+> Task :core:model:jar UP-TO-DATE
+> Task :core:network:packageDebugResources UP-TO-DATE
+> Task :core:network:processDebugNavigationResources UP-TO-DATE
+> Task :core:network:parseDebugLocalResources UP-TO-DATE
+> Task :core:network:generateDebugRFile UP-TO-DATE
+> Task :core:network:kspDebugKotlin NO-SOURCE
+> Task :core:network:compileDebugKotlin NO-SOURCE
+> Task :core:network:javaPreCompileDebug UP-TO-DATE
+> Task :core:network:compileDebugJavaWithJavac NO-SOURCE
+> Task :core:data:checkDebugAarMetadata UP-TO-DATE
+> Task :core:data:copyDebugJniLibsProjectAndLocalJars UP-TO-DATE
+> Task :core:data:generateDebugResources UP-TO-DATE
+> Task :core:data:packageDebugResources UP-TO-DATE
+> Task :core:data:processDebugNavigationResources UP-TO-DATE
+> Task :core:data:parseDebugLocalResources UP-TO-DATE
+> Task :core:data:generateDebugRFile UP-TO-DATE
+> Task :core:data:extractDeepLinksForAarDebug UP-TO-DATE
+> Task :core:data:generateDebugAssets UP-TO-DATE
+> Task :core:network:transformDebugClassesWithAsm UP-TO-DATE
+> Task :core:data:mergeDebugAssets UP-TO-DATE
+> Task :core:network:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :core:network:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :core:data:javaPreCompileDebug UP-TO-DATE
+> Task :core:data:extractDebugAnnotations UP-TO-DATE
+> Task :core:data:kspDebugKotlin NO-SOURCE
+> Task :core:data:compileDebugKotlin NO-SOURCE
+> Task :core:data:compileDebugJavaWithJavac NO-SOURCE
+> Task :core:data:transformDebugClassesWithAsm UP-TO-DATE
+> Task :core:data:mergeDebugGeneratedProguardFiles UP-TO-DATE
+> Task :core:data:mergeDebugConsumerProguardFiles UP-TO-DATE
+> Task :core:data:prepareDebugArtProfile UP-TO-DATE
+> Task :core:data:prepareLintJarForPublish UP-TO-DATE
+> Task :core:data:processDebugManifest UP-TO-DATE
+> Task :core:data:processDebugJavaRes NO-SOURCE
+> Task :core:data:mergeDebugJavaResource UP-TO-DATE
+> Task :core:data:syncDebugLibJars UP-TO-DATE
+> Task :core:data:writeDebugAarMetadata UP-TO-DATE
+> Task :core:data:bundleDebugAar UP-TO-DATE
+> Task :core:data:assembleDebug UP-TO-DATE
+
+BUILD SUCCESSFUL in 1s
+33 actionable tasks: 33 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.3.1/userguide/configuration_cache_enabling.html
+
+> Configure project :app
+WARNING: The option setting 'android.disallowKotlinSourceSets=false' is experimental.
+The current default is 'true'.
+
+> Task :feature:weather:preBuild UP-TO-DATE
+> Task :core:data:preBuild UP-TO-DATE
+> Task :core:network:preBuild UP-TO-DATE
+> Task :core:data:preDebugBuild UP-TO-DATE
+> Task :core:model:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :core:network:preDebugBuild UP-TO-DATE
+> Task :feature:weather:preDebugBuild UP-TO-DATE
+> Task :core:data:writeDebugAarMetadata UP-TO-DATE
+> Task :core:network:writeDebugAarMetadata UP-TO-DATE
+> Task :core:data:generateDebugResources UP-TO-DATE
+> Task :core:model:compileKotlin NO-SOURCE
+> Task :core:model:compileJava NO-SOURCE
+> Task :core:data:packageDebugResources UP-TO-DATE
+> Task :feature:weather:mergeDebugJniLibFolders UP-TO-DATE
+> Task :core:network:generateDebugResources UP-TO-DATE
+> Task :core:model:processResources NO-SOURCE
+> Task :core:model:classes UP-TO-DATE
+> Task :core:data:processDebugNavigationResources UP-TO-DATE
+> Task :core:network:packageDebugResources UP-TO-DATE
+> Task :core:network:processDebugNavigationResources UP-TO-DATE
+> Task :core:model:jar UP-TO-DATE
+> Task :core:data:parseDebugLocalResources UP-TO-DATE
+> Task :core:data:generateDebugRFile UP-TO-DATE
+> Task :core:network:parseDebugLocalResources UP-TO-DATE
+> Task :core:network:generateDebugRFile UP-TO-DATE
+> Task :core:data:javaPreCompileDebug UP-TO-DATE
+> Task :core:network:kspDebugKotlin NO-SOURCE
+> Task :core:network:compileDebugKotlin NO-SOURCE
+> Task :core:network:javaPreCompileDebug UP-TO-DATE
+> Task :core:network:compileDebugJavaWithJavac NO-SOURCE
+> Task :core:network:transformDebugClassesWithAsm UP-TO-DATE
+> Task :core:network:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :core:network:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :core:data:kspDebugKotlin NO-SOURCE
+> Task :core:data:compileDebugKotlin NO-SOURCE
+> Task :core:data:compileDebugJavaWithJavac NO-SOURCE
+> Task :core:data:transformDebugClassesWithAsm UP-TO-DATE
+> Task :core:data:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :core:data:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :feature:weather:checkDebugAarMetadata UP-TO-DATE
+> Task :feature:weather:mergeDebugNativeLibs NO-SOURCE
+> Task :feature:weather:stripDebugDebugSymbols NO-SOURCE
+> Task :feature:weather:copyDebugJniLibsProjectAndLocalJars UP-TO-DATE
+> Task :feature:weather:generateDebugResources UP-TO-DATE
+> Task :feature:weather:packageDebugResources UP-TO-DATE
+> Task :feature:weather:processDebugNavigationResources UP-TO-DATE
+> Task :feature:weather:parseDebugLocalResources UP-TO-DATE
+> Task :feature:weather:generateDebugRFile UP-TO-DATE
+> Task :feature:weather:extractDebugAnnotations UP-TO-DATE
+> Task :feature:weather:extractDeepLinksForAarDebug UP-TO-DATE
+> Task :feature:weather:generateDebugAssets UP-TO-DATE
+> Task :feature:weather:mergeDebugAssets UP-TO-DATE
+> Task :feature:weather:kspDebugKotlin NO-SOURCE
+> Task :feature:weather:compileDebugKotlin NO-SOURCE
+> Task :feature:weather:javaPreCompileDebug UP-TO-DATE
+> Task :feature:weather:compileDebugJavaWithJavac NO-SOURCE
+> Task :feature:weather:transformDebugClassesWithAsm UP-TO-DATE
+> Task :feature:weather:mergeDebugGeneratedProguardFiles UP-TO-DATE
+> Task :feature:weather:mergeDebugConsumerProguardFiles UP-TO-DATE
+> Task :feature:weather:prepareDebugArtProfile UP-TO-DATE
+> Task :feature:weather:prepareLintJarForPublish UP-TO-DATE
+> Task :feature:weather:processDebugManifest UP-TO-DATE
+> Task :feature:weather:processDebugJavaRes NO-SOURCE
+> Task :feature:weather:mergeDebugJavaResource UP-TO-DATE
+> Task :feature:weather:syncDebugLibJars UP-TO-DATE
+> Task :feature:weather:writeDebugAarMetadata UP-TO-DATE
+> Task :feature:weather:bundleDebugAar UP-TO-DATE
+> Task :feature:weather:assembleDebug UP-TO-DATE
+
+BUILD SUCCESSFUL in 1s
+43 actionable tasks: 43 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.3.1/userguide/configuration_cache_enabling.html
+
+> Configure project :app
+WARNING: The option setting 'android.disallowKotlinSourceSets=false' is experimental.
+The current default is 'true'.
+
+> Task :core:data:preBuild UP-TO-DATE
+> Task :core:network:preBuild UP-TO-DATE
+> Task :feature:weather:preBuild UP-TO-DATE
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :core:data:preDebugBuild UP-TO-DATE
+> Task :core:model:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :core:network:preDebugBuild UP-TO-DATE
+> Task :feature:weather:preDebugBuild UP-TO-DATE
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :core:data:processDebugNavigationResources UP-TO-DATE
+> Task :feature:weather:processDebugNavigationResources UP-TO-DATE
+> Task :feature:weather:generateDebugResources UP-TO-DATE
+> Task :core:network:processDebugNavigationResources UP-TO-DATE
+> Task :core:model:compileKotlin NO-SOURCE
+> Task :core:data:generateDebugResources UP-TO-DATE
+> Task :app:generateDebugBuildConfig UP-TO-DATE
+> Task :core:data:packageDebugResources UP-TO-DATE
+> Task :app:generateDebugResources UP-TO-DATE
+> Task :core:model:compileJava NO-SOURCE
+> Task :app:packageDebugResources UP-TO-DATE
+> Task :core:network:generateDebugResources UP-TO-DATE
+> Task :feature:weather:packageDebugResources UP-TO-DATE
+> Task :core:model:processResources NO-SOURCE
+> Task :core:model:classes UP-TO-DATE
+> Task :core:model:jar UP-TO-DATE
+> Task :core:network:packageDebugResources UP-TO-DATE
+> Task :core:data:parseDebugLocalResources UP-TO-DATE
+> Task :core:data:generateDebugRFile UP-TO-DATE
+> Task :feature:weather:parseDebugLocalResources UP-TO-DATE
+> Task :feature:weather:generateDebugRFile UP-TO-DATE
+> Task :core:network:parseDebugLocalResources UP-TO-DATE
+> Task :core:network:generateDebugRFile UP-TO-DATE
+> Task :feature:weather:javaPreCompileDebug UP-TO-DATE
+> Task :core:data:javaPreCompileDebug UP-TO-DATE
+> Task :core:network:kspDebugKotlin NO-SOURCE
+> Task :feature:weather:generateDebugAssets UP-TO-DATE
+> Task :core:data:generateDebugAssets UP-TO-DATE
+> Task :core:data:mergeDebugAssets UP-TO-DATE
+> Task :feature:weather:mergeDebugAssets UP-TO-DATE
+> Task :feature:weather:writeDebugAarMetadata UP-TO-DATE
+> Task :core:data:writeDebugAarMetadata UP-TO-DATE
+> Task :feature:weather:extractDeepLinksDebug UP-TO-DATE
+> Task :core:data:extractDeepLinksDebug UP-TO-DATE
+> Task :feature:weather:processDebugManifest UP-TO-DATE
+> Task :core:data:processDebugManifest UP-TO-DATE
+> Task :feature:weather:mapDebugSourceSetPaths UP-TO-DATE
+> Task :core:data:mapDebugSourceSetPaths UP-TO-DATE
+> Task :feature:weather:compileDebugLibraryResources UP-TO-DATE
+> Task :core:data:compileDebugLibraryResources UP-TO-DATE
+> Task :feature:weather:mergeDebugJniLibFolders UP-TO-DATE
+> Task :core:data:mergeDebugJniLibFolders UP-TO-DATE
+> Task :core:data:mergeDebugNativeLibs NO-SOURCE
+> Task :feature:weather:mergeDebugNativeLibs NO-SOURCE
+> Task :core:data:copyDebugJniLibsProjectOnly UP-TO-DATE
+> Task :feature:weather:copyDebugJniLibsProjectOnly UP-TO-DATE
+> Task :core:network:compileDebugKotlin NO-SOURCE
+> Task :core:network:javaPreCompileDebug UP-TO-DATE
+> Task :core:network:compileDebugJavaWithJavac NO-SOURCE
+> Task :core:network:transformDebugClassesWithAsm UP-TO-DATE
+> Task :core:network:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :core:network:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :core:network:generateDebugAssets UP-TO-DATE
+> Task :core:network:mergeDebugAssets UP-TO-DATE
+> Task :core:data:kspDebugKotlin NO-SOURCE
+> Task :core:network:processDebugJavaRes NO-SOURCE
+> Task :core:network:bundleLibRuntimeToDirDebug UP-TO-DATE
+> Task :core:network:writeDebugAarMetadata UP-TO-DATE
+> Task :core:network:extractDeepLinksDebug UP-TO-DATE
+> Task :core:network:processDebugManifest UP-TO-DATE
+> Task :core:data:compileDebugKotlin NO-SOURCE
+> Task :core:network:mapDebugSourceSetPaths UP-TO-DATE
+> Task :core:network:compileDebugLibraryResources UP-TO-DATE
+> Task :core:data:compileDebugJavaWithJavac NO-SOURCE
+> Task :core:network:mergeDebugJniLibFolders UP-TO-DATE
+> Task :core:network:mergeDebugNativeLibs NO-SOURCE
+> Task :core:network:copyDebugJniLibsProjectOnly UP-TO-DATE
+> Task :core:data:transformDebugClassesWithAsm UP-TO-DATE
+> Task :core:data:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :core:data:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :core:data:processDebugJavaRes NO-SOURCE
+> Task :core:data:bundleLibRuntimeToDirDebug UP-TO-DATE
+> Task :feature:weather:kspDebugKotlin NO-SOURCE
+> Task :feature:weather:compileDebugKotlin NO-SOURCE
+> Task :feature:weather:compileDebugJavaWithJavac NO-SOURCE
+> Task :feature:weather:transformDebugClassesWithAsm UP-TO-DATE
+> Task :feature:weather:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :feature:weather:processDebugJavaRes NO-SOURCE
+> Task :feature:weather:bundleLibRuntimeToDirDebug UP-TO-DATE
+> Task :feature:weather:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :app:processDebugNavigationResources UP-TO-DATE
+> Task :app:parseDebugLocalResources UP-TO-DATE
+> Task :app:generateDebugRFile UP-TO-DATE
+> Task :app:kspDebugKotlin UP-TO-DATE
+> Task :app:compileDebugKotlin UP-TO-DATE
+> Task :app:javaPreCompileDebug UP-TO-DATE
+> Task :app:compileDebugJavaWithJavac UP-TO-DATE
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :app:mergeDebugAssets UP-TO-DATE
+> Task :app:compressDebugAssets UP-TO-DATE
+> Task :app:processDebugJavaRes UP-TO-DATE
+> Task :app:mergeDebugJavaResource UP-TO-DATE
+> Task :app:checkDebugDuplicateClasses UP-TO-DATE
+> Task :app:desugarDebugFileDependencies UP-TO-DATE
+> Task :app:mergeExtDexDebug UP-TO-DATE
+> Task :app:mergeLibDexDebug UP-TO-DATE
+> Task :app:hiltSyncDebug UP-TO-DATE
+> Task :app:hiltAggregateDepsDebug UP-TO-DATE
+> Task :app:hiltJavaCompileDebug UP-TO-DATE
+> Task :app:checkDebugAarMetadata UP-TO-DATE
+> Task :app:mapDebugSourceSetPaths UP-TO-DATE
+> Task :app:compileDebugNavigationResources UP-TO-DATE
+> Task :app:mergeDebugResources UP-TO-DATE
+> Task :app:createDebugCompatibleScreenManifests UP-TO-DATE
+> Task :app:extractDeepLinksDebug UP-TO-DATE
+> Task :app:processDebugMainManifest UP-TO-DATE
+> Task :app:processDebugManifest UP-TO-DATE
+> Task :app:processDebugManifestForPackage UP-TO-DATE
+> Task :app:processDebugResources UP-TO-DATE
+> Task :app:transformDebugClassesWithAsm UP-TO-DATE
+> Task :app:dexBuilderDebug UP-TO-DATE
+> Task :app:mergeProjectDexDebug UP-TO-DATE
+> Task :app:mergeDebugJniLibFolders UP-TO-DATE
+> Task :app:mergeDebugNativeLibs UP-TO-DATE
+> Task :app:stripDebugDebugSymbols UP-TO-DATE
+> Task :app:validateSigningDebug UP-TO-DATE
+> Task :app:writeDebugAppMetadata UP-TO-DATE
+> Task :app:writeDebugSigningConfigVersions UP-TO-DATE
+> Task :app:packageDebug UP-TO-DATE
+> Task :app:createDebugApkListingFileRedirect UP-TO-DATE
+> Task :app:assembleDebug UP-TO-DATE
+
+BUILD SUCCESSFUL in 4s
+96 actionable tasks: 96 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.3.1/userguide/configuration_cache_enabling.html
