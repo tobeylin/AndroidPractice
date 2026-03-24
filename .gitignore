@@ -1,15 +1,51 @@
-*.iml
-.gradle
-/local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
-.DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
+# Built application files
+*.apk
+*.aab
+*.ap_
+*.dex
+
+# Compiled files
+*.class
+
+# Generated files
+bin/
+gen/
+out/
+
+# Gradle
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# Local configuration (contains SDK path, secrets)
 local.properties
+
+# Android Studio / IntelliJ IDEA
+.idea/
+!.idea/.gitignore
+*.iml
+
+# Native build
+.externalNativeBuild/
+.cxx/
+
+# Profiler & debug
+*.hprof
+/captures
+
+# Signing keys
+*.keystore
+*.jks
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs & temp
+*.log
+*.tmp
+*.bak
+*.swp
+
+# Native libraries (uncomment if not intentionally committed)
+# *.so
