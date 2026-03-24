@@ -63,4 +63,52 @@ class WeatherViewModelTest {
         val state = viewModel.uiState.value
         assertTrue(state is WeatherUiState.Error)
     }
+
+    @Test
+    fun forecast_initial_state_is_loading() {
+        val pausedDispatcher = StandardTestDispatcher()
+        Dispatchers.setMain(pausedDispatcher)
+        try {
+            val viewModel = WeatherViewModel(fakeWeatherRepository, fakeCityRepository)
+            assertEquals(ForecastUiState.Loading, viewModel.forecastUiState.value)
+        } finally {
+            Dispatchers.resetMain()
+        }
+    }
+
+    @Test
+    fun when_forecast_loads_successfully_state_is_success() {
+        val viewModel = WeatherViewModel(fakeWeatherRepository, fakeCityRepository)
+
+        val state = viewModel.forecastUiState.value
+        assertTrue(state is ForecastUiState.Success)
+
+        val success = state as ForecastUiState.Success
+        assertEquals(2, success.items.size)
+        assertEquals("Tue", success.items[0].dayOfWeek)
+        assertEquals("30°", success.items[0].tempMax)
+        assertEquals("27°", success.items[0].tempMin)
+        assertEquals("Wed", success.items[1].dayOfWeek)
+        assertEquals("Rain", success.items[1].condition)
+    }
+
+    @Test
+    fun when_forecast_load_fails_state_is_error() {
+        fakeWeatherRepository.shouldThrowForecastError = true
+
+        val viewModel = WeatherViewModel(fakeWeatherRepository, fakeCityRepository)
+
+        val state = viewModel.forecastUiState.value
+        assertTrue(state is ForecastUiState.Error)
+    }
+
+    @Test
+    fun when_forecast_fails_current_weather_still_loads() {
+        fakeWeatherRepository.shouldThrowForecastError = true
+
+        val viewModel = WeatherViewModel(fakeWeatherRepository, fakeCityRepository)
+
+        assertTrue(viewModel.uiState.value is WeatherUiState.Success)
+        assertTrue(viewModel.forecastUiState.value is ForecastUiState.Error)
+    }
 }
