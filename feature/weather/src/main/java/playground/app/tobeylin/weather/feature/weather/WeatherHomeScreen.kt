@@ -112,7 +112,7 @@ private fun WeatherHomeScreenPreview() {
         windDirection = "NW",
         dewPoint = 14.0,
     )
-    Column(modifier = Modifier.padding(16.dp)) {
+    Column(modifier = Modifier.verticalScroll(rememberScrollState()).padding(16.dp)) {
         TodayWeatherCard(uiState = state, modifier = Modifier.fillMaxWidth())
         Spacer(modifier = Modifier.height(16.dp))
         Row(
