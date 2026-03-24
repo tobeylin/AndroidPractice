@@ -1,5 +1,0 @@
-> Task :feature:weather:assembleDebug UP-TO-DATE
-
-BUILD SUCCESSFUL in 2s
-43 actionable tasks: 43 up-to-date
-Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.3.1/userguide/configuration_cache_enabling.html

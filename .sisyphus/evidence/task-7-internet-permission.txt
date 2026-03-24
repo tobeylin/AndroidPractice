@@ -1,5 +1,0 @@
-5:    <uses-permission android:name="android.permission.INTERNET" />
-8:        android:name=".WeatherApplication"
-18:            android:name=".MainActivity"
-21:                <action android:name="android.intent.action.MAIN" />
-23:                <category android:name="android.intent.category.LAUNCHER" />

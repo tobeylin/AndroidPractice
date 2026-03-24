@@ -1,3 +1,0 @@
-appcompat_exit:1
-constraint_exit:1
-material_exit:0

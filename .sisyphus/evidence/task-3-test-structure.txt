@@ -1,3 +1,0 @@
-feature/weather/src/test/java/playground/app/tobeylin/weather/feature/weather/FakeCityRepository.kt
-feature/weather/src/test/java/playground/app/tobeylin/weather/feature/weather/MainDispatcherRule.kt
-feature/weather/src/test/java/playground/app/tobeylin/weather/feature/weather/WeatherViewModelTest.kt
