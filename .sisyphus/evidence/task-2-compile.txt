@@ -1,0 +1,51 @@
+
+> Configure project :app
+WARNING: The option setting 'android.disallowKotlinSourceSets=false' is experimental.
+The current default is 'true'.
+
+> Task :feature:weather:preBuild UP-TO-DATE
+> Task :core:model:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :core:network:preBuild UP-TO-DATE
+> Task :core:data:preBuild UP-TO-DATE
+> Task :feature:weather:preDebugBuild UP-TO-DATE
+> Task :core:data:preDebugBuild UP-TO-DATE
+> Task :core:network:preDebugBuild UP-TO-DATE
+> Task :core:data:generateDebugResources UP-TO-DATE
+> Task :core:network:generateDebugResources UP-TO-DATE
+> Task :feature:weather:generateDebugResources
+> Task :core:network:packageDebugResources UP-TO-DATE
+> Task :core:network:processDebugNavigationResources UP-TO-DATE
+> Task :core:data:packageDebugResources UP-TO-DATE
+> Task :core:data:processDebugNavigationResources UP-TO-DATE
+> Task :core:network:parseDebugLocalResources UP-TO-DATE
+> Task :core:network:generateDebugRFile UP-TO-DATE
+> Task :core:data:parseDebugLocalResources UP-TO-DATE
+> Task :core:data:generateDebugRFile UP-TO-DATE
+> Task :feature:weather:packageDebugResources
+> Task :feature:weather:processDebugNavigationResources
+> Task :core:network:javaPreCompileDebug UP-TO-DATE
+> Task :core:data:javaPreCompileDebug UP-TO-DATE
+> Task :feature:weather:parseDebugLocalResources
+> Task :feature:weather:generateDebugRFile
+> Task :core:model:processResources NO-SOURCE
+> Task :core:model:compileKotlin
+> Task :core:model:compileJava NO-SOURCE
+> Task :core:model:classes UP-TO-DATE
+> Task :core:model:jar UP-TO-DATE
+> Task :core:network:kspDebugKotlin
+> Task :core:network:compileDebugKotlin UP-TO-DATE
+> Task :core:network:compileDebugJavaWithJavac UP-TO-DATE
+> Task :core:network:transformDebugClassesWithAsm
+> Task :core:network:bundleLibRuntimeToJarDebug
+> Task :core:network:bundleLibCompileToJarDebug
+> Task :core:data:kspDebugKotlin
+> Task :core:data:compileDebugKotlin
+> Task :core:data:compileDebugJavaWithJavac
+> Task :core:data:transformDebugClassesWithAsm
+> Task :core:data:bundleLibCompileToJarDebug
+> Task :feature:weather:kspDebugKotlin NO-SOURCE
+> Task :feature:weather:compileDebugKotlin NO-SOURCE
+
+BUILD SUCCESSFUL in 19s
+30 actionable tasks: 15 executed, 15 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.3.1/userguide/configuration_cache_enabling.html
