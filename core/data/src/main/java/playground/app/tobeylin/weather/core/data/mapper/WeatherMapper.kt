@@ -5,6 +5,8 @@ import playground.app.tobeylin.weather.core.network.model.NetworkCurrentWeatherR
 
 internal fun NetworkCurrentWeatherResponse.asExternalModel(): CurrentWeather = CurrentWeather(
     temperature = main.temp,
+    tempMax = main.tempMax,
+    tempMin = main.tempMin,
     feelsLike = main.feelsLike,
     humidity = main.humidity,
     windSpeed = wind.speed,

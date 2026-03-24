@@ -8,6 +8,8 @@ class FakeWeatherRepository : WeatherRepository {
 
     var currentWeatherResult: CurrentWeather = CurrentWeather(
         temperature = 28.5,
+        tempMax = 32.0,
+        tempMin = 25.0,
         feelsLike = 31.2,
         humidity = 70,
         windSpeed = 3.5,

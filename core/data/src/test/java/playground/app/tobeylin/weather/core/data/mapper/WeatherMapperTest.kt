@@ -37,6 +37,8 @@ class WeatherMapperTest {
         val result = response.asExternalModel()
 
         assertEquals(28.5, result.temperature, 0.001)
+        assertEquals(30.0, result.tempMax, 0.001)
+        assertEquals(27.0, result.tempMin, 0.001)
         assertEquals(31.2, result.feelsLike, 0.001)
         assertEquals(70, result.humidity)
         assertEquals(3.5, result.windSpeed, 0.001)
