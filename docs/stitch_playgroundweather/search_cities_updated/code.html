@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Search Locations - Weather</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-variant": "#d9dde0",
+              "tertiary-dim": "#6f4700",
+              "on-secondary-fixed": "#29434e",
+              "surface-container": "#e5e9eb",
+              "on-primary-fixed": "#000000",
+              "on-primary-container": "#002440",
+              "on-error": "#ffefee",
+              "surface-bright": "#f5f7f9",
+              "secondary-fixed-dim": "#bdd9e6",
+              "on-primary": "#ecf3ff",
+              "error-container": "#fb5151",
+              "secondary-dim": "#39535f",
+              "primary-fixed-dim": "#1c98f2",
+              "tertiary-container": "#feb64c",
+              "on-secondary-fixed-variant": "#455f6b",
+              "on-error-container": "#570008",
+              "tertiary-fixed": "#feb64c",
+              "on-primary-fixed-variant": "#002e4f",
+              "on-background": "#2c2f31",
+              "error": "#b31b25",
+              "outline-variant": "#abadaf",
+              "surface": "#f5f7f9",
+              "tertiary": "#7f5200",
+              "inverse-primary": "#289ef8",
+              "surface-container-highest": "#d9dde0",
+              "secondary": "#455f6b",
+              "secondary-container": "#cbe7f5",
+              "primary": "#005f9c",
+              "surface-tint": "#005f9c",
+              "surface-container-lowest": "#ffffff",
+              "on-tertiary-container": "#583700",
+              "on-tertiary-fixed": "#3d2500",
+              "on-surface-variant": "#595c5e",
+              "on-secondary": "#e4f5ff",
+              "on-surface": "#2c2f31",
+              "surface-dim": "#d0d5d8",
+              "primary-fixed": "#39a6ff",
+              "primary-dim": "#005388",
+              "inverse-surface": "#0b0f10",
+              "primary-container": "#39a6ff",
+              "on-secondary-container": "#3c5561",
+              "on-tertiary": "#fff0e2",
+              "outline": "#747779",
+              "background": "#f5f7f9",
+              "on-tertiary-fixed-variant": "#644000",
+              "tertiary-fixed-dim": "#eea840",
+              "inverse-on-surface": "#9a9d9f",
+              "surface-container-high": "#dfe3e6",
+              "surface-container-low": "#eef1f3",
+              "secondary-fixed": "#cbe7f5",
+              "error-dim": "#9f0519"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .tonal-transition {
+        background: linear-gradient(to bottom, var(--tw-gradient-from), transparent);
+      }
+      .glass-card {
+        backdrop-filter: blur(24px);
+        background-color: rgba(255, 255, 255, 0.7);
+      }
+      body {
+        background-color: #f5f7f9;
+        font-family: 'Inter', sans-serif;
+        color: #2c2f31;
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen">
+<!-- TopAppBar Shell (Suppressed Nav, Focus on Task) -->
+<header class="fixed top-0 w-full z-50 bg-slate-50/70 backdrop-blur-xl flex justify-between items-center px-6 py-4 w-full">
+<div class="flex items-center gap-4 w-full">
+<button class="p-2 rounded-full hover:bg-slate-200/50 transition-colors active:scale-95 duration-200 text-sky-600">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<div class="flex-1 relative group">
+<div class="absolute inset-y-0 left-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-on-surface-variant text-xl" data-icon="search">search</span>
+</div>
+<input autofocus="" class="w-full bg-surface-container-highest border-none rounded-full py-3 pl-12 pr-12 focus:ring-2 focus:ring-primary/20 focus:bg-surface-container-lowest transition-all duration-300 font-body text-on-surface placeholder-on-surface-variant/60" placeholder="Search city or airport" type="text"/>
+<button class="absolute inset-y-0 right-4 flex items-center text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="cancel">cancel</span>
+</button>
+</div>
+</div>
+</header>
+<main class="pt-24 px-6 pb-12 max-w-2xl mx-auto">
+<!-- Quick Suggestions Section -->
+<section class="mb-10">
+<h2 class="font-headline text-on-surface-variant text-sm font-semibold tracking-wider uppercase mb-6 ml-2">Popular Cities</h2>
+<div class="grid grid-cols-1 gap-4">
+<!-- London Card -->
+<div class="group cursor-pointer bg-surface-container-lowest rounded-lg p-5 flex items-center justify-between transition-all duration-300 hover:bg-surface-container-low active:scale-[0.98]">
+<div class="flex items-center gap-5">
+<div>
+<h3 class="font-headline text-xl font-bold text-on-surface">London</h3>
+<p class="font-body text-sm text-on-surface-variant">United Kingdom</p>
+</div>
+</div>
+<div class="text-right">
+<span class="font-headline text-2xl font-extrabold text-primary">14°</span>
+<div class="flex items-center gap-1 text-on-surface-variant text-xs mt-1">
+<span class="material-symbols-outlined text-sm" data-icon="cloud">cloud</span>
+<span>Overcast</span>
+</div>
+</div>
+</div>
+<!-- Tokyo Card -->
+<div class="group cursor-pointer bg-surface-container-lowest rounded-lg p-5 flex items-center justify-between transition-all duration-300 hover:bg-surface-container-low active:scale-[0.98]">
+<div class="flex items-center gap-5">
+<div>
+<h3 class="font-headline text-xl font-bold text-on-surface">Tokyo</h3>
+<p class="font-body text-sm text-on-surface-variant">Japan</p>
+</div>
+</div>
+<div class="text-right">
+<span class="font-headline text-2xl font-extrabold text-primary">22°</span>
+<div class="flex items-center gap-1 text-on-surface-variant text-xs mt-1">
+<span class="material-symbols-outlined text-sm text-tertiary" data-icon="light_mode">light_mode</span>
+<span>Clear</span>
+</div>
+</div>
+</div>
+<!-- New York Card -->
+<div class="group cursor-pointer bg-surface-container-lowest rounded-lg p-5 flex items-center justify-between transition-all duration-300 hover:bg-surface-container-low active:scale-[0.98]">
+<div class="flex items-center gap-5">
+<div>
+<h3 class="font-headline text-xl font-bold text-on-surface">New York</h3>
+<p class="font-body text-sm text-on-surface-variant">United States</p>
+</div>
+</div>
+<div class="text-right">
+<span class="font-headline text-2xl font-extrabold text-primary">18°</span>
+<div class="flex items-center gap-1 text-on-surface-variant text-xs mt-1">
+<span class="material-symbols-outlined text-sm" data-icon="partly_cloudy_day">partly_cloudy_day</span>
+<span>Partly Cloudy</span>
+</div>
+</div>
+</div>
+<!-- Paris Card -->
+<div class="group cursor-pointer bg-surface-container-lowest rounded-lg p-5 flex items-center justify-between transition-all duration-300 hover:bg-surface-container-low active:scale-[0.98]">
+<div class="flex items-center gap-5">
+<div>
+<h3 class="font-headline text-xl font-bold text-on-surface">Paris</h3>
+<p class="font-body text-sm text-on-surface-variant">France</p>
+</div>
+</div>
+<div class="text-right">
+<span class="font-headline text-2xl font-extrabold text-primary">16°</span>
+<div class="flex items-center gap-1 text-on-surface-variant text-xs mt-1">
+<span class="material-symbols-outlined text-sm" data-icon="rainy">rainy</span>
+<span>Showers</span>
+</div>
+</div>
+</div>
+<!-- Sydney Card -->
+<div class="group cursor-pointer bg-surface-container-lowest rounded-lg p-5 flex items-center justify-between transition-all duration-300 hover:bg-surface-container-low active:scale-[0.98]">
+<div class="flex items-center gap-5">
+<div>
+<h3 class="font-headline text-xl font-bold text-on-surface">Sydney</h3>
+<p class="font-body text-sm text-on-surface-variant">Australia</p>
+</div>
+</div>
+<div class="text-right">
+<span class="font-headline text-2xl font-extrabold text-primary">24°</span>
+<div class="flex items-center gap-1 text-on-surface-variant text-xs mt-1">
+<span class="material-symbols-outlined text-sm text-tertiary" data-icon="sunny">sunny</span>
+<span>Sunny</span>
+</div>
+</div>
+</div>
+<!-- Berlin Card -->
+<div class="group cursor-pointer bg-surface-container-lowest rounded-lg p-5 flex items-center justify-between transition-all duration-300 hover:bg-surface-container-low active:scale-[0.98]">
+<div class="flex items-center gap-5">
+<div>
+<h3 class="font-headline text-xl font-bold text-on-surface">Berlin</h3>
+<p class="font-body text-sm text-on-surface-variant">Germany</p>
+</div>
+</div>
+<div class="text-right">
+<span class="font-headline text-2xl font-extrabold text-primary">12°</span>
+<div class="flex items-center gap-1 text-on-surface-variant text-xs mt-1">
+<span class="material-symbols-outlined text-sm" data-icon="mist">mist</span>
+<span>Misty</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- World Map Visual Anchor -->
+</main>
+<!-- Suppressed Bottom Nav (Task-Focused Search) -->
+</body></html>
