@@ -1,12 +1,19 @@
 package playground.app.tobeylin.weather.feature.weather
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Air
+import androidx.compose.material.icons.filled.WaterDrop
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -49,6 +56,28 @@ fun WeatherHomeScreen(
                     uiState = state,
                     modifier = Modifier.fillMaxWidth(),
                 )
+
+                Spacer(modifier = Modifier.height(16.dp))
+
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(12.dp),
+                ) {
+                    WeatherMetricCard(
+                        icon = Icons.Filled.WaterDrop,
+                        label = "Humidity",
+                        value = "${state.humidity}%",
+                        subtitle = "Dew point is ${state.dewPoint.toInt()}°",
+                        modifier = Modifier.weight(1f),
+                    )
+                    WeatherMetricCard(
+                        icon = Icons.Filled.Air,
+                        label = "Wind",
+                        value = "${state.windSpeedKmh.toInt()} km/h",
+                        subtitle = if (state.windDirection.isNotEmpty()) "${state.windDirection} Direction" else "",
+                        modifier = Modifier.weight(1f),
+                    )
+                }
             }
 
             is WeatherUiState.Error -> {
