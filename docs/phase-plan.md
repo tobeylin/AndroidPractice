@@ -102,8 +102,8 @@ PlaygroundWeather/
 > **UI composable 部分可與 Phase 2 平行；ViewModel 需等 Repository interface**
 
 - 實作 `WeatherViewModel`（`@HiltViewModel`）+ `WeatherUiState` sealed interface
-- 實作城市清單畫面（`CityListScreen`）— LazyColumn + 點擊事件
-- 實作天氣詳情畫面（`WeatherDetailScreen`）— 當日天氣 + 5 日預報
+- 實作搜尋城市畫面（`SearchCitiesScreen`）— LazyColumn + 點擊事件
+- 實作天氣首頁畫面（`WeatherHomeScreen`）— 當日天氣 + 5 日預報
 - 參考 Stitch 設計稿實作 UI layout
 - 所有 composable 含 `@Preview` 函式
 - ViewModel unit tests（Loading→Success, Loading→Error state transitions）

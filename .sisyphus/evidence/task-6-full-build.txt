@@ -1,0 +1,126 @@
+
+> Configure project :app
+WARNING: The option setting 'android.disallowKotlinSourceSets=false' is experimental.
+The current default is 'true'.
+
+> Task :core:data:preBuild UP-TO-DATE
+> Task :core:model:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :core:network:preBuild UP-TO-DATE
+> Task :feature:weather:preBuild UP-TO-DATE
+> Task :core:data:preDebugBuild UP-TO-DATE
+> Task :core:network:preDebugBuild UP-TO-DATE
+> Task :feature:weather:preDebugBuild UP-TO-DATE
+> Task :core:data:processDebugNavigationResources UP-TO-DATE
+> Task :core:network:processDebugNavigationResources UP-TO-DATE
+> Task :core:data:generateDebugResources UP-TO-DATE
+> Task :feature:weather:processDebugNavigationResources UP-TO-DATE
+> Task :core:network:generateDebugResources UP-TO-DATE
+> Task :core:data:packageDebugResources UP-TO-DATE
+> Task :feature:weather:generateDebugResources UP-TO-DATE
+> Task :feature:weather:packageDebugResources UP-TO-DATE
+> Task :core:network:packageDebugResources UP-TO-DATE
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :core:network:parseDebugLocalResources UP-TO-DATE
+> Task :core:network:generateDebugRFile UP-TO-DATE
+> Task :core:data:parseDebugLocalResources UP-TO-DATE
+> Task :core:data:generateDebugRFile UP-TO-DATE
+> Task :feature:weather:parseDebugLocalResources UP-TO-DATE
+> Task :feature:weather:generateDebugRFile UP-TO-DATE
+> Task :core:data:javaPreCompileDebug UP-TO-DATE
+> Task :core:network:javaPreCompileDebug UP-TO-DATE
+> Task :feature:weather:javaPreCompileDebug UP-TO-DATE
+> Task :core:data:generateDebugAssets UP-TO-DATE
+> Task :feature:weather:generateDebugAssets UP-TO-DATE
+> Task :feature:weather:mergeDebugAssets UP-TO-DATE
+> Task :core:data:mergeDebugAssets UP-TO-DATE
+> Task :core:network:generateDebugAssets UP-TO-DATE
+> Task :feature:weather:writeDebugAarMetadata UP-TO-DATE
+> Task :core:data:writeDebugAarMetadata UP-TO-DATE
+> Task :core:network:mergeDebugAssets UP-TO-DATE
+> Task :core:network:writeDebugAarMetadata UP-TO-DATE
+> Task :core:model:compileKotlin UP-TO-DATE
+> Task :core:model:compileJava NO-SOURCE
+> Task :core:model:processResources NO-SOURCE
+> Task :core:model:classes UP-TO-DATE
+> Task :core:model:jar UP-TO-DATE
+> Task :core:network:extractDeepLinksDebug
+> Task :core:data:extractDeepLinksDebug
+> Task :feature:weather:extractDeepLinksDebug
+> Task :core:data:processDebugManifest UP-TO-DATE
+> Task :feature:weather:processDebugManifest UP-TO-DATE
+> Task :core:data:mapDebugSourceSetPaths
+> Task :feature:weather:mapDebugSourceSetPaths
+> Task :core:model:assemble UP-TO-DATE
+> Task :core:network:kspDebugKotlin UP-TO-DATE
+> Task :app:generateDebugBuildConfig
+> Task :core:network:compileDebugKotlin UP-TO-DATE
+> Task :core:network:compileDebugJavaWithJavac UP-TO-DATE
+> Task :app:generateDebugResources
+> Task :core:network:transformDebugClassesWithAsm UP-TO-DATE
+> Task :core:network:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :core:network:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :core:network:processDebugJavaRes UP-TO-DATE
+> Task :core:network:processDebugManifest UP-TO-DATE
+> Task :core:network:mapDebugSourceSetPaths
+> Task :core:network:compileDebugLibraryResources
+> Task :core:data:compileDebugLibraryResources
+> Task :feature:weather:compileDebugLibraryResources
+> Task :core:network:mergeDebugJniLibFolders UP-TO-DATE
+> Task :core:network:mergeDebugNativeLibs NO-SOURCE
+> Task :feature:weather:mergeDebugJniLibFolders UP-TO-DATE
+> Task :feature:weather:mergeDebugNativeLibs NO-SOURCE
+> Task :app:packageDebugResources
+> Task :core:network:copyDebugJniLibsProjectOnly
+> Task :core:network:preReleaseBuild UP-TO-DATE
+> Task :feature:weather:copyDebugJniLibsProjectOnly
+> Task :feature:weather:preReleaseBuild UP-TO-DATE
+> Task :core:network:bundleLibRuntimeToDirDebug
+> Task :core:data:kspDebugKotlin UP-TO-DATE
+> Task :core:network:mergeReleaseJniLibFolders
+> Task :feature:weather:mergeReleaseJniLibFolders
+> Task :core:network:mergeReleaseNativeLibs NO-SOURCE
+> Task :core:network:copyReleaseJniLibsProjectOnly
+> Task :feature:weather:mergeReleaseNativeLibs NO-SOURCE
+> Task :feature:weather:copyReleaseJniLibsProjectOnly
+> Task :core:data:compileDebugKotlin UP-TO-DATE
+> Task :core:network:generateReleaseResources
+> Task :core:data:compileDebugJavaWithJavac UP-TO-DATE
+> Task :core:data:transformDebugClassesWithAsm UP-TO-DATE
+> Task :core:data:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :core:data:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :core:data:processDebugJavaRes UP-TO-DATE
+> Task :feature:weather:generateReleaseResources
+> Task :core:network:packageReleaseResources
+> Task :core:data:mergeDebugJniLibFolders UP-TO-DATE
+> Task :core:data:mergeDebugNativeLibs NO-SOURCE
+> Task :core:data:copyDebugJniLibsProjectOnly
+> Task :core:data:preReleaseBuild UP-TO-DATE
+> Task :core:data:mergeReleaseJniLibFolders
+
+> Task :core:model:compileTestKotlin FAILED
+e: file:///Users/tobeylin/AndroidStudioProjects/PlaygroundWeather/core/model/src/test/kotlin/playground/app/tobeylin/weather/core/model/ModelTest.kt:33:13 No value passed for parameter 'tempMax'.
+e: file:///Users/tobeylin/AndroidStudioProjects/PlaygroundWeather/core/model/src/test/kotlin/playground/app/tobeylin/weather/core/model/ModelTest.kt:33:13 No value passed for parameter 'tempMin'.
+
+> Task :core:data:mergeReleaseNativeLibs NO-SOURCE
+> Task :core:data:copyReleaseJniLibsProjectOnly
+> Task :core:data:bundleLibRuntimeToDirDebug
+> Task :app:processDebugNavigationResources
+> Task :feature:weather:kspDebugKotlin
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':core:model:compileTestKotlin'.
+> A failure occurred while executing org.jetbrains.kotlin.compilerRunner.GradleCompilerRunnerWithWorkers$GradleKotlinCompilerWorkAction
+   > Compilation error. See log for more details
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 6s
+75 actionable tasks: 29 executed, 46 up-to-date

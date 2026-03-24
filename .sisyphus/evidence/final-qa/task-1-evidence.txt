@@ -1,0 +1,32 @@
+===== TASK 1 QA: Model compiles and existing tests pass =====
+
+--- Scenario 1: Model compiles and existing tests pass ---
+
+Command 1: ./gradlew :core:model:compileDebugKotlin
+NOTE: core:model is a pure Kotlin library (no Android plugin), correct task is :core:model:compileKotlin
+Result: BUILD SUCCESSFUL (UP-TO-DATE)
+PASS ✅
+
+Command 2: ./gradlew :core:data:compileDebugKotlin
+Result: BUILD SUCCESSFUL in 872ms, 20 actionable tasks: 20 up-to-date
+PASS ✅
+
+Command 3: ./gradlew :core:data:testDebugUnitTest
+Result: BUILD SUCCESSFUL in 904ms, 36 actionable tasks: 36 up-to-date
+PASS ✅
+
+--- Scenario 2: FakeWeatherRepository has tempMax/tempMin ---
+
+Command 4: grep -n "tempMax" core/data/.../FakeWeatherRepository.kt
+Result:
+  11:        tempMax = 32.0,
+PASS ✅ (tempMax = 32.0 found)
+
+Command 5: grep -n "tempMin" core/data/.../FakeWeatherRepository.kt
+Result:
+  12:        tempMin = 25.0,
+PASS ✅ (tempMin = 25.0 found)
+
+TASK 1 VERDICT: PASS (all scenarios passed)
+NOTE: QA scenario used :core:model:compileDebugKotlin but module is pure Kotlin (no Android plugin).
+      Used :core:model:compileKotlin instead - same verification intent satisfied.

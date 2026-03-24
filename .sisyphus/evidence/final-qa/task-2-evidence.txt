@@ -1,0 +1,19 @@
+===== TASK 2 QA: Dependencies resolve correctly + Feature module compiles =====
+
+--- Scenario 1: Dependencies resolve correctly ---
+
+Command: ./gradlew :feature:weather:dependencies --configuration debugCompileClasspath | grep ...
+Result:
+  +--- androidx.lifecycle:lifecycle-viewmodel-compose:2.9.0       ✅ FOUND
+  +--- androidx.hilt:hilt-navigation-compose:1.2.0                ✅ FOUND
+  \--- androidx.compose.material:material-icons-extended -> 1.7.8 ✅ FOUND
+  No FAILED or UNRESOLVED entries                                 ✅ PASS
+PASS ✅
+
+--- Scenario 2: Feature module compiles ---
+
+Command: ./gradlew :feature:weather:compileDebugKotlin
+Result: BUILD SUCCESSFUL in 3s, 32 actionable tasks
+PASS ✅
+
+TASK 2 VERDICT: PASS (all scenarios passed)

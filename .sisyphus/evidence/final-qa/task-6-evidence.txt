@@ -1,0 +1,41 @@
+===== TASK 6 QA: Full project build + tests + Compose patterns =====
+
+--- Scenario 1: Full project builds with all changes ---
+
+Command 1: ./gradlew build
+Result: BUILD SUCCESSFUL in 17s, 395 actionable tasks
+PASS ✅
+
+Command 2: ./gradlew :feature:weather:testDebugUnitTest
+Result: BUILD SUCCESSFUL
+  WeatherViewModelTest: tests="3" skipped="0" failures="0" errors="0"
+Assert: 3 tests completed, 0 failed ✅
+
+Command 3: ./gradlew :core:data:testDebugUnitTest
+Result: BUILD SUCCESSFUL
+  DefaultWeatherRepositoryTest: tests="3" failures="0"
+  CityRepositoryTest: tests="3" failures="0"
+  ForecastAggregatorTest: tests="7" failures="0"
+  WeatherMapperTest: tests="3" failures="0"
+  Total: 16 tests, 0 failures
+Assert: All tests completed, 0 failed (regression check) ✅
+
+--- Scenario 2: WeatherHomeScreen uses correct Compose patterns ---
+
+Command 4: grep "collectAsStateWithLifecycle" .../WeatherHomeScreen.kt
+Result:
+  import androidx.lifecycle.compose.collectAsStateWithLifecycle
+  val uiState by viewModel.uiState.collectAsStateWithLifecycle()
+Assert: collectAsStateWithLifecycle found ✅
+
+Command 5: grep "hiltViewModel" .../WeatherHomeScreen.kt
+Result:
+  import androidx.hilt.navigation.compose.hiltViewModel
+  viewModel: WeatherViewModel = hiltViewModel(),
+Assert: hiltViewModel found ✅
+
+Command 6: grep -c "MainActivity" .../WeatherHomeScreen.kt
+Result: 0
+Assert: No MainActivity reference ✅
+
+TASK 6 VERDICT: PASS (all scenarios passed)
