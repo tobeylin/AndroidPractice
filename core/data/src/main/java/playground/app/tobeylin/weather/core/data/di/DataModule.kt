@@ -7,8 +7,10 @@ import dagger.hilt.components.SingletonComponent
 import playground.app.tobeylin.weather.core.data.CityRepository
 import playground.app.tobeylin.weather.core.data.DefaultCityRepository
 import playground.app.tobeylin.weather.core.data.DefaultGeocodingRepository
+import playground.app.tobeylin.weather.core.data.DefaultRecentCityRepository
 import playground.app.tobeylin.weather.core.data.DefaultWeatherRepository
 import playground.app.tobeylin.weather.core.data.GeocodingRepository
+import playground.app.tobeylin.weather.core.data.RecentCityRepository
 import playground.app.tobeylin.weather.core.data.WeatherRepository
 
 @Module
@@ -22,4 +24,7 @@ internal abstract class DataModule {
 
     @Binds
     abstract fun bindsGeocodingRepository(impl: DefaultGeocodingRepository): GeocodingRepository
+
+    @Binds
+    abstract fun bindsRecentCityRepository(impl: DefaultRecentCityRepository): RecentCityRepository
 }
