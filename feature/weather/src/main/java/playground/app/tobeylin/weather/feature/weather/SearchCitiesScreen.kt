@@ -108,11 +108,11 @@ private fun SearchCitiesScreenSuccessPreview() {
     SearchCitiesScreen(
         uiState = SearchCitiesUiState.Success(
             cities = listOf(
-                SearchCityItem("London", "United Kingdom", 51.5, -0.1, "14°", "Overcast", "04d"),
-                SearchCityItem("Tokyo", "Japan", 35.7, 139.7, "22°", "Clear", "01d"),
-                SearchCityItem("New York", "United States", 40.7, -74.0, "18°", "Partly Cloudy", "02d"),
-                SearchCityItem("Paris", "France", 48.9, 2.3, "15°", "Cloudy", "04d"),
-                SearchCityItem("Sydney", "Australia", -33.9, 151.2, "20°", "Sunny", "01d"),
+                SearchCityItem("London", "United Kingdom", 51.5, -0.1, "--", "", ""),
+                SearchCityItem("Tokyo", "Japan", 35.7, 139.7, "--", "", ""),
+                SearchCityItem("New York", "United States", 40.7, -74.0, "--", "", ""),
+                SearchCityItem("Paris", "France", 48.9, 2.3, "--", "", ""),
+                SearchCityItem("Sydney", "Australia", -33.9, 151.2, "--", "", ""),
             )
         ),
         onCityClick = {},
