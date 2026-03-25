@@ -3,6 +3,7 @@ package playground.app.tobeylin.weather.feature.weather
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -24,16 +25,29 @@ class WeatherViewModel @Inject constructor(
     private val _forecastUiState: MutableStateFlow<ForecastUiState> = MutableStateFlow(ForecastUiState.Loading)
     val forecastUiState: StateFlow<ForecastUiState> = _forecastUiState.asStateFlow()
 
+    private var currentCity: City? = null
+
+    fun retry() {
+        viewModelScope.launch { loadAll() }
+    }
+
     init {
-        viewModelScope.launch {
-            try {
-                val city = cityRepository.getCities().first()
-                launch { loadWeather(city) }
-                launch { loadForecast(city) }
-            } catch (e: Exception) {
-                _uiState.value = WeatherUiState.Error(e.message ?: "Unknown error")
-                _forecastUiState.value = ForecastUiState.Error(e.message ?: "Unknown error")
-            }
+        viewModelScope.launch { loadAll() }
+    }
+
+    private suspend fun loadAll() {
+        _uiState.value = WeatherUiState.Loading
+        _forecastUiState.value = ForecastUiState.Loading
+        val city = currentCity ?: cityRepository.getCities().firstOrNull()
+        if (city == null) {
+            _uiState.value = WeatherUiState.Error("No cities available")
+            _forecastUiState.value = ForecastUiState.Error("No cities available")
+            return
+        }
+        currentCity = city
+        coroutineScope {
+            launch { loadWeather(city) }
+            launch { loadForecast(city) }
         }
     }
 

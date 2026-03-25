@@ -111,4 +111,32 @@ class WeatherViewModelTest {
         assertTrue(viewModel.uiState.value is WeatherUiState.Success)
         assertTrue(viewModel.forecastUiState.value is ForecastUiState.Error)
     }
+
+    @Test
+    fun retry_after_error_loads_successfully() {
+        fakeWeatherRepository.shouldThrowError = true
+        val viewModel = WeatherViewModel(fakeWeatherRepository, fakeCityRepository)
+        assertTrue(viewModel.uiState.value is WeatherUiState.Error)
+
+        fakeWeatherRepository.shouldThrowError = false
+        viewModel.retry()
+        assertTrue(viewModel.uiState.value is WeatherUiState.Success)
+    }
+
+    @Test
+    fun retry_when_still_failing_stays_error() {
+        fakeWeatherRepository.shouldThrowError = true
+        val viewModel = WeatherViewModel(fakeWeatherRepository, fakeCityRepository)
+        viewModel.retry()
+        assertTrue(viewModel.uiState.value is WeatherUiState.Error)
+    }
+
+    @Test
+    fun empty_cities_list_shows_error() {
+        fakeCityRepository.fakeCities = emptyList()
+        val viewModel = WeatherViewModel(fakeWeatherRepository, fakeCityRepository)
+        assertTrue(viewModel.uiState.value is WeatherUiState.Error)
+        val error = viewModel.uiState.value as WeatherUiState.Error
+        assertTrue(error.message.isNotEmpty())
+    }
 }
