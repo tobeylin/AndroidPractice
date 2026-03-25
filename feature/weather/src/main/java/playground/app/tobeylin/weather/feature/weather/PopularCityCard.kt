@@ -1,17 +1,13 @@
 package playground.app.tobeylin.weather.feature.weather
 
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.font.FontWeight
@@ -34,10 +30,8 @@ fun PopularCityCard(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(20.dp),
-            horizontalArrangement = Arrangement.SpaceBetween,
-            verticalAlignment = Alignment.CenterVertically,
         ) {
-            Column(modifier = Modifier.weight(1f)) {
+            Column {
                 Text(
                     text = cityItem.name,
                     style = MaterialTheme.typography.titleLarge,
@@ -50,39 +44,6 @@ fun PopularCityCard(
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
-            }
-            Column(horizontalAlignment = Alignment.End) {
-                Text(
-                    text = cityItem.temperature,
-                    style = MaterialTheme.typography.headlineSmall,
-                    fontWeight = FontWeight.ExtraBold,
-                    color = MaterialTheme.colorScheme.primary,
-                    modifier = Modifier.testTag("city_temp_${cityItem.name}"),
-                )
-                Row(
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.spacedBy(4.dp),
-                ) {
-                    if (cityItem.iconCode.isNotBlank()) {
-                        Icon(
-                            imageVector = weatherIconFor(cityItem.iconCode),
-                            contentDescription = null,
-                            modifier = Modifier.size(14.dp),
-                            tint = if (isWarmIcon(cityItem.iconCode)) {
-                                MaterialTheme.colorScheme.tertiary
-                            } else {
-                                MaterialTheme.colorScheme.onSurfaceVariant
-                            },
-                        )
-                    }
-                    if (cityItem.condition.isNotBlank()) {
-                        Text(
-                            text = cityItem.condition,
-                            style = MaterialTheme.typography.labelSmall,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        )
-                    }
-                }
             }
         }
     }
@@ -97,9 +58,6 @@ private fun PopularCityCardPreview() {
             country = "United Kingdom",
             latitude = 51.5074,
             longitude = -0.1278,
-            temperature = "--",
-            condition = "",
-            iconCode = "",
         ),
         onClick = {},
     )
@@ -114,9 +72,6 @@ private fun PopularCityCardSunnyPreview() {
             country = "Japan",
             latitude = 35.6895,
             longitude = 139.6917,
-            temperature = "22°",
-            condition = "Clear",
-            iconCode = "01d",
         ),
         onClick = {},
     )

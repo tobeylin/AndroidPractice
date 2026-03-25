@@ -29,7 +29,7 @@ fun SearchCitiesRoute(
     modifier: Modifier = Modifier,
     viewModel: SearchCitiesViewModel = hiltViewModel(),
 ) {
-    val uiState by viewModel.uiState.collectAsStateWithLifecycle()
+    val uiState by viewModel.recentCitiesUiState.collectAsStateWithLifecycle()
     SearchCitiesScreen(
         uiState = uiState,
         onCityClick = onCityClick,
@@ -39,12 +39,12 @@ fun SearchCitiesRoute(
 
 @Composable
 fun SearchCitiesScreen(
-    uiState: SearchCitiesUiState,
+    uiState: RecentCitiesUiState,
     onCityClick: (City) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     when (uiState) {
-        is SearchCitiesUiState.Loading -> {
+        is RecentCitiesUiState.Loading -> {
             Box(
                 modifier = modifier.fillMaxSize(),
                 contentAlignment = Alignment.Center,
@@ -52,19 +52,19 @@ fun SearchCitiesScreen(
                 CircularProgressIndicator()
             }
         }
-        is SearchCitiesUiState.Error -> {
+        is RecentCitiesUiState.Empty -> {
             Box(
                 modifier = modifier.fillMaxSize(),
                 contentAlignment = Alignment.Center,
             ) {
                 Text(
-                    text = uiState.message,
-                    color = MaterialTheme.colorScheme.error,
+                    text = "No recent cities",
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
                     style = MaterialTheme.typography.bodyLarge,
                 )
             }
         }
-        is SearchCitiesUiState.Success -> {
+        is RecentCitiesUiState.Success -> {
             LazyColumn(
                 modifier = modifier
                     .fillMaxSize()
@@ -106,13 +106,13 @@ fun SearchCitiesScreen(
 @Composable
 private fun SearchCitiesScreenSuccessPreview() {
     SearchCitiesScreen(
-        uiState = SearchCitiesUiState.Success(
+        uiState = RecentCitiesUiState.Success(
             cities = listOf(
-                SearchCityItem("London", "United Kingdom", 51.5, -0.1, "--", "", ""),
-                SearchCityItem("Tokyo", "Japan", 35.7, 139.7, "--", "", ""),
-                SearchCityItem("New York", "United States", 40.7, -74.0, "--", "", ""),
-                SearchCityItem("Paris", "France", 48.9, 2.3, "--", "", ""),
-                SearchCityItem("Sydney", "Australia", -33.9, 151.2, "--", "", ""),
+                SearchCityItem("London", "United Kingdom", 51.5, -0.1),
+                SearchCityItem("Tokyo", "Japan", 35.7, 139.7),
+                SearchCityItem("New York", "United States", 40.7, -74.0),
+                SearchCityItem("Paris", "France", 48.9, 2.3),
+                SearchCityItem("Sydney", "Australia", -33.9, 151.2),
             )
         ),
         onCityClick = {},
@@ -123,7 +123,7 @@ private fun SearchCitiesScreenSuccessPreview() {
 @Composable
 private fun SearchCitiesScreenLoadingPreview() {
     SearchCitiesScreen(
-        uiState = SearchCitiesUiState.Loading,
+        uiState = RecentCitiesUiState.Loading,
         onCityClick = {},
     )
 }
@@ -132,7 +132,7 @@ private fun SearchCitiesScreenLoadingPreview() {
 @Composable
 private fun SearchCitiesScreenEmptyPreview() {
     SearchCitiesScreen(
-        uiState = SearchCitiesUiState.Success(emptyList()),
+        uiState = RecentCitiesUiState.Empty,
         onCityClick = {},
     )
 }

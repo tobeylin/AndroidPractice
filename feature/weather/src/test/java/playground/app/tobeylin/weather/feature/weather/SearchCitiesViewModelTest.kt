@@ -1,15 +1,17 @@
 package playground.app.tobeylin.weather.feature.weather
 
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.test.StandardTestDispatcher
-import kotlinx.coroutines.test.resetMain
-import kotlinx.coroutines.test.setMain
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.test.advanceTimeBy
+import kotlinx.coroutines.test.runTest
 import org.junit.Assert.assertEquals
-import org.junit.Assert.assertNotEquals
 import org.junit.Assert.assertTrue
+import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
+import playground.app.tobeylin.weather.core.data.FakeRecentCityRepository
+import playground.app.tobeylin.weather.core.data.GeocodingRepository
 import playground.app.tobeylin.weather.core.model.City
 
 @OptIn(ExperimentalCoroutinesApi::class)
@@ -18,104 +20,117 @@ class SearchCitiesViewModelTest {
     @get:Rule
     val mainDispatcherRule = MainDispatcherRule()
 
-    private val fakeCityRepository = FakeCityRepository()
+    private lateinit var fakeRecentCityRepository: FakeRecentCityRepository
+    private lateinit var fakeGeocodingRepository: FakeGeocodingRepository
+    private lateinit var viewModel: SearchCitiesViewModel
 
-    @Test
-    fun initial_state_is_loading() {
-        val pausedDispatcher = StandardTestDispatcher()
-        Dispatchers.setMain(pausedDispatcher)
-        try {
-            val viewModel = SearchCitiesViewModel(fakeCityRepository)
-            assertEquals(SearchCitiesUiState.Loading, viewModel.uiState.value)
-        } finally {
-            Dispatchers.resetMain()
-        }
+    @Before
+    fun setUp() {
+        fakeRecentCityRepository = FakeRecentCityRepository()
+        fakeGeocodingRepository = FakeGeocodingRepository()
+        viewModel = SearchCitiesViewModel(fakeRecentCityRepository, fakeGeocodingRepository)
     }
 
     @Test
-    fun when_cities_load_successfully_state_is_success() {
-        fakeCityRepository.fakeCities = listOf(
-            City("Taipei", "TW", 25.033, 121.565),
-            City("Tokyo", "JP", 35.676, 139.650),
-        )
-
-        val viewModel = SearchCitiesViewModel(fakeCityRepository)
-
-        val state = viewModel.uiState.value
-        assertTrue(state is SearchCitiesUiState.Success)
-
-        val success = state as SearchCitiesUiState.Success
-        assertEquals(2, success.cities.size)
-        assertEquals("--", success.cities[0].temperature)
-        assertEquals("", success.cities[0].condition)
-        assertEquals("", success.cities[0].iconCode)
+    fun initial_recentCitiesUiState_is_loading() = runTest {
+        assertEquals(RecentCitiesUiState.Loading, viewModel.recentCitiesUiState.value)
     }
 
     @Test
-    fun all_cities_have_static_temperature_indicator() {
-        fakeCityRepository.fakeCities = listOf(
-            City("Taipei", "TW", 25.033, 121.565),
-            City("Tokyo", "JP", 35.676, 139.650),
-            City("London", "GB", 51.507, -0.128),
-        )
-
-        val viewModel = SearchCitiesViewModel(fakeCityRepository)
-
-        val state = viewModel.uiState.value
-        assertTrue(state is SearchCitiesUiState.Success)
-
-        val success = state as SearchCitiesUiState.Success
-        success.cities.forEach { city ->
-            assertEquals("--", city.temperature)
-            assertEquals("", city.condition)
-            assertEquals("", city.iconCode)
-        }
+    fun when_no_recent_cities_recentCitiesUiState_is_empty() = runTest {
+        val state = viewModel.recentCitiesUiState.first { it !is RecentCitiesUiState.Loading }
+        assertEquals(RecentCitiesUiState.Empty, state)
     }
 
     @Test
-    fun city_country_codes_are_converted_to_display_names() {
-        fakeCityRepository.fakeCities = listOf(
-            City("London", "GB", 51.507, -0.128),
-        )
-
-        val viewModel = SearchCitiesViewModel(fakeCityRepository)
-
-        val state = viewModel.uiState.value
-        assertTrue(state is SearchCitiesUiState.Success)
-
-        val success = state as SearchCitiesUiState.Success
-        val city = success.cities[0]
-        assertTrue(city.country.isNotEmpty())
-        assertNotEquals("GB", city.country)
+    fun when_recent_cities_exist_recentCitiesUiState_is_success() = runTest {
+        fakeRecentCityRepository.saveRecentCity(City("London", "GB", 51.5085, -0.1257))
+        val state = viewModel.recentCitiesUiState.first { it is RecentCitiesUiState.Success }
+        val success = state as RecentCitiesUiState.Success
+        assertEquals(1, success.cities.size)
+        assertEquals("London", success.cities[0].name)
+        assertEquals("GB", success.cities[0].country)
     }
 
     @Test
-    fun when_cities_list_is_empty_state_is_success_with_empty_list() {
-        fakeCityRepository.fakeCities = emptyList()
-
-        val viewModel = SearchCitiesViewModel(fakeCityRepository)
-
-        val state = viewModel.uiState.value
-        assertTrue(state is SearchCitiesUiState.Success)
-
-        val success = state as SearchCitiesUiState.Success
-        assertTrue(success.cities.isEmpty())
+    fun initial_searchResultsUiState_is_idle() = runTest {
+        val state = viewModel.searchResultsUiState.value
+        assertEquals(SearchResultsUiState.Idle, state)
     }
 
     @Test
-    fun cities_preserve_latitude_and_longitude() {
-        fakeCityRepository.fakeCities = listOf(
-            City("Tokyo", "JP", 35.676, 139.650),
-        )
+    fun after_debounce_query_returns_search_results() = runTest {
+        val collectionJob = launch { viewModel.searchResultsUiState.collect {} }
+        fakeGeocodingRepository.results = listOf(City("London", "GB", 51.5085, -0.1257))
+        viewModel.onSearchQueryChange("London")
+        advanceTimeBy(400)
+        val state = viewModel.searchResultsUiState.value
+        assertTrue(state is SearchResultsUiState.Success)
+        val success = state as SearchResultsUiState.Success
+        assertEquals(1, success.cities.size)
+        assertEquals("London", success.cities[0].name)
+        collectionJob.cancel()
+    }
 
-        val viewModel = SearchCitiesViewModel(fakeCityRepository)
+    @Test
+    fun clear_search_resets_searchResultsUiState_to_idle() = runTest {
+        val collectionJob = launch { viewModel.searchResultsUiState.collect {} }
+        fakeGeocodingRepository.results = listOf(City("London", "GB", 51.5085, -0.1257))
+        viewModel.onSearchQueryChange("London")
+        advanceTimeBy(400)
+        assertTrue(viewModel.searchResultsUiState.value is SearchResultsUiState.Success)
+        viewModel.onClearSearch()
+        advanceTimeBy(400)
+        assertEquals(SearchResultsUiState.Idle, viewModel.searchResultsUiState.value)
+        collectionJob.cancel()
+    }
 
-        val state = viewModel.uiState.value
-        assertTrue(state is SearchCitiesUiState.Success)
+    @Test
+    fun when_search_returns_empty_state_is_empty() = runTest {
+        val collectionJob = launch { viewModel.searchResultsUiState.collect {} }
+        fakeGeocodingRepository.results = emptyList()
+        viewModel.onSearchQueryChange("Unknown City XYZ")
+        advanceTimeBy(400)
+        val state = viewModel.searchResultsUiState.value
+        assertTrue(state is SearchResultsUiState.Empty)
+        collectionJob.cancel()
+    }
 
-        val success = state as SearchCitiesUiState.Success
-        val city = success.cities[0]
-        assertEquals(35.676, city.latitude, 0.001)
-        assertEquals(139.650, city.longitude, 0.001)
+    @Test
+    fun when_geocoding_throws_error_state_is_error() = runTest {
+        val collectionJob = launch { viewModel.searchResultsUiState.collect {} }
+        fakeGeocodingRepository.shouldThrow = true
+        viewModel.onSearchQueryChange("London")
+        advanceTimeBy(400)
+        val state = viewModel.searchResultsUiState.value
+        assertTrue(state is SearchResultsUiState.Error)
+        collectionJob.cancel()
+    }
+
+    @Test
+    fun rapid_queries_debounced_to_single_call() = runTest {
+        val collectionJob = launch { viewModel.searchResultsUiState.collect {} }
+        fakeGeocodingRepository.results = listOf(City("London", "GB", 51.5085, -0.1257))
+        viewModel.onSearchQueryChange("L")
+        viewModel.onSearchQueryChange("Lo")
+        viewModel.onSearchQueryChange("Lon")
+        viewModel.onSearchQueryChange("Lond")
+        viewModel.onSearchQueryChange("Londo")
+        viewModel.onSearchQueryChange("London")
+        advanceTimeBy(400)
+        assertEquals(1, fakeGeocodingRepository.callCount)
+        collectionJob.cancel()
+    }
+}
+
+private class FakeGeocodingRepository : GeocodingRepository {
+    var results: List<City> = emptyList()
+    var shouldThrow = false
+    var callCount = 0
+
+    override suspend fun searchCities(query: String): List<City> {
+        callCount++
+        if (shouldThrow) throw RuntimeException("Network error")
+        return results
     }
 }

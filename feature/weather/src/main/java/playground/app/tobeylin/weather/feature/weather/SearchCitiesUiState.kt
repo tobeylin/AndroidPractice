@@ -5,13 +5,18 @@ data class SearchCityItem(
     val country: String,
     val latitude: Double,
     val longitude: Double,
-    val temperature: String,
-    val condition: String,
-    val iconCode: String,
 )
 
-sealed interface SearchCitiesUiState {
-    data object Loading : SearchCitiesUiState
-    data class Success(val cities: List<SearchCityItem>) : SearchCitiesUiState
-    data class Error(val message: String) : SearchCitiesUiState
+sealed interface RecentCitiesUiState {
+    data object Loading : RecentCitiesUiState
+    data class Success(val cities: List<SearchCityItem>) : RecentCitiesUiState
+    data object Empty : RecentCitiesUiState
+}
+
+sealed interface SearchResultsUiState {
+    data object Idle : SearchResultsUiState
+    data object Loading : SearchResultsUiState
+    data class Success(val cities: List<SearchCityItem>) : SearchResultsUiState
+    data class Empty(val query: String) : SearchResultsUiState
+    data class Error(val message: String) : SearchResultsUiState
 }
