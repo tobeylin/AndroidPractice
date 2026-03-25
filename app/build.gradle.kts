@@ -1,8 +1,15 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.hilt)
     alias(libs.plugins.ksp)
+}
+
+val localProperties = Properties().also { props ->
+    val localPropsFile = rootProject.file("local.properties")
+    if (localPropsFile.exists()) props.load(localPropsFile.inputStream())
 }
 
 android {
@@ -22,7 +29,9 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
-        val weatherApiKey: String = project.findProperty("WEATHER_API_KEY") as? String ?: ""
+        val weatherApiKey: String = localProperties.getProperty("WEATHER_API_KEY")
+            ?: project.findProperty("WEATHER_API_KEY") as? String
+            ?: ""
         buildConfigField("String", "WEATHER_API_KEY", "\"$weatherApiKey\"")
     }
 
