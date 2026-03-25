@@ -28,4 +28,5 @@ include(":feature:weather")
 include(":core:data")
 include(":core:model")
 include(":core:network")
+include(":core:database")
  
