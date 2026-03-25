@@ -63,21 +63,25 @@ fun PopularCityCard(
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.spacedBy(4.dp),
                 ) {
-                    Icon(
-                        imageVector = weatherIconFor(cityItem.iconCode),
-                        contentDescription = null,
-                        modifier = Modifier.size(14.dp),
-                        tint = if (isWarmIcon(cityItem.iconCode)) {
-                            MaterialTheme.colorScheme.tertiary
-                        } else {
-                            MaterialTheme.colorScheme.onSurfaceVariant
-                        },
-                    )
-                    Text(
-                        text = cityItem.condition,
-                        style = MaterialTheme.typography.labelSmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    )
+                    if (cityItem.iconCode.isNotBlank()) {
+                        Icon(
+                            imageVector = weatherIconFor(cityItem.iconCode),
+                            contentDescription = null,
+                            modifier = Modifier.size(14.dp),
+                            tint = if (isWarmIcon(cityItem.iconCode)) {
+                                MaterialTheme.colorScheme.tertiary
+                            } else {
+                                MaterialTheme.colorScheme.onSurfaceVariant
+                            },
+                        )
+                    }
+                    if (cityItem.condition.isNotBlank()) {
+                        Text(
+                            text = cityItem.condition,
+                            style = MaterialTheme.typography.labelSmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        )
+                    }
                 }
             }
         }
@@ -93,9 +97,9 @@ private fun PopularCityCardPreview() {
             country = "United Kingdom",
             latitude = 51.5074,
             longitude = -0.1278,
-            temperature = "14°",
-            condition = "Overcast",
-            iconCode = "04d",
+            temperature = "--",
+            condition = "",
+            iconCode = "",
         ),
         onClick = {},
     )

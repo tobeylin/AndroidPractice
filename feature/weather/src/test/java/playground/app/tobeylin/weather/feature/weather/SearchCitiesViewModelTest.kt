@@ -46,6 +46,30 @@ class SearchCitiesViewModelTest {
 
         val success = state as SearchCitiesUiState.Success
         assertEquals(2, success.cities.size)
+        assertEquals("--", success.cities[0].temperature)
+        assertEquals("", success.cities[0].condition)
+        assertEquals("", success.cities[0].iconCode)
+    }
+
+    @Test
+    fun all_cities_have_static_temperature_indicator() {
+        fakeCityRepository.fakeCities = listOf(
+            City("Taipei", "TW", 25.033, 121.565),
+            City("Tokyo", "JP", 35.676, 139.650),
+            City("London", "GB", 51.507, -0.128),
+        )
+
+        val viewModel = SearchCitiesViewModel(fakeCityRepository)
+
+        val state = viewModel.uiState.value
+        assertTrue(state is SearchCitiesUiState.Success)
+
+        val success = state as SearchCitiesUiState.Success
+        success.cities.forEach { city ->
+            assertEquals("--", city.temperature)
+            assertEquals("", city.condition)
+            assertEquals("", city.iconCode)
+        }
     }
 
     @Test
