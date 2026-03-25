@@ -9,6 +9,7 @@ import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import playground.app.tobeylin.weather.core.network.ApiKeyInterceptor
+import playground.app.tobeylin.weather.core.network.GeocodingApi
 import playground.app.tobeylin.weather.core.network.WeatherApi
 import retrofit2.Retrofit
 import retrofit2.converter.kotlinx.serialization.asConverterFactory
@@ -53,4 +54,9 @@ internal object NetworkModule {
     @Singleton
     fun providesWeatherApi(retrofit: Retrofit): WeatherApi =
         retrofit.create(WeatherApi::class.java)
+
+    @Provides
+    @Singleton
+    fun providesGeocodingApi(retrofit: Retrofit): GeocodingApi =
+        retrofit.create(GeocodingApi::class.java)
 }
