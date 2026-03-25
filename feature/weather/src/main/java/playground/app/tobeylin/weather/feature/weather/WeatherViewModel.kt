@@ -10,6 +10,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import playground.app.tobeylin.weather.core.data.CityRepository
+import playground.app.tobeylin.weather.core.data.RecentCityRepository
 import playground.app.tobeylin.weather.core.data.WeatherRepository
 import playground.app.tobeylin.weather.core.model.City
 import javax.inject.Inject
@@ -18,6 +19,7 @@ import javax.inject.Inject
 class WeatherViewModel @Inject constructor(
     private val weatherRepository: WeatherRepository,
     private val cityRepository: CityRepository,
+    private val recentCityRepository: RecentCityRepository,
 ) : ViewModel() {
 
     private val _uiState: MutableStateFlow<WeatherUiState> = MutableStateFlow(WeatherUiState.Loading)
@@ -32,6 +34,7 @@ class WeatherViewModel @Inject constructor(
     fun loadCity(city: City) {
         loadJob?.cancel()
         currentCity = city
+        viewModelScope.launch { recentCityRepository.saveRecentCity(city) }
         loadJob = viewModelScope.launch { loadAll() }
     }
 
@@ -43,7 +46,7 @@ class WeatherViewModel @Inject constructor(
     private suspend fun loadAll() {
         _uiState.value = WeatherUiState.Loading
         _forecastUiState.value = ForecastUiState.Loading
-        val city = currentCity ?: cityRepository.getCities().firstOrNull()
+        val city = currentCity
         if (city == null) {
             _uiState.value = WeatherUiState.Error("No cities available")
             _forecastUiState.value = ForecastUiState.Error("No cities available")

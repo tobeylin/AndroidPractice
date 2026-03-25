@@ -2,10 +2,13 @@ package playground.app.tobeylin.weather.feature.weather
 
 import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.test.runTest
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
 import org.junit.Rule
 import org.junit.Test
+import playground.app.tobeylin.weather.core.data.FakeRecentCityRepository
 import playground.app.tobeylin.weather.core.data.FakeWeatherRepository
 import playground.app.tobeylin.weather.core.data.WeatherRepository
 import playground.app.tobeylin.weather.core.model.City
@@ -20,10 +23,11 @@ class WeatherViewModelTest {
 
     private val fakeWeatherRepository = FakeWeatherRepository()
     private val fakeCityRepository = FakeCityRepository()
+    private val fakeRecentCityRepository = FakeRecentCityRepository()
     private val defaultCity = City(name = "Taipei", country = "TW", latitude = 25.033, longitude = 121.565)
 
     private fun createViewModel(weatherRepository: WeatherRepository = fakeWeatherRepository): WeatherViewModel =
-        WeatherViewModel(weatherRepository, fakeCityRepository)
+        WeatherViewModel(weatherRepository, fakeCityRepository, fakeRecentCityRepository)
 
     @Test
     fun initial_state_is_loading() {
@@ -166,6 +170,35 @@ class WeatherViewModelTest {
 
         assertEquals(WeatherUiState.Loading, viewModel.uiState.value)
         delayableRepository.unblockRequests()
+    }
+
+    @Test
+    fun loadCity_saves_city_to_recent_history() = runTest {
+        val viewModel = createViewModel()
+        viewModel.loadCity(defaultCity)
+        val recent = fakeRecentCityRepository.getRecentCities().first()
+        assertEquals(1, recent.size)
+        assertEquals(defaultCity.name, recent[0].name)
+    }
+
+    @Test
+    fun loadCity_twice_saves_most_recent_last() = runTest {
+        val viewModel = createViewModel()
+        val tokyo = City(name = "Tokyo", country = "JP", latitude = 35.676, longitude = 139.650)
+        viewModel.loadCity(defaultCity)
+        viewModel.loadCity(tokyo)
+        val recent = fakeRecentCityRepository.getRecentCities().first()
+        assertTrue(recent.any { it.name == "Tokyo" })
+        assertTrue(recent.any { it.name == defaultCity.name })
+    }
+
+    @Test
+    fun retry_does_not_save_to_recent_again() = runTest {
+        val viewModel = createViewModel()
+        viewModel.loadCity(defaultCity)
+        viewModel.retry()
+        val recent = fakeRecentCityRepository.getRecentCities().first()
+        assertEquals(1, recent.size)
     }
 
     private class DelayableWeatherRepository(
