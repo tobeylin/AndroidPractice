@@ -12,6 +12,7 @@ import playground.app.tobeylin.weather.core.network.ApiKeyInterceptor
 import playground.app.tobeylin.weather.core.network.WeatherApi
 import retrofit2.Retrofit
 import retrofit2.converter.kotlinx.serialization.asConverterFactory
+import javax.inject.Named
 import javax.inject.Singleton
 
 @Module
@@ -27,9 +28,9 @@ internal object NetworkModule {
 
     @Provides
     @Singleton
-    fun providesOkHttpClient(): OkHttpClient =
+    fun providesOkHttpClient(@Named("apiKey") apiKey: String): OkHttpClient =
         OkHttpClient.Builder()
-            .addInterceptor(ApiKeyInterceptor(apiKey = "")) // TODO: inject real API key from :app in Phase 4
+            .addInterceptor(ApiKeyInterceptor(apiKey = apiKey))
             .addInterceptor(
                 HttpLoggingInterceptor().apply {
                     setLevel(HttpLoggingInterceptor.Level.BODY)
