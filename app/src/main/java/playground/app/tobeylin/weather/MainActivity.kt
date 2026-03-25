@@ -50,9 +50,9 @@ class MainActivity : ComponentActivity() {
                 Scaffold(
                     topBar = {
                         when (val screen = currentScreen) {
-                            is Screen.CityList -> CenterAlignedTopAppBar(
-                                title = { Text("Weather") },
-                            )
+                            is Screen.CityList -> {
+                                // No top bar — search bar is embedded in SearchCitiesScreen
+                            }
                             is Screen.WeatherDetail -> CenterAlignedTopAppBar(
                                 title = { Text(screen.city.name) },
                                 navigationIcon = {
