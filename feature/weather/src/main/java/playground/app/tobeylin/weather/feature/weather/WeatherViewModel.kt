@@ -3,6 +3,7 @@ package playground.app.tobeylin.weather.feature.weather
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -26,13 +27,17 @@ class WeatherViewModel @Inject constructor(
     val forecastUiState: StateFlow<ForecastUiState> = _forecastUiState.asStateFlow()
 
     private var currentCity: City? = null
+    private var loadJob: Job? = null
 
-    fun retry() {
-        viewModelScope.launch { loadAll() }
+    fun loadCity(city: City) {
+        loadJob?.cancel()
+        currentCity = city
+        loadJob = viewModelScope.launch { loadAll() }
     }
 
-    init {
-        viewModelScope.launch { loadAll() }
+    fun retry() {
+        loadJob?.cancel()
+        loadJob = viewModelScope.launch { loadAll() }
     }
 
     private suspend fun loadAll() {
