@@ -13,7 +13,7 @@
     <string name="weather_error_retry">重試</string>
 
     <!-- FiveDayForecastCard -->
-    <string name="forecast_five_day_title">五日天氣預報</string>
+    <string name="forecast_five_day_title">每日天氣預報</string>
 
     <!-- CitySearchBar -->
     <string name="search_placeholder">搜尋城市或機場</string>

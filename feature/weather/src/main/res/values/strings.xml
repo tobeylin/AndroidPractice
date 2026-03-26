@@ -13,7 +13,7 @@
     <string name="weather_error_retry">Try Again</string>
 
     <!-- FiveDayForecastCard -->
-    <string name="forecast_five_day_title">5-Day Forecast</string>
+    <string name="forecast_five_day_title">Daily Forecast</string>
 
     <!-- CitySearchBar -->
     <string name="search_placeholder">Search city or airport</string>
