@@ -33,6 +33,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import playground.app.tobeylin.weather.feature.weather.component.FiveDayForecastCard
+import playground.app.tobeylin.weather.feature.weather.component.SunriseSunsetCard
 import playground.app.tobeylin.weather.feature.weather.component.TodayWeatherCard
 import playground.app.tobeylin.weather.feature.weather.component.WeatherMetricCard
 import playground.app.tobeylin.weather.feature.weather.state.DailyForecastItem
@@ -96,12 +97,20 @@ fun WeatherHomeScreen(
                         value = stringResource(R.string.weather_metric_wind_value, state.windSpeedKmh.toInt()),
                         subtitle = if (state.windDirection.isNotEmpty()) stringResource(R.string.weather_metric_wind_direction, state.windDirection) else "",
                         modifier = Modifier
-                            .weight(1f)
-                            .fillMaxHeight(),
-                    )
-                }
+                        .weight(1f)
+                        .fillMaxHeight(),
+                )
+            }
 
-                val forecast = forecastState
+            Spacer(modifier = Modifier.height(16.dp))
+
+            SunriseSunsetCard(
+                sunriseTime = state.sunriseTime,
+                sunsetTime = state.sunsetTime,
+                modifier = Modifier.fillMaxWidth(),
+            )
+
+            val forecast = forecastState
                 if (forecast is ForecastUiState.Success && forecast.items.isNotEmpty()) {
                     Spacer(modifier = Modifier.height(16.dp))
                     FiveDayForecastCard(
@@ -166,6 +175,8 @@ private fun WeatherHomeScreenPreview() {
         windSpeedKmh = 12.0,
         windDirection = "NW",
         dewPoint = 14.0,
+        sunriseTime = "6:12 AM",
+        sunsetTime = "6:45 PM",
     )
     Column(modifier = Modifier.verticalScroll(rememberScrollState()).padding(16.dp)) {
         TodayWeatherCard(uiState = state, modifier = Modifier.fillMaxWidth())
@@ -195,6 +206,12 @@ private fun WeatherHomeScreenPreview() {
                     .fillMaxHeight(),
             )
         }
+        Spacer(modifier = Modifier.height(16.dp))
+        SunriseSunsetCard(
+            sunriseTime = state.sunriseTime,
+            sunsetTime = state.sunsetTime,
+            modifier = Modifier.fillMaxWidth(),
+        )
         Spacer(modifier = Modifier.height(16.dp))
         FiveDayForecastCard(
             items = listOf(
