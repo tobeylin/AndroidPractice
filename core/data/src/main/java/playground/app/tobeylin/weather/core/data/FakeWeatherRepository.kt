@@ -21,8 +21,8 @@ class FakeWeatherRepository : WeatherRepository {
     )
 
     var dailyForecastsResult: List<DailyForecast> = listOf(
-        DailyForecast(date = "2026-03-24", tempMax = 30.0, tempMin = 27.0, condition = "Clouds", iconCode = "03d"),
-        DailyForecast(date = "2026-03-25", tempMax = 25.0, tempMin = 18.0, condition = "Rain", iconCode = "10d"),
+        DailyForecast(date = "2026-03-24", tempMax = 30.0, tempMin = 27.0, condition = "Clouds", conditionDescription = "scattered clouds", iconCode = "03d"),
+        DailyForecast(date = "2026-03-25", tempMax = 25.0, tempMin = 18.0, condition = "Rain", conditionDescription = "light rain", iconCode = "10d"),
     )
 
     var shouldThrowError: Boolean = false

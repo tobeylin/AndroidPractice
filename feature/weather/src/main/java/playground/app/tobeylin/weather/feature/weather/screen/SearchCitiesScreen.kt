@@ -21,6 +21,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -35,6 +36,7 @@ import playground.app.tobeylin.weather.feature.weather.state.RecentCitiesUiState
 import playground.app.tobeylin.weather.feature.weather.state.SearchCityItem
 import playground.app.tobeylin.weather.feature.weather.state.SearchResultsUiState
 import playground.app.tobeylin.weather.feature.weather.viewmodel.SearchCitiesViewModel
+import playground.app.tobeylin.weather.feature.weather.R
 
 @Composable
 fun SearchCitiesRoute(
@@ -100,7 +102,7 @@ fun SearchCitiesScreen(
                     ) {
                         item {
                             Text(
-                                text = "SEARCH RESULTS",
+                                text = stringResource(R.string.search_results_header),
                                 style = MaterialTheme.typography.labelSmall,
                                 fontWeight = FontWeight.SemiBold,
                                 letterSpacing = 1.sp,
@@ -133,7 +135,7 @@ fun SearchCitiesScreen(
                         contentAlignment = Alignment.Center,
                     ) {
                         Text(
-                            text = "No results found for \"${searchResultsUiState.query}\"",
+                            text = stringResource(R.string.search_no_results, searchResultsUiState.query),
                             style = MaterialTheme.typography.bodyLarge,
                             color = MaterialTheme.colorScheme.onSurfaceVariant,
                             textAlign = TextAlign.Center,
@@ -180,13 +182,13 @@ fun SearchCitiesScreen(
                                 .padding(bottom = 16.dp),
                         )
                         Text(
-                            text = "No recently viewed locations",
+                            text = stringResource(R.string.recent_cities_empty_title),
                             style = MaterialTheme.typography.titleMedium,
                             color = MaterialTheme.colorScheme.onSurfaceVariant,
                             textAlign = TextAlign.Center,
                         )
                         Text(
-                            text = "Search for a city to get started",
+                            text = stringResource(R.string.recent_cities_empty_subtitle),
                             style = MaterialTheme.typography.bodyMedium,
                             color = MaterialTheme.colorScheme.onSurfaceVariant,
                             textAlign = TextAlign.Center,
@@ -203,7 +205,7 @@ fun SearchCitiesScreen(
                     ) {
                         item {
                             Text(
-                                text = "RECENTLY VIEWED",
+                                text = stringResource(R.string.recent_cities_header),
                                 style = MaterialTheme.typography.labelSmall,
                                 fontWeight = FontWeight.SemiBold,
                                 letterSpacing = 1.sp,

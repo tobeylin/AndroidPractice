@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- WeatherHomeScreen — metric cards -->
+    <string name="weather_metric_humidity">Humidity</string>
+    <string name="weather_metric_wind">Wind</string>
+    <string name="weather_metric_dew_point">Dew point is %1$d°</string>
+    <string name="weather_metric_wind_direction">%1$s Direction</string>
+    <string name="weather_metric_wind_value">%1$d km/h</string>
+
+    <!-- WeatherHomeScreen — error state -->
+    <string name="weather_error_title">Unable to load weather data</string>
+    <string name="weather_error_message">Please check your connection and try again.</string>
+    <string name="weather_error_retry">Try Again</string>
+
+    <!-- FiveDayForecastCard -->
+    <string name="forecast_five_day_title">5-Day Forecast</string>
+
+    <!-- CitySearchBar -->
+    <string name="search_placeholder">Search city or airport</string>
+    <string name="search_icon_description">Search</string>
+    <string name="search_clear_description">Clear</string>
+
+    <!-- SearchCitiesScreen -->
+    <string name="search_results_header">SEARCH RESULTS</string>
+    <string name="search_no_results">No results found for \"%1$s\"</string>
+    <string name="recent_cities_header">RECENTLY VIEWED</string>
+    <string name="recent_cities_empty_title">No recently viewed locations</string>
+    <string name="recent_cities_empty_subtitle">Search for a city to get started</string>
+</resources>

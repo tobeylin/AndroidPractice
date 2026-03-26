@@ -90,19 +90,20 @@ class WeatherViewModel @Inject constructor(
         try {
             val forecasts = weatherRepository.getDailyForecasts(city.latitude, city.longitude)
             val items = forecasts.map { forecast ->
-                val inputFormat = java.text.SimpleDateFormat("yyyy-MM-dd", java.util.Locale.ENGLISH)
-                val outputFormat = java.text.SimpleDateFormat("EEE", java.util.Locale.ENGLISH)
+                val inputFormat = java.text.SimpleDateFormat("yyyy-MM-dd", java.util.Locale.ROOT)
+                val outputFormat = java.text.SimpleDateFormat("EEE", java.util.Locale.getDefault())
+                val localizedCondition = forecast.conditionDescription.replaceFirstChar { it.uppercaseChar() }
                 val date = inputFormat.parse(forecast.date) ?: return@map DailyForecastItem(
                     dayOfWeek = "",
                     iconCode = forecast.iconCode,
-                    condition = forecast.condition,
+                    condition = localizedCondition,
                     tempMax = "${forecast.tempMax.toInt()}°",
                     tempMin = "${forecast.tempMin.toInt()}°",
                 )
                 DailyForecastItem(
                     dayOfWeek = outputFormat.format(date),
                     iconCode = forecast.iconCode,
-                    condition = forecast.condition,
+                    condition = localizedCondition,
                     tempMax = "${forecast.tempMax.toInt()}°",
                     tempMin = "${forecast.tempMin.toInt()}°",
                 )

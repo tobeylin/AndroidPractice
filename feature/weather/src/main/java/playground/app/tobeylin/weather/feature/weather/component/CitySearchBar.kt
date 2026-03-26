@@ -14,7 +14,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import playground.app.tobeylin.weather.feature.weather.R
 
 @Composable
 fun CitySearchBar(
@@ -29,14 +31,14 @@ fun CitySearchBar(
         modifier = modifier.testTag("city_search_bar"),
         placeholder = {
             Text(
-                text = "Search city or airport",
+                text = stringResource(R.string.search_placeholder),
                 style = MaterialTheme.typography.bodyLarge,
             )
         },
         leadingIcon = {
             Icon(
                 imageVector = Icons.Default.Search,
-                contentDescription = "Search",
+                contentDescription = stringResource(R.string.search_icon_description),
                 tint = MaterialTheme.colorScheme.onSurfaceVariant,
             )
         },
@@ -45,7 +47,7 @@ fun CitySearchBar(
                 IconButton(onClick = onClearClick) {
                     Icon(
                         imageVector = Icons.Default.Clear,
-                        contentDescription = "Clear",
+                        contentDescription = stringResource(R.string.search_clear_description),
                     )
                 }
             }

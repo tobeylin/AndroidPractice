@@ -25,19 +25,18 @@ internal fun List<NetworkForecastItem>.toDailyForecasts(): List<DailyForecast> {
                 )
                 ?.key ?: "Unknown"
 
-            val dominantIcon = items
+            val dominantWeatherItem = items
                 .firstOrNull { (it.weather.firstOrNull()?.main ?: "Unknown") == dominantCondition }
                 ?.weather
                 ?.firstOrNull()
-                ?.icon
-                ?: ""
 
             DailyForecast(
                 date = date,
                 tempMax = tempMax,
                 tempMin = tempMin,
                 condition = dominantCondition,
-                iconCode = dominantIcon,
+                conditionDescription = dominantWeatherItem?.description ?: dominantCondition,
+                iconCode = dominantWeatherItem?.icon ?: "",
             )
         }
 }

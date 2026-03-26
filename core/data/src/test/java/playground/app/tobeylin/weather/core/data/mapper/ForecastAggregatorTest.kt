@@ -35,6 +35,7 @@ class ForecastAggregatorTest {
         assertEquals(30.0, dailyForecast.tempMax, 0.001)
         assertEquals(20.0, dailyForecast.tempMin, 0.001)
         assertEquals("Clear", dailyForecast.condition)
+        assertEquals("Clear", dailyForecast.conditionDescription)
         assertEquals("01d", dailyForecast.iconCode)
     }
 

@@ -17,6 +17,8 @@ import playground.app.tobeylin.weather.core.model.DailyForecast
 import playground.app.tobeylin.weather.feature.weather.state.ForecastUiState
 import playground.app.tobeylin.weather.feature.weather.state.WeatherUiState
 import playground.app.tobeylin.weather.feature.weather.viewmodel.WeatherViewModel
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 @OptIn(ExperimentalCoroutinesApi::class)
 class WeatherViewModelTest {
@@ -84,13 +86,18 @@ class WeatherViewModelTest {
         val state = viewModel.forecastUiState.value
         assertTrue(state is ForecastUiState.Success)
 
+        val dayFormat = SimpleDateFormat("EEE", Locale.getDefault())
+        val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.ROOT)
+        val expectedTue = dayFormat.format(dateFormat.parse("2026-03-24")!!)
+        val expectedWed = dayFormat.format(dateFormat.parse("2026-03-25")!!)
+
         val success = state as ForecastUiState.Success
         assertEquals(2, success.items.size)
-        assertEquals("Tue", success.items[0].dayOfWeek)
+        assertEquals(expectedTue, success.items[0].dayOfWeek)
         assertEquals("30°", success.items[0].tempMax)
         assertEquals("27°", success.items[0].tempMin)
-        assertEquals("Wed", success.items[1].dayOfWeek)
-        assertEquals("Rain", success.items[1].condition)
+        assertEquals(expectedWed, success.items[1].dayOfWeek)
+        assertEquals("Light rain", success.items[1].condition)
     }
 
     @Test

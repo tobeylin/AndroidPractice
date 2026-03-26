@@ -52,6 +52,7 @@ class ModelTest {
             tempMax = 30.0,
             tempMin = 22.0,
             condition = "Clear",
+            conditionDescription = "clear sky",
             iconCode = "01d"
         )
 
@@ -59,6 +60,7 @@ class ModelTest {
         assertEquals(30.0, forecast.tempMax, 0.0)
         assertEquals(22.0, forecast.tempMin, 0.0)
         assertEquals("Clear", forecast.condition)
+        assertEquals("clear sky", forecast.conditionDescription)
         assertEquals("01d", forecast.iconCode)
     }
 

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- WeatherHomeScreen — metric cards -->
+    <string name="weather_metric_humidity">濕度</string>
+    <string name="weather_metric_wind">風速</string>
+    <string name="weather_metric_dew_point">露點 %1$d°</string>
+    <string name="weather_metric_wind_direction">%1$s 風向</string>
+    <string name="weather_metric_wind_value">%1$d 公里/小時</string>
+
+    <!-- WeatherHomeScreen — error state -->
+    <string name="weather_error_title">無法載入天氣資料</string>
+    <string name="weather_error_message">請檢查網路連線後再試一次。</string>
+    <string name="weather_error_retry">重試</string>
+
+    <!-- FiveDayForecastCard -->
+    <string name="forecast_five_day_title">五日天氣預報</string>
+
+    <!-- CitySearchBar -->
+    <string name="search_placeholder">搜尋城市或機場</string>
+    <string name="search_icon_description">搜尋</string>
+    <string name="search_clear_description">清除</string>
+
+    <!-- SearchCitiesScreen -->
+    <string name="search_results_header">搜尋結果</string>
+    <string name="search_no_results">找不到「%1$s」的搜尋結果</string>
+    <string name="recent_cities_header">最近瀏覽</string>
+    <string name="recent_cities_empty_title">沒有最近瀏覽的地點</string>
+    <string name="recent_cities_empty_subtitle">搜尋城市以開始使用</string>
+</resources>

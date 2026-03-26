@@ -25,6 +25,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -36,6 +37,7 @@ import playground.app.tobeylin.weather.feature.weather.state.DailyForecastItem
 import playground.app.tobeylin.weather.feature.weather.state.ForecastUiState
 import playground.app.tobeylin.weather.feature.weather.state.WeatherUiState
 import playground.app.tobeylin.weather.feature.weather.viewmodel.WeatherViewModel
+import playground.app.tobeylin.weather.feature.weather.R
 
 @Composable
 fun WeatherHomeScreen(
@@ -77,16 +79,16 @@ fun WeatherHomeScreen(
                 ) {
                     WeatherMetricCard(
                         icon = Icons.Filled.WaterDrop,
-                        label = "Humidity",
+                        label = stringResource(R.string.weather_metric_humidity),
                         value = "${state.humidity}%",
-                        subtitle = "Dew point is ${state.dewPoint.toInt()}°",
+                        subtitle = stringResource(R.string.weather_metric_dew_point, state.dewPoint.toInt()),
                         modifier = Modifier.weight(1f),
                     )
                     WeatherMetricCard(
                         icon = Icons.Filled.Air,
-                        label = "Wind",
-                        value = "${state.windSpeedKmh.toInt()} km/h",
-                        subtitle = if (state.windDirection.isNotEmpty()) "${state.windDirection} Direction" else "",
+                        label = stringResource(R.string.weather_metric_wind),
+                        value = stringResource(R.string.weather_metric_wind_value, state.windSpeedKmh.toInt()),
+                        subtitle = if (state.windDirection.isNotEmpty()) stringResource(R.string.weather_metric_wind_direction, state.windDirection) else "",
                         modifier = Modifier.weight(1f),
                     )
                 }
@@ -120,19 +122,19 @@ fun WeatherHomeScreen(
                         )
                         Spacer(modifier = Modifier.height(16.dp))
                         Text(
-                            text = "Unable to load weather data",
+                            text = stringResource(R.string.weather_error_title),
                             style = MaterialTheme.typography.titleMedium,
                             color = MaterialTheme.colorScheme.onSurface,
                         )
                         Spacer(modifier = Modifier.height(8.dp))
                         Text(
-                            text = "Please check your connection and try again.",
+                            text = stringResource(R.string.weather_error_message),
                             style = MaterialTheme.typography.bodyMedium,
                             color = MaterialTheme.colorScheme.onSurfaceVariant,
                         )
                         Spacer(modifier = Modifier.height(24.dp))
                         Button(onClick = { viewModel.retry() }) {
-                            Text("Try Again")
+                            Text(stringResource(R.string.weather_error_retry))
                         }
                     }
                 }
