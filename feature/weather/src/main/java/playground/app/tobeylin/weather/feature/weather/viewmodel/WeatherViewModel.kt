@@ -17,6 +17,7 @@ import playground.app.tobeylin.weather.feature.weather.state.DailyForecastItem
 import playground.app.tobeylin.weather.feature.weather.state.ForecastUiState
 import playground.app.tobeylin.weather.feature.weather.state.WeatherUiState
 import playground.app.tobeylin.weather.feature.weather.util.calculateDewPoint
+import playground.app.tobeylin.weather.feature.weather.util.formatUnixTimestampToTime
 import playground.app.tobeylin.weather.feature.weather.util.metersPerSecondToKmh
 import playground.app.tobeylin.weather.feature.weather.util.windDegreesToCompass
 import javax.inject.Inject
@@ -80,6 +81,8 @@ class WeatherViewModel @Inject constructor(
                 windSpeedKmh = metersPerSecondToKmh(weather.windSpeed),
                 windDirection = windDegreesToCompass(weather.windDeg),
                 dewPoint = calculateDewPoint(weather.temperature, weather.humidity),
+                sunriseTime = formatUnixTimestampToTime(weather.sunrise),
+                sunsetTime = formatUnixTimestampToTime(weather.sunset),
             )
         } catch (e: Exception) {
             _uiState.value = WeatherUiState.Error(e.message ?: "Unknown error")

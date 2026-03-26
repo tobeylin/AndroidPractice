@@ -2,8 +2,10 @@ package playground.app.tobeylin.weather.feature.weather
 
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotNull
+import org.junit.Assert.assertTrue
 import org.junit.Test
 import playground.app.tobeylin.weather.feature.weather.util.calculateDewPoint
+import playground.app.tobeylin.weather.feature.weather.util.formatUnixTimestampToTime
 import playground.app.tobeylin.weather.feature.weather.util.metersPerSecondToKmh
 import playground.app.tobeylin.weather.feature.weather.util.windDegreesToCompass
 
@@ -62,5 +64,17 @@ class WeatherConversionsTest {
         val dewPoint = calculateDewPoint(25.0, 0)
         assertNotNull(dewPoint)
         assertEquals(true, dewPoint.isFinite())
+    }
+
+    @Test
+    fun formatUnixTimestampToTime_formatsEpochZero() {
+        val result = formatUnixTimestampToTime(0L)
+        assertTrue("Expected AM or PM in '$result'", result.contains("AM") || result.contains("PM"))
+    }
+
+    @Test
+    fun formatUnixTimestampToTime_formatsKnownTimestamp() {
+        val result = formatUnixTimestampToTime(1711317120L)
+        assertTrue("Expected AM or PM in '$result'", result.contains("AM") || result.contains("PM"))
     }
 }

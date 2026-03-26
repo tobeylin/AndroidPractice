@@ -59,6 +59,10 @@ class WeatherViewModelTest {
         assertEquals(12.6, success.windSpeedKmh, 0.1)
         assertEquals("S", success.windDirection)
         assertEquals(22.6, success.dewPoint, 0.5)
+        assertTrue(success.sunriseTime.isNotEmpty())
+        assertTrue("Expected AM or PM in sunriseTime '${success.sunriseTime}'", success.sunriseTime.contains("AM") || success.sunriseTime.contains("PM"))
+        assertTrue(success.sunsetTime.isNotEmpty())
+        assertTrue("Expected AM or PM in sunsetTime '${success.sunsetTime}'", success.sunsetTime.contains("AM") || success.sunsetTime.contains("PM"))
     }
 
     @Test

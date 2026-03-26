@@ -14,6 +14,8 @@ sealed interface WeatherUiState {
         val windSpeedKmh: Double,
         val windDirection: String,
         val dewPoint: Double,
+        val sunriseTime: String = "",
+        val sunsetTime: String = "",
     ) : WeatherUiState
     data class Error(val message: String) : WeatherUiState
 }
