@@ -26,4 +26,9 @@
     <string name="recent_cities_header">RECENTLY VIEWED</string>
     <string name="recent_cities_empty_title">No recently viewed locations</string>
     <string name="recent_cities_empty_subtitle">Search for a city to get started</string>
+
+    <!-- SunriseSunsetCard -->
+    <string name="weather_sunrise_sunset_title">Sunrise &amp; Sunset</string>
+    <string name="weather_sunrise_label">Sunrise</string>
+    <string name="weather_sunset_label">Sunset</string>
 </resources>
