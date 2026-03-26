@@ -26,4 +26,9 @@
     <string name="recent_cities_header">最近瀏覽</string>
     <string name="recent_cities_empty_title">沒有最近瀏覽的地點</string>
     <string name="recent_cities_empty_subtitle">搜尋城市以開始使用</string>
+
+    <!-- SunriseSunsetCard -->
+    <string name="weather_sunrise_sunset_title">日出 &amp; 日落</string>
+    <string name="weather_sunrise_label">日出</string>
+    <string name="weather_sunset_label">日落</string>
 </resources>
