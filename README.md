@@ -24,6 +24,36 @@ The project follows the official Android architecture guidance using a three-lay
 :core:database        — Local data sources (Room)
 ```
 
+### Module Dependency Graph
+
+```
+        ┌───────────────────────────────────────────┐
+        │                   :app                    │
+        └──────────┬──────────────────┬─────────────┘
+                   │                  │
+                   ▼                  │
+        ┌────────────────────┐        │
+        │  :feature:weather  │        │
+        └───┬────────────┬───┘        │
+            │            │            │
+            ▼            │            │
+        ┌─────────────┐  │            │
+        │ :core:data  │  │            │
+        └─┬─────┬───┬─┘  │            │
+          │     │   │    │            │
+          ▼     │   ▼    │            │
+┌──────────────┐│┌──────────────┐     │
+│:core:network ││|:core:database│     │
+└──────┬───────┘│└──────┬───────┘     │
+       │        │       │             │
+       ▼        ▼       ▼             ▼
+       ┌────────────────────────────────┐
+       │          :core:model           │
+       └────────────────────────────────┘
+
+↓ = depends on
+```
+
 ## Prerequisites
 
 * Android Studio (latest stable)
