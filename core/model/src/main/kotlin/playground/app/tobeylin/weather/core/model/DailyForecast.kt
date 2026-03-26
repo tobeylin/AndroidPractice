@@ -6,5 +6,5 @@ data class DailyForecast(
     val tempMin: Double,
     val condition: String,
     val conditionDescription: String,
-    val iconCode: String,
+    val conditionId: Int,
 )

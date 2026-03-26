@@ -89,10 +89,10 @@ fun TodayWeatherCard(
                     color = MaterialTheme.colorScheme.onPrimary,
                 )
                 Icon(
-                    imageVector = weatherIconFor(uiState.iconCode),
+                    imageVector = weatherIconFor(uiState.conditionId),
                     contentDescription = uiState.condition,
                     modifier = Modifier.size(64.dp),
-                    tint = if (isWarmIcon(uiState.iconCode)) {
+                    tint = if (isWarmIcon(uiState.conditionId)) {
                         MaterialTheme.colorScheme.tertiary
                     } else {
                         MaterialTheme.colorScheme.onPrimary
@@ -154,7 +154,7 @@ private fun TodayWeatherCardPreview() {
             tempMin = 18.0,
             condition = "Clear",
             conditionDescription = "clear sky",
-            iconCode = "01d",
+            conditionId = 800,
             humidity = 64,
             windSpeedKmh = 12.0,
             windDirection = "NW",

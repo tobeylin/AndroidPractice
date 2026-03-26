@@ -24,7 +24,7 @@ class ForecastAggregatorTest {
             tempMin = 20.0,
             tempMax = 30.0,
             condition = "Clear",
-            icon = "01d",
+            conditionId = 800,
         )
 
         val result = listOf(item).toDailyForecasts()
@@ -36,7 +36,7 @@ class ForecastAggregatorTest {
         assertEquals(20.0, dailyForecast.tempMin, 0.001)
         assertEquals("Clear", dailyForecast.condition)
         assertEquals("Clear", dailyForecast.conditionDescription)
-        assertEquals("01d", dailyForecast.iconCode)
+        assertEquals(800, dailyForecast.conditionId)
     }
 
     @Test
@@ -50,7 +50,7 @@ class ForecastAggregatorTest {
                 tempMin = temp,
                 tempMax = temp,
                 condition = "Clouds",
-                icon = "03d",
+                conditionId = 802,
             )
         }
 
@@ -66,9 +66,9 @@ class ForecastAggregatorTest {
     @Test
     fun partial_day_with_three_items_is_included_in_result() {
         val items = listOf(
-            makeItem("2026-03-24 00:00:00", 25.0, 22.0, 28.0, "Rain", "10d"),
-            makeItem("2026-03-24 03:00:00", 27.0, 24.0, 30.0, "Rain", "10d"),
-            makeItem("2026-03-24 06:00:00", 24.0, 21.0, 29.0, "Rain", "10d"),
+            makeItem("2026-03-24 00:00:00", 25.0, 22.0, 28.0, "Rain", 500),
+            makeItem("2026-03-24 03:00:00", 27.0, 24.0, 30.0, "Rain", 500),
+            makeItem("2026-03-24 06:00:00", 24.0, 21.0, 29.0, "Rain", 500),
         )
 
         val result = items.toDailyForecasts()
@@ -83,9 +83,9 @@ class ForecastAggregatorTest {
     @Test
     fun multiple_days_are_sorted_by_date_ascending() {
         val items = listOf(
-            makeItem("2026-03-24 12:00:00", 25.0, 20.0, 30.0, "Clear", "01d"),
-            makeItem("2026-03-25 12:00:00", 22.0, 18.0, 25.0, "Rain", "10d"),
-            makeItem("2026-03-26 12:00:00", 23.0, 19.0, 27.0, "Clouds", "03d"),
+            makeItem("2026-03-24 12:00:00", 25.0, 20.0, 30.0, "Clear", 800),
+            makeItem("2026-03-25 12:00:00", 22.0, 18.0, 25.0, "Rain", 500),
+            makeItem("2026-03-26 12:00:00", 23.0, 19.0, 27.0, "Clouds", 802),
         )
 
         val result = items.toDailyForecasts()
@@ -98,11 +98,11 @@ class ForecastAggregatorTest {
     fun dominant_condition_uses_majority_count() {
         val cloudsItems = (0 until 5).map { index ->
             val hour = (index * 3).toString().padStart(2, '0')
-            makeItem("2026-03-24 ${hour}:00:00", 25.0, 25.0, 25.0, "Clouds", "03d")
+            makeItem("2026-03-24 ${hour}:00:00", 25.0, 25.0, 25.0, "Clouds", 802)
         }
         val rainItems = (5 until 8).map { index ->
             val hour = (index * 3).toString().padStart(2, '0')
-            makeItem("2026-03-24 ${hour}:00:00", 24.0, 24.0, 24.0, "Rain", "10d")
+            makeItem("2026-03-24 ${hour}:00:00", 24.0, 24.0, 24.0, "Rain", 500)
         }
 
         val result = (cloudsItems + rainItems).toDailyForecasts()
@@ -114,11 +114,11 @@ class ForecastAggregatorTest {
     fun dominant_condition_tie_breaker_prefers_first_seen_condition() {
         val cloudsItems = (0 until 4).map { index ->
             val hour = (index * 3).toString().padStart(2, '0')
-            makeItem("2026-03-24 ${hour}:00:00", 25.0, 25.0, 25.0, "Clouds", "03d")
+            makeItem("2026-03-24 ${hour}:00:00", 25.0, 25.0, 25.0, "Clouds", 802)
         }
         val rainItems = (4 until 8).map { index ->
             val hour = (index * 3).toString().padStart(2, '0')
-            makeItem("2026-03-24 ${hour}:00:00", 24.0, 24.0, 24.0, "Rain", "10d")
+            makeItem("2026-03-24 ${hour}:00:00", 24.0, 24.0, 24.0, "Rain", 500)
         }
 
         val result = (cloudsItems + rainItems).toDailyForecasts()
@@ -132,16 +132,16 @@ class ForecastAggregatorTest {
         tempMin: Double,
         tempMax: Double,
         condition: String,
-        icon: String,
+        conditionId: Int,
     ) = NetworkForecastItem(
         dt = 0L,
         main = NetworkMain(temp = temp, feelsLike = temp, tempMin = tempMin, tempMax = tempMax, humidity = 50),
         weather = listOf(
             NetworkWeatherItem(
-                id = 0,
+                id = conditionId,
                 main = condition,
                 description = condition,
-                icon = icon,
+                icon = "",
             ),
         ),
         dtTxt = dtTxt,

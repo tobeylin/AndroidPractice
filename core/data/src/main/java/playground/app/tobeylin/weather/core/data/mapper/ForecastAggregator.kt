@@ -36,7 +36,7 @@ internal fun List<NetworkForecastItem>.toDailyForecasts(): List<DailyForecast> {
                 tempMin = tempMin,
                 condition = dominantCondition,
                 conditionDescription = dominantWeatherItem?.description ?: dominantCondition,
-                iconCode = dominantWeatherItem?.icon ?: "",
+                conditionId = dominantWeatherItem?.id ?: 0,
             )
         }
 }

@@ -9,7 +9,7 @@ sealed interface WeatherUiState {
         val tempMin: Double,
         val condition: String,
         val conditionDescription: String,
-        val iconCode: String,
+        val conditionId: Int,
         val humidity: Int,
         val windSpeedKmh: Double,
         val windDirection: String,

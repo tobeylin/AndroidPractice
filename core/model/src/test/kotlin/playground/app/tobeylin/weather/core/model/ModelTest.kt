@@ -29,7 +29,7 @@ class ModelTest {
             windSpeed = 5.5,
             condition = "Clouds",
             conditionDescription = "broken clouds",
-            iconCode = "04d",
+            conditionId = 804,
             tempMax = 28.0,
             tempMin = 22.0,
             timestamp = 1625097600L
@@ -41,7 +41,7 @@ class ModelTest {
         assertEquals(5.5, weather.windSpeed, 0.0)
         assertEquals("Clouds", weather.condition)
         assertEquals("broken clouds", weather.conditionDescription)
-        assertEquals("04d", weather.iconCode)
+        assertEquals(804, weather.conditionId)
         assertEquals(1625097600L, weather.timestamp)
     }
 
@@ -53,7 +53,7 @@ class ModelTest {
             tempMin = 22.0,
             condition = "Clear",
             conditionDescription = "clear sky",
-            iconCode = "01d"
+            conditionId = 800
         )
 
         assertEquals("2024-03-24", forecast.date)
@@ -61,7 +61,7 @@ class ModelTest {
         assertEquals(22.0, forecast.tempMin, 0.0)
         assertEquals("Clear", forecast.condition)
         assertEquals("clear sky", forecast.conditionDescription)
-        assertEquals("01d", forecast.iconCode)
+        assertEquals(800, forecast.conditionId)
     }
 
     @Test

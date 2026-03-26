@@ -10,6 +10,6 @@ data class CurrentWeather(
     val windDeg: Int? = null,
     val condition: String,
     val conditionDescription: String,
-    val iconCode: String,
+    val conditionId: Int,
     val timestamp: Long,
 )

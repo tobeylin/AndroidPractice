@@ -54,7 +54,7 @@ class WeatherViewModelTest {
         assertEquals(32.0, success.tempMax, 0.01)
         assertEquals(25.0, success.tempMin, 0.01)
         assertEquals("Clouds", success.condition)
-        assertEquals("03d", success.iconCode)
+        assertEquals(802, success.conditionId)
         assertEquals(70, success.humidity)
         assertEquals(12.6, success.windSpeedKmh, 0.1)
         assertEquals("S", success.windDirection)

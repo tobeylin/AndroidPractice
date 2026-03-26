@@ -161,7 +161,7 @@ private fun WeatherHomeScreenPreview() {
         tempMin = 18.0,
         condition = "Clear",
         conditionDescription = "clear sky",
-        iconCode = "01d",
+        conditionId = 800,
         humidity = 64,
         windSpeedKmh = 12.0,
         windDirection = "NW",
@@ -198,11 +198,11 @@ private fun WeatherHomeScreenPreview() {
         Spacer(modifier = Modifier.height(16.dp))
         FiveDayForecastCard(
             items = listOf(
-                DailyForecastItem("Tue", "01d", "Sunny", "26°", "17°"),
-                DailyForecastItem("Wed", "02d", "Partly Cloudy", "24°", "16°"),
-                DailyForecastItem("Thu", "04d", "Cloudy", "22°", "15°"),
-                DailyForecastItem("Fri", "10d", "Light Rain", "19°", "14°"),
-                DailyForecastItem("Sat", "04d", "Cloudy", "21°", "15°"),
+                DailyForecastItem("Tue", 800, "Sunny", "26°", "17°"),
+                DailyForecastItem("Wed", 801, "Partly Cloudy", "24°", "16°"),
+                DailyForecastItem("Thu", 804, "Cloudy", "22°", "15°"),
+                DailyForecastItem("Fri", 500, "Light Rain", "19°", "14°"),
+                DailyForecastItem("Sat", 804, "Cloudy", "21°", "15°"),
             ),
             modifier = Modifier.fillMaxWidth(),
         )

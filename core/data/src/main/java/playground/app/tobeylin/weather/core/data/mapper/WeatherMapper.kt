@@ -13,6 +13,6 @@ internal fun NetworkCurrentWeatherResponse.asExternalModel(): CurrentWeather = C
     windDeg = wind.deg,
     condition = weather.firstOrNull()?.main ?: "Unknown",
     conditionDescription = weather.firstOrNull()?.description ?: "",
-    iconCode = weather.firstOrNull()?.icon ?: "",
+    conditionId = weather.firstOrNull()?.id ?: 0,
     timestamp = dt,
 )

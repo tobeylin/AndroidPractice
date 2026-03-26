@@ -45,7 +45,7 @@ class WeatherMapperTest {
         assertEquals(180, result.windDeg)
         assertEquals("Clouds", result.condition)
         assertEquals("scattered clouds", result.conditionDescription)
-        assertEquals("03d", result.iconCode)
+        assertEquals(802, result.conditionId)
         assertEquals(1711296000L, result.timestamp)
     }
 
@@ -70,7 +70,7 @@ class WeatherMapperTest {
 
         assertEquals("Unknown", result.condition)
         assertEquals("", result.conditionDescription)
-        assertEquals("", result.iconCode)
+        assertEquals(0, result.conditionId)
     }
 
     @Test
@@ -106,7 +106,7 @@ class WeatherMapperTest {
 
         assertEquals("Rain", result.condition)
         assertEquals("light rain", result.conditionDescription)
-        assertEquals("10d", result.iconCode)
+        assertEquals(500, result.conditionId)
     }
 
     @Test

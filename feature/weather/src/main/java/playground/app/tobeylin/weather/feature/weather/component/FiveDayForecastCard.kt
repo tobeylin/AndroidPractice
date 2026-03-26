@@ -92,7 +92,7 @@ private fun ForecastRow(
             verticalAlignment = Alignment.CenterVertically
         ) {
             Icon(
-                imageVector = weatherIconFor(item.iconCode),
+                imageVector = weatherIconFor(item.conditionId),
                 contentDescription = null,
                 modifier = Modifier.size(24.dp),
                 tint = MaterialTheme.colorScheme.primary
@@ -126,11 +126,11 @@ private fun ForecastRow(
 @Composable
 private fun FiveDayForecastCardPreview() {
     val items = listOf(
-        DailyForecastItem("Tue", "01d", "Sunny", "26°", "17°"),
-        DailyForecastItem("Wed", "02d", "Partly Cloudy", "24°", "16°"),
-        DailyForecastItem("Thu", "04d", "Cloudy", "22°", "15°"),
-        DailyForecastItem("Fri", "10d", "Light Rain", "19°", "14°"),
-        DailyForecastItem("Sat", "04d", "Cloudy", "21°", "15°"),
+        DailyForecastItem("Tue", 800, "Sunny", "26°", "17°"),
+        DailyForecastItem("Wed", 801, "Partly Cloudy", "24°", "16°"),
+        DailyForecastItem("Thu", 804, "Cloudy", "22°", "15°"),
+        DailyForecastItem("Fri", 500, "Light Rain", "19°", "14°"),
+        DailyForecastItem("Sat", 804, "Cloudy", "21°", "15°"),
     )
     FiveDayForecastCard(items = items)
 }

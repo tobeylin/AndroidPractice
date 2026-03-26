@@ -75,7 +75,7 @@ class WeatherViewModel @Inject constructor(
                 tempMin = weather.tempMin,
                 condition = weather.condition,
                 conditionDescription = weather.conditionDescription,
-                iconCode = weather.iconCode,
+                conditionId = weather.conditionId,
                 humidity = weather.humidity,
                 windSpeedKmh = metersPerSecondToKmh(weather.windSpeed),
                 windDirection = windDegreesToCompass(weather.windDeg),
@@ -95,14 +95,14 @@ class WeatherViewModel @Inject constructor(
                 val localizedCondition = forecast.conditionDescription.replaceFirstChar { it.uppercaseChar() }
                 val date = inputFormat.parse(forecast.date) ?: return@map DailyForecastItem(
                     dayOfWeek = "",
-                    iconCode = forecast.iconCode,
+                    conditionId = forecast.conditionId,
                     condition = localizedCondition,
                     tempMax = "${forecast.tempMax.toInt()}°",
                     tempMin = "${forecast.tempMin.toInt()}°",
                 )
                 DailyForecastItem(
                     dayOfWeek = outputFormat.format(date),
-                    iconCode = forecast.iconCode,
+                    conditionId = forecast.conditionId,
                     condition = localizedCondition,
                     tempMax = "${forecast.tempMax.toInt()}°",
                     tempMin = "${forecast.tempMin.toInt()}°",

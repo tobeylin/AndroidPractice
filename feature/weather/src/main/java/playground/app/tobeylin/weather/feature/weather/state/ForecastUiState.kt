@@ -8,7 +8,7 @@ sealed interface ForecastUiState {
 
 data class DailyForecastItem(
     val dayOfWeek: String,
-    val iconCode: String,
+    val conditionId: Int,
     val condition: String,
     val tempMax: String,
     val tempMin: String,
