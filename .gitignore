@@ -52,3 +52,6 @@ Thumbs.db
 
 # AI orchestration scaffolding
 .sisyphus/
+
+# MCP server config (contains API keys)
+.mcp.json
