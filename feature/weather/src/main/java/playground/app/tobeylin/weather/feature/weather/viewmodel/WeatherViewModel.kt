@@ -1,4 +1,4 @@
-package playground.app.tobeylin.weather.feature.weather
+package playground.app.tobeylin.weather.feature.weather.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -13,6 +13,12 @@ import playground.app.tobeylin.weather.core.data.CityRepository
 import playground.app.tobeylin.weather.core.data.RecentCityRepository
 import playground.app.tobeylin.weather.core.data.WeatherRepository
 import playground.app.tobeylin.weather.core.model.City
+import playground.app.tobeylin.weather.feature.weather.state.DailyForecastItem
+import playground.app.tobeylin.weather.feature.weather.state.ForecastUiState
+import playground.app.tobeylin.weather.feature.weather.state.WeatherUiState
+import playground.app.tobeylin.weather.feature.weather.util.calculateDewPoint
+import playground.app.tobeylin.weather.feature.weather.util.metersPerSecondToKmh
+import playground.app.tobeylin.weather.feature.weather.util.windDegreesToCompass
 import javax.inject.Inject
 
 @HiltViewModel

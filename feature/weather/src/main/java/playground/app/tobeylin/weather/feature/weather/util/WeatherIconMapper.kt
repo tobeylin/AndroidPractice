@@ -1,4 +1,4 @@
-package playground.app.tobeylin.weather.feature.weather
+package playground.app.tobeylin.weather.feature.weather.util
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AcUnit

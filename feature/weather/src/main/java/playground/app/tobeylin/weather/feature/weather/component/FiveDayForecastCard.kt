@@ -1,4 +1,4 @@
-package playground.app.tobeylin.weather.feature.weather
+package playground.app.tobeylin.weather.feature.weather.component
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -21,6 +21,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import playground.app.tobeylin.weather.feature.weather.state.DailyForecastItem
+import playground.app.tobeylin.weather.feature.weather.util.weatherIconFor
 
 @Composable
 fun FiveDayForecastCard(

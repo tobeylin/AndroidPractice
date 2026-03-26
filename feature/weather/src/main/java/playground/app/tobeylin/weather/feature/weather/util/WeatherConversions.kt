@@ -1,4 +1,4 @@
-package playground.app.tobeylin.weather.feature.weather
+package playground.app.tobeylin.weather.feature.weather.util
 
 import kotlin.math.ln
 

@@ -1,4 +1,4 @@
-package playground.app.tobeylin.weather.feature.weather
+package playground.app.tobeylin.weather.feature.weather.component
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row

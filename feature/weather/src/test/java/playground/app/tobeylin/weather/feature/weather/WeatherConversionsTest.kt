@@ -3,6 +3,9 @@ package playground.app.tobeylin.weather.feature.weather
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotNull
 import org.junit.Test
+import playground.app.tobeylin.weather.feature.weather.util.calculateDewPoint
+import playground.app.tobeylin.weather.feature.weather.util.metersPerSecondToKmh
+import playground.app.tobeylin.weather.feature.weather.util.windDegreesToCompass
 
 class WeatherConversionsTest {
 

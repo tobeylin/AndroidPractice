@@ -1,4 +1,4 @@
-package playground.app.tobeylin.weather.feature.weather
+package playground.app.tobeylin.weather.feature.weather.state
 
 sealed interface ForecastUiState {
     data object Loading : ForecastUiState

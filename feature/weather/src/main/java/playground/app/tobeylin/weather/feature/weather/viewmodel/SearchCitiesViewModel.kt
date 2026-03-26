@@ -1,4 +1,4 @@
-package playground.app.tobeylin.weather.feature.weather
+package playground.app.tobeylin.weather.feature.weather.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -17,6 +17,9 @@ import kotlinx.coroutines.flow.stateIn
 import playground.app.tobeylin.weather.core.data.GeocodingRepository
 import playground.app.tobeylin.weather.core.data.RecentCityRepository
 import playground.app.tobeylin.weather.core.model.City
+import playground.app.tobeylin.weather.feature.weather.state.RecentCitiesUiState
+import playground.app.tobeylin.weather.feature.weather.state.SearchCityItem
+import playground.app.tobeylin.weather.feature.weather.state.SearchResultsUiState
 import javax.inject.Inject
 
 @OptIn(FlowPreview::class, ExperimentalCoroutinesApi::class)

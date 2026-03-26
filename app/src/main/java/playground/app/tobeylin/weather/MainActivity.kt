@@ -23,9 +23,9 @@ import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import playground.app.tobeylin.weather.core.model.City
-import playground.app.tobeylin.weather.feature.weather.SearchCitiesRoute
-import playground.app.tobeylin.weather.feature.weather.WeatherHomeScreen
-import playground.app.tobeylin.weather.feature.weather.WeatherViewModel
+import playground.app.tobeylin.weather.feature.weather.screen.SearchCitiesRoute
+import playground.app.tobeylin.weather.feature.weather.screen.WeatherHomeScreen
+import playground.app.tobeylin.weather.feature.weather.viewmodel.WeatherViewModel
 import playground.app.tobeylin.weather.ui.theme.PlaygroundWeatherTheme
 
 private sealed interface Screen {

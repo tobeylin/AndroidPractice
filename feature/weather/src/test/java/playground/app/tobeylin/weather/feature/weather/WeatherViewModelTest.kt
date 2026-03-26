@@ -14,6 +14,9 @@ import playground.app.tobeylin.weather.core.data.WeatherRepository
 import playground.app.tobeylin.weather.core.model.City
 import playground.app.tobeylin.weather.core.model.CurrentWeather
 import playground.app.tobeylin.weather.core.model.DailyForecast
+import playground.app.tobeylin.weather.feature.weather.state.ForecastUiState
+import playground.app.tobeylin.weather.feature.weather.state.WeatherUiState
+import playground.app.tobeylin.weather.feature.weather.viewmodel.WeatherViewModel
 
 @OptIn(ExperimentalCoroutinesApi::class)
 class WeatherViewModelTest {

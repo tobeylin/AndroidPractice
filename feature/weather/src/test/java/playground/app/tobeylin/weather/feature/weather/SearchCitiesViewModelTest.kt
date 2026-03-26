@@ -13,6 +13,9 @@ import org.junit.Test
 import playground.app.tobeylin.weather.core.data.FakeRecentCityRepository
 import playground.app.tobeylin.weather.core.data.GeocodingRepository
 import playground.app.tobeylin.weather.core.model.City
+import playground.app.tobeylin.weather.feature.weather.state.RecentCitiesUiState
+import playground.app.tobeylin.weather.feature.weather.state.SearchResultsUiState
+import playground.app.tobeylin.weather.feature.weather.viewmodel.SearchCitiesViewModel
 
 @OptIn(ExperimentalCoroutinesApi::class)
 class SearchCitiesViewModelTest {

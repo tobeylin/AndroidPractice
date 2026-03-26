@@ -1,4 +1,4 @@
-package playground.app.tobeylin.weather.feature.weather
+package playground.app.tobeylin.weather.feature.weather.component
 
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
@@ -27,6 +27,9 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import playground.app.tobeylin.weather.feature.weather.state.WeatherUiState
+import playground.app.tobeylin.weather.feature.weather.util.isWarmIcon
+import playground.app.tobeylin.weather.feature.weather.util.weatherIconFor
 
 @Composable
 fun TodayWeatherCard(

@@ -1,4 +1,6 @@
-package playground.app.tobeylin.weather.feature.weather
+package playground.app.tobeylin.weather.feature.weather.component
+
+import playground.app.tobeylin.weather.feature.weather.state.SearchCityItem
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row

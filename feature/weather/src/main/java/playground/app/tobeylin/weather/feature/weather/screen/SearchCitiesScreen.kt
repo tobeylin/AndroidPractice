@@ -1,4 +1,4 @@
-package playground.app.tobeylin.weather.feature.weather
+package playground.app.tobeylin.weather.feature.weather.screen
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -29,6 +29,12 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import playground.app.tobeylin.weather.core.model.City
+import playground.app.tobeylin.weather.feature.weather.component.CitySearchBar
+import playground.app.tobeylin.weather.feature.weather.component.PopularCityCard
+import playground.app.tobeylin.weather.feature.weather.state.RecentCitiesUiState
+import playground.app.tobeylin.weather.feature.weather.state.SearchCityItem
+import playground.app.tobeylin.weather.feature.weather.state.SearchResultsUiState
+import playground.app.tobeylin.weather.feature.weather.viewmodel.SearchCitiesViewModel
 
 @Composable
 fun SearchCitiesRoute(
