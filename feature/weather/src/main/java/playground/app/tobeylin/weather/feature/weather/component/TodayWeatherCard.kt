@@ -26,21 +26,26 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.tooling.preview.PreviewParameter
+import androidx.compose.ui.tooling.preview.PreviewParameterProvider
 import androidx.compose.ui.unit.dp
 import playground.app.tobeylin.weather.feature.weather.state.WeatherUiState
-import playground.app.tobeylin.weather.feature.weather.util.isWarmIcon
+import playground.app.tobeylin.weather.feature.weather.util.isWeatherBackgroundDark
+import playground.app.tobeylin.weather.feature.weather.util.weatherCardContentColor
+import playground.app.tobeylin.weather.feature.weather.util.weatherIconTint
+import playground.app.tobeylin.weather.feature.weather.util.weatherGradientBrush
 import playground.app.tobeylin.weather.feature.weather.util.weatherIconFor
+import playground.app.tobeylin.weather.feature.weather.util.weatherPillColor
 
 @Composable
 fun TodayWeatherCard(
     uiState: WeatherUiState.Success,
     modifier: Modifier = Modifier,
 ) {
-    val colors = listOf(
-        MaterialTheme.colorScheme.primary,
-        MaterialTheme.colorScheme.primaryContainer,
-    )
-    val brush = Brush.linearGradient(colors = colors)
+    val brush = weatherGradientBrush(uiState.conditionId)
+    val contentColor = weatherCardContentColor(uiState.conditionId)
+    val pillColor = weatherPillColor(uiState.conditionId)
+    val overlayAlpha = if (isWeatherBackgroundDark(uiState.conditionId)) 0.12f else 0.08f
 
     Box(
         modifier = modifier
@@ -54,7 +59,7 @@ fun TodayWeatherCard(
             val topRightRadius = size.minDimension * 0.45f
             drawCircle(
                 brush = Brush.radialGradient(
-                    colors = listOf(Color.White.copy(alpha = 0.12f), Color.Transparent),
+                    colors = listOf(Color.White.copy(alpha = overlayAlpha), Color.Transparent),
                     center = topRightCenter,
                     radius = topRightRadius,
                 ),
@@ -66,7 +71,7 @@ fun TodayWeatherCard(
             val bottomLeftRadius = size.minDimension * 0.30f
             drawCircle(
                 brush = Brush.radialGradient(
-                    colors = listOf(Color.White.copy(alpha = 0.12f), Color.Transparent),
+                    colors = listOf(Color.White.copy(alpha = overlayAlpha), Color.Transparent),
                     center = bottomLeftCenter,
                     radius = bottomLeftRadius,
                 ),
@@ -86,17 +91,13 @@ fun TodayWeatherCard(
                 Text(
                     text = "${uiState.temperature.toInt()}°",
                     style = MaterialTheme.typography.displayLarge,
-                    color = MaterialTheme.colorScheme.onPrimary,
+                    color = contentColor,
                 )
                 Icon(
                     imageVector = weatherIconFor(uiState.conditionId),
                     contentDescription = uiState.condition,
                     modifier = Modifier.size(64.dp),
-                    tint = if (isWarmIcon(uiState.conditionId)) {
-                        MaterialTheme.colorScheme.tertiary
-                    } else {
-                        MaterialTheme.colorScheme.onPrimary
-                    },
+                    tint = weatherIconTint(uiState.conditionId),
                 )
             }
 
@@ -105,24 +106,29 @@ fun TodayWeatherCard(
             Text(
                 text = uiState.conditionDescription.replaceFirstChar { it.uppercase() },
                 style = MaterialTheme.typography.headlineSmall,
-                color = MaterialTheme.colorScheme.onPrimary,
+                color = contentColor,
             )
 
             Spacer(modifier = Modifier.height(16.dp))
 
             Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-                TemperaturePill(label = "↑", temperature = uiState.tempMax)
-                TemperaturePill(label = "↓", temperature = uiState.tempMin)
+                TemperaturePill(label = "↑", temperature = uiState.tempMax, contentColor = contentColor, pillColor = pillColor)
+                TemperaturePill(label = "↓", temperature = uiState.tempMin, contentColor = contentColor, pillColor = pillColor)
             }
         }
     }
 }
 
 @Composable
-private fun TemperaturePill(label: String, temperature: Double) {
+private fun TemperaturePill(
+    label: String,
+    temperature: Double,
+    contentColor: Color,
+    pillColor: Color,
+) {
     Surface(
         shape = RoundedCornerShape(50),
-        color = Color.White.copy(alpha = 0.15f),
+        color = pillColor,
     ) {
         Row(
             modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
@@ -132,35 +138,53 @@ private fun TemperaturePill(label: String, temperature: Double) {
             Text(
                 text = label,
                 style = MaterialTheme.typography.titleSmall,
-                color = MaterialTheme.colorScheme.onPrimary,
+                color = contentColor,
             )
             Text(
                 text = "${temperature.toInt()}°C",
                 style = MaterialTheme.typography.titleSmall,
-                color = MaterialTheme.colorScheme.onPrimary,
+                color = contentColor,
             )
         }
     }
 }
 
+private class WeatherConditionProvider : PreviewParameterProvider<WeatherUiState.Success> {
+    override val values = sequenceOf(
+        previewState(conditionId = 800, condition = "Clear", description = "clear sky"),
+        previewState(conditionId = 802, condition = "Clouds", description = "scattered clouds"),
+        previewState(conditionId = 501, condition = "Rain", description = "moderate rain"),
+        previewState(conditionId = 211, condition = "Thunderstorm", description = "thunderstorm"),
+        previewState(conditionId = 601, condition = "Snow", description = "snow"),
+        previewState(conditionId = 301, condition = "Drizzle", description = "drizzle"),
+        previewState(conditionId = 741, condition = "Atmosphere", description = "fog"),
+    )
+}
+
+private fun previewState(
+    conditionId: Int,
+    condition: String,
+    description: String,
+) = WeatherUiState.Success(
+    cityName = "Taipei",
+    temperature = 24.0,
+    tempMax = 28.0,
+    tempMin = 18.0,
+    condition = condition,
+    conditionDescription = description,
+    conditionId = conditionId,
+    humidity = 64,
+    windSpeedKmh = 12.0,
+    windDirection = "NW",
+    dewPoint = 14.0,
+)
+
 @Preview(showBackground = true)
 @Composable
-private fun TodayWeatherCardPreview() {
-    TodayWeatherCard(
-        uiState = WeatherUiState.Success(
-            cityName = "Taipei",
-            temperature = 24.0,
-            tempMax = 28.0,
-            tempMin = 18.0,
-            condition = "Clear",
-            conditionDescription = "clear sky",
-            conditionId = 800,
-            humidity = 64,
-            windSpeedKmh = 12.0,
-            windDirection = "NW",
-            dewPoint = 14.0,
-        ),
-    )
+private fun TodayWeatherCardPreview(
+    @PreviewParameter(WeatherConditionProvider::class) uiState: WeatherUiState.Success,
+) {
+    TodayWeatherCard(uiState = uiState)
 }
 
 @Preview(showBackground = true)

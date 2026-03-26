@@ -38,5 +38,3 @@ internal fun weatherIconFor(conditionId: Int): ImageVector = when (conditionId) 
     in 802..804 -> Icons.Filled.Cloud
     else -> Icons.Filled.Cloud
 }
-
-internal fun isWarmIcon(conditionId: Int): Boolean = conditionId in 800..801

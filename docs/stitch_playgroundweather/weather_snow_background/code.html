@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Weather - Today's Forecast</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "secondary-fixed": "#cbe7f5",
+              "surface-container-low": "#eef1f3",
+              "tertiary-dim": "#6f4700",
+              "secondary-fixed-dim": "#bdd9e6",
+              "surface-bright": "#f5f7f9",
+              "on-secondary-fixed-variant": "#455f6b",
+              "on-tertiary-container": "#583700",
+              "on-tertiary-fixed": "#3d2500",
+              "primary": "#005f9c",
+              "on-secondary": "#e4f5ff",
+              "on-error": "#ffefee",
+              "surface-dim": "#d0d5d8",
+              "inverse-surface": "#0b0f10",
+              "primary-container": "#39a6ff",
+              "on-primary-fixed-variant": "#002e4f",
+              "surface-container-high": "#dfe3e6",
+              "surface-variant": "#d9dde0",
+              "primary-fixed-dim": "#1c98f2",
+              "on-error-container": "#570008",
+              "on-primary-fixed": "#000000",
+              "on-tertiary": "#fff0e2",
+              "inverse-on-surface": "#9a9d9f",
+              "on-background": "#2c2f31",
+              "secondary": "#455f6b",
+              "background": "#f5f7f9",
+              "on-secondary-container": "#3c5561",
+              "surface-container": "#e5e9eb",
+              "on-primary-container": "#002440",
+              "error-dim": "#9f0519",
+              "inverse-primary": "#289ef8",
+              "surface-container-highest": "#d9dde0",
+              "error": "#b31b25",
+              "on-secondary-fixed": "#29434e",
+              "on-primary": "#ecf3ff",
+              "outline-variant": "#abadaf",
+              "outline": "#747779",
+              "secondary-container": "#cbe7f5",
+              "on-tertiary-fixed-variant": "#644000",
+              "primary-dim": "#005388",
+              "tertiary-container": "#feb64c",
+              "surface-tint": "#005f9c",
+              "primary-fixed": "#39a6ff",
+              "on-surface": "#2c2f31",
+              "tertiary-fixed-dim": "#eea840",
+              "on-surface-variant": "#595c5e",
+              "surface": "#f5f7f9",
+              "error-container": "#fb5151",
+              "tertiary": "#7f5200",
+              "secondary-dim": "#39535f",
+              "tertiary-fixed": "#feb64c",
+              "surface-container-lowest": "#ffffff"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #f0f7ff 0%, #e2e8f0 50%, #d1e3f8 100%);
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col">
+<!-- Top Navigation Shell -->
+<header class="bg-slate-50/70 dark:bg-slate-900/70 backdrop-blur-xl fixed top-0 w-full z-50 flex justify-between items-center px-6 h-16 no-border">
+<div class="flex items-center gap-4">
+<h1 class="font-manrope font-extrabold text-lg tracking-tighter text-sky-700 dark:text-sky-300">San Francisco, CA</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-sky-600 dark:text-sky-400 hover:opacity-80 transition-opacity active:scale-95 duration-200">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-20 pb-12 px-6">
+<!-- Atmospheric Hero Section -->
+<section class="relative overflow-hidden rounded-lg hero-gradient p-8 mb-8 text-primary">
+<div class="relative z-10 flex flex-col items-center">
+<div class="flex items-center justify-center gap-6 mb-4">
+<span class="font-headline font-extrabold text-[5rem] leading-none tracking-tighter text-slate-800">24°</span>
+<span class="material-symbols-outlined text-[4rem] text-sky-300" data-icon="ac_unit" style="font-variation-settings: 'FILL' 1;">ac_unit</span>
+</div>
+<div class="font-headline font-bold text-2xl mb-6 text-slate-700">Snowy</div>
+<div class="flex gap-4">
+<div class="bg-white/40 backdrop-blur-md px-4 py-2 rounded-full flex items-center gap-2 border border-white/20">
+<span class="material-symbols-outlined text-sm" data-icon="arrow_upward">arrow_upward</span>
+<span class="font-body font-semibold">28°C</span>
+</div>
+<div class="bg-white/40 backdrop-blur-md px-4 py-2 rounded-full flex items-center gap-2 border border-white/20">
+<span class="material-symbols-outlined text-sm" data-icon="arrow_downward">arrow_downward</span>
+<span class="font-body font-semibold">18°C</span>
+</div>
+</div>
+</div>
+<!-- Atmospheric Layering (Decorative Elements) -->
+<div class="absolute -top-12 -right-12 w-48 h-48 bg-white/60 rounded-full blur-3xl"></div>
+<div class="absolute -bottom-8 -left-8 w-32 h-32 bg-sky-100/40 rounded-full blur-2xl"></div>
+<div class="absolute inset-0 bg-white/10 pointer-events-none opacity-50" style="background-image: radial-gradient(circle, #fff 1px, transparent 1px); background-size: 20px 20px;"></div>
+</section>
+<!-- Bento Grid Metrics -->
+<div class="grid grid-cols-2 gap-4 mb-8">
+<!-- Humidity Widget -->
+<div class="bg-surface-container-lowest rounded-lg p-6 flex flex-col justify-between">
+<div class="flex items-center gap-2 mb-4 text-on-surface-variant">
+<span class="material-symbols-outlined text-primary" data-icon="humidity_percentage">humidity_percentage</span>
+<span class="font-label text-xs font-semibold uppercase tracking-wider">Humidity</span>
+</div>
+<div>
+<div class="font-headline font-bold text-3xl text-on-surface">64%</div>
+<div class="font-body text-xs text-on-surface-variant mt-1">Dew point is 14°</div>
+</div>
+</div>
+<!-- Wind Widget -->
+<div class="bg-surface-container-lowest rounded-lg p-6 flex flex-col justify-between">
+<div class="flex items-center gap-2 mb-4 text-on-surface-variant">
+<span class="material-symbols-outlined text-primary" data-icon="air">air</span>
+<span class="font-label text-xs font-semibold uppercase tracking-wider">Wind</span>
+</div>
+<div>
+<div class="font-headline font-bold text-3xl text-on-surface">12 <span class="text-sm font-body">km/h</span></div>
+<div class="font-body text-xs text-on-surface-variant mt-1">NW Direction</div>
+</div>
+</div>
+<!-- Sunrise & Sunset Widget -->
+<div class="col-span-2 bg-surface-container-lowest rounded-lg p-6">
+<div class="flex items-center gap-2 mb-6 text-on-surface-variant">
+<span class="material-symbols-outlined text-tertiary" data-icon="wb_twilight">wb_twilight</span>
+<span class="font-label text-xs font-semibold uppercase tracking-wider">Sunrise &amp; Sunset</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-tertiary-container/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary text-2xl" data-icon="wb_sunny">wb_sunny</span>
+</div>
+<div>
+<div class="font-label text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">Sunrise</div>
+<div class="font-headline font-bold text-xl text-on-surface">06:12 AM</div>
+</div>
+</div>
+<div class="h-8 w-px bg-outline-variant/30"></div>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-secondary-container/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-2xl" data-icon="bedtime">bedtime</span>
+</div>
+<div>
+<div class="font-label text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">Sunset</div>
+<div class="font-headline font-bold text-xl text-on-surface">06:45 PM</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- 5-Day Forecast Card -->
+<section class="bg-surface-container-lowest rounded-lg p-6 mb-4">
+<div class="flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-primary" data-icon="calendar_month">calendar_month</span>
+<h2 class="font-manrope font-bold text-lg text-on-surface">5-Day Forecast</h2>
+</div>
+<div class="space-y-6">
+<!-- Day 1 -->
+<div class="flex items-center justify-between">
+<span class="font-body font-semibold text-on-surface w-12">Tue</span>
+<div class="flex items-center gap-3 flex-1 px-4">
+<span class="material-symbols-outlined text-primary" data-icon="sunny">sunny</span>
+<span class="font-body text-sm text-on-surface-variant">Sunny</span>
+</div>
+<div class="flex gap-3 text-sm font-semibold">
+<span class="text-on-surface">26°</span>
+<span class="text-on-surface-variant opacity-60">17°</span>
+</div>
+</div>
+<!-- Day 2 -->
+<div class="flex items-center justify-between">
+<span class="font-body font-semibold text-on-surface w-12">Wed</span>
+<div class="flex items-center gap-3 flex-1 px-4">
+<span class="material-symbols-outlined text-primary" data-icon="partly_cloudy_day">partly_cloudy_day</span>
+<span class="font-body text-sm text-on-surface-variant">Partly Cloudy</span>
+</div>
+<div class="flex gap-3 text-sm font-semibold">
+<span class="text-on-surface">24°</span>
+<span class="text-on-surface-variant opacity-60">16°</span>
+</div>
+</div>
+<!-- Day 3 -->
+<div class="flex items-center justify-between">
+<span class="font-body font-semibold text-on-surface w-12">Thu</span>
+<div class="flex items-center gap-3 flex-1 px-4">
+<span class="material-symbols-outlined text-primary" data-icon="cloud">cloud</span>
+<span class="font-body text-sm text-on-surface-variant">Cloudy</span>
+</div>
+<div class="flex gap-3 text-sm font-semibold">
+<span class="text-on-surface">22°</span>
+<span class="text-on-surface-variant opacity-60">15°</span>
+</div>
+</div>
+<!-- Day 4 -->
+<div class="flex items-center justify-between">
+<span class="font-body font-semibold text-on-surface w-12">Fri</span>
+<div class="flex items-center gap-3 flex-1 px-4">
+<span class="material-symbols-outlined text-primary" data-icon="rainy">rainy</span>
+<span class="font-body text-sm text-on-surface-variant">Light Rain</span>
+</div>
+<div class="flex gap-3 text-sm font-semibold">
+<span class="text-on-surface">19°</span>
+<span class="text-on-surface-variant opacity-60">14°</span>
+</div>
+</div>
+<!-- Day 5 -->
+<div class="flex items-center justify-between">
+<span class="font-body font-semibold text-on-surface w-12">Sat</span>
+<div class="flex items-center gap-3 flex-1 px-4">
+<span class="material-symbols-outlined text-primary" data-icon="partly_cloudy_day">partly_cloudy_day</span>
+<span class="font-body text-sm text-on-surface-variant">Cloudy</span>
+</div>
+<div class="flex gap-3 text-sm font-semibold">
+<span class="text-on-surface">21°</span>
+<span class="text-on-surface-variant opacity-60">15°</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+</body></html>
