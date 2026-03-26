@@ -9,6 +9,7 @@ data class NetworkCurrentWeatherResponse(
     @SerialName("weather") val weather: List<NetworkWeatherItem>,
     @SerialName("main") val main: NetworkMain,
     @SerialName("wind") val wind: NetworkWind,
+    @SerialName("sys") val sys: NetworkSys = NetworkSys(),
     @SerialName("dt") val dt: Long,
     @SerialName("name") val name: String,
 )
@@ -40,4 +41,10 @@ data class NetworkMain(
 data class NetworkWind(
     @SerialName("speed") val speed: Double,
     @SerialName("deg") val deg: Int? = null,
+)
+
+@Serializable
+data class NetworkSys(
+    @SerialName("sunrise") val sunrise: Long = 0L,
+    @SerialName("sunset") val sunset: Long = 0L,
 )

@@ -6,6 +6,7 @@ import playground.app.tobeylin.weather.core.network.model.NetworkCurrentWeatherR
 import playground.app.tobeylin.weather.core.network.model.NetworkForecastItem
 import playground.app.tobeylin.weather.core.network.model.NetworkForecastResponse
 import playground.app.tobeylin.weather.core.network.model.NetworkMain
+import playground.app.tobeylin.weather.core.network.model.NetworkSys
 import playground.app.tobeylin.weather.core.network.model.NetworkWeatherItem
 import playground.app.tobeylin.weather.core.network.model.NetworkWind
 import java.io.IOException
@@ -27,6 +28,7 @@ class FakeWeatherApi : WeatherApi {
             ),
             main = NetworkMain(temp = 28.5, feelsLike = 31.2, tempMin = 27.0, tempMax = 30.0, humidity = 70),
             wind = NetworkWind(speed = 3.5, deg = 180),
+            sys = NetworkSys(sunrise = 1711317120L, sunset = 1711362300L),
             dt = 1711296000L,
             name = "Taipei",
         )

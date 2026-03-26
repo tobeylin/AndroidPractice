@@ -50,4 +50,28 @@ class NetworkCurrentWeatherResponseTest {
         assertEquals("Taipei", result.name)
         assertEquals(28.5, result.main.temp, 0.001)
     }
+
+    @Test
+    fun deserialize_currentWeatherResponse_withSysBlock() {
+        val jsonString = """
+            {"coord":{"lon":121.5654,"lat":25.033},"weather":[{"id":802,"main":"Clouds","description":"scattered clouds","icon":"03d"}],"main":{"temp":28.5,"feels_like":31.2,"temp_min":27.0,"temp_max":30.0,"humidity":70},"wind":{"speed":3.5},"sys":{"type":2,"id":123,"country":"TW","sunrise":1711317120,"sunset":1711362300},"dt":1711296000,"name":"Taipei"}
+        """.trimIndent()
+
+        val result = json.decodeFromString<NetworkCurrentWeatherResponse>(jsonString)
+
+        assertEquals(1711317120L, result.sys.sunrise)
+        assertEquals(1711362300L, result.sys.sunset)
+    }
+
+    @Test
+    fun deserialize_currentWeatherResponse_withoutSysBlock() {
+        val jsonString = """
+            {"coord":{"lon":121.5654,"lat":25.033},"weather":[{"id":802,"main":"Clouds","description":"scattered clouds","icon":"03d"}],"main":{"temp":28.5,"feels_like":31.2,"temp_min":27.0,"temp_max":30.0,"humidity":70},"wind":{"speed":3.5},"dt":1711296000,"name":"Taipei"}
+        """.trimIndent()
+
+        val result = json.decodeFromString<NetworkCurrentWeatherResponse>(jsonString)
+
+        assertEquals(0L, result.sys.sunrise)
+        assertEquals(0L, result.sys.sunset)
+    }
 }
