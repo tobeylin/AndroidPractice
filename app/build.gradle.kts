@@ -58,6 +58,7 @@ android {
 dependencies {
     implementation(project(":feature:weather"))
     implementation(project(":core:model"))
+    implementation(project(":core:data"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.material)
@@ -77,6 +78,8 @@ dependencies {
     ksp(libs.hilt.compiler)
 
     testImplementation(libs.junit)
+    testImplementation(libs.kotlinx.coroutines.test)
+    testImplementation(project(":core:data"))
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 }
