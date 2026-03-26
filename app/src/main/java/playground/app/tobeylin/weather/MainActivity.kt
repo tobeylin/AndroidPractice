@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.BackHandler
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
@@ -21,6 +22,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import dagger.hilt.android.AndroidEntryPoint
 import playground.app.tobeylin.weather.core.model.City
 import playground.app.tobeylin.weather.feature.weather.screen.SearchCitiesRoute
@@ -29,6 +31,7 @@ import playground.app.tobeylin.weather.feature.weather.viewmodel.WeatherViewMode
 import playground.app.tobeylin.weather.ui.theme.PlaygroundWeatherTheme
 
 private sealed interface Screen {
+    data object Loading : Screen
     data object CityList : Screen
     data class WeatherDetail(val city: City) : Screen
 }
@@ -41,7 +44,20 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             PlaygroundWeatherTheme {
-                var currentScreen by remember { mutableStateOf<Screen>(Screen.CityList) }
+                val mainViewModel: MainViewModel = hiltViewModel()
+                val initialDestination by mainViewModel.initialDestination.collectAsStateWithLifecycle()
+                var currentScreen by remember { mutableStateOf<Screen>(Screen.Loading) }
+
+                LaunchedEffect(initialDestination) {
+                    if (currentScreen == Screen.Loading) {
+                        val dest = initialDestination
+                        currentScreen = when (dest) {
+                            is InitialDestination.Loading -> return@LaunchedEffect
+                            is InitialDestination.Search -> Screen.CityList
+                            is InitialDestination.Weather -> Screen.WeatherDetail(dest.city)
+                        }
+                    }
+                }
 
                 BackHandler(enabled = currentScreen is Screen.WeatherDetail) {
                     currentScreen = Screen.CityList
@@ -50,6 +66,7 @@ class MainActivity : ComponentActivity() {
                 Scaffold(
                     topBar = {
                         when (val screen = currentScreen) {
+                            is Screen.Loading -> {}
                             is Screen.CityList -> {
                                 // No top bar — search bar is embedded in SearchCitiesScreen
                             }
@@ -68,6 +85,7 @@ class MainActivity : ComponentActivity() {
                     },
                 ) { innerPadding ->
                     when (val screen = currentScreen) {
+                        is Screen.Loading -> Box(modifier = Modifier.padding(innerPadding))
                         is Screen.CityList -> SearchCitiesRoute(
                             onCityClick = { city -> currentScreen = Screen.WeatherDetail(city) },
                             modifier = Modifier.padding(innerPadding),
