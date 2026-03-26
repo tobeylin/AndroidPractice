@@ -3,8 +3,10 @@ package playground.app.tobeylin.weather.feature.weather.screen
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -74,7 +76,9 @@ fun WeatherHomeScreen(
                 Spacer(modifier = Modifier.height(16.dp))
 
                 Row(
-                    modifier = Modifier.fillMaxWidth(),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(IntrinsicSize.Min),
                     horizontalArrangement = Arrangement.spacedBy(12.dp),
                 ) {
                     WeatherMetricCard(
@@ -82,14 +86,18 @@ fun WeatherHomeScreen(
                         label = stringResource(R.string.weather_metric_humidity),
                         value = "${state.humidity}%",
                         subtitle = stringResource(R.string.weather_metric_dew_point, state.dewPoint.toInt()),
-                        modifier = Modifier.weight(1f),
+                        modifier = Modifier
+                            .weight(1f)
+                            .fillMaxHeight(),
                     )
                     WeatherMetricCard(
                         icon = Icons.Filled.Air,
                         label = stringResource(R.string.weather_metric_wind),
                         value = stringResource(R.string.weather_metric_wind_value, state.windSpeedKmh.toInt()),
                         subtitle = if (state.windDirection.isNotEmpty()) stringResource(R.string.weather_metric_wind_direction, state.windDirection) else "",
-                        modifier = Modifier.weight(1f),
+                        modifier = Modifier
+                            .weight(1f)
+                            .fillMaxHeight(),
                     )
                 }
 
@@ -163,7 +171,9 @@ private fun WeatherHomeScreenPreview() {
         TodayWeatherCard(uiState = state, modifier = Modifier.fillMaxWidth())
         Spacer(modifier = Modifier.height(16.dp))
         Row(
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(IntrinsicSize.Min),
             horizontalArrangement = Arrangement.spacedBy(12.dp),
         ) {
             WeatherMetricCard(
@@ -171,14 +181,18 @@ private fun WeatherHomeScreenPreview() {
                 label = "Humidity",
                 value = "${state.humidity}%",
                 subtitle = "Dew point is ${state.dewPoint.toInt()}°",
-                modifier = Modifier.weight(1f),
+                modifier = Modifier
+                    .weight(1f)
+                    .fillMaxHeight(),
             )
             WeatherMetricCard(
                 icon = Icons.Filled.Air,
                 label = "Wind",
                 value = "${state.windSpeedKmh.toInt()} km/h",
                 subtitle = if (state.windDirection.isNotEmpty()) "${state.windDirection} Direction" else "",
-                modifier = Modifier.weight(1f),
+                modifier = Modifier
+                    .weight(1f)
+                    .fillMaxHeight(),
             )
         }
         Spacer(modifier = Modifier.height(16.dp))
