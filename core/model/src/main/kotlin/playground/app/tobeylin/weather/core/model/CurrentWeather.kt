@@ -12,4 +12,6 @@ data class CurrentWeather(
     val conditionDescription: String,
     val conditionId: Int,
     val timestamp: Long,
+    val sunrise: Long = 0L,
+    val sunset: Long = 0L,
 )
