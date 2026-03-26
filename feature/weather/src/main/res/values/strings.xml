@@ -16,7 +16,7 @@
     <string name="forecast_five_day_title">Daily Forecast</string>
 
     <!-- CitySearchBar -->
-    <string name="search_placeholder">Search city or airport</string>
+    <string name="search_placeholder">Search city</string>
     <string name="search_icon_description">Search</string>
     <string name="search_clear_description">Clear</string>
 

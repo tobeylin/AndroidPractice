@@ -16,7 +16,7 @@
     <string name="forecast_five_day_title">每日天氣預報</string>
 
     <!-- CitySearchBar -->
-    <string name="search_placeholder">搜尋城市或機場</string>
+    <string name="search_placeholder">搜尋城市</string>
     <string name="search_icon_description">搜尋</string>
     <string name="search_clear_description">清除</string>
 
