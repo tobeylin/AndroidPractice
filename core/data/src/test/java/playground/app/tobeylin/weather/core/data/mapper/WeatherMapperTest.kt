@@ -5,6 +5,7 @@ import org.junit.Test
 import playground.app.tobeylin.weather.core.network.model.NetworkCoord
 import playground.app.tobeylin.weather.core.network.model.NetworkCurrentWeatherResponse
 import playground.app.tobeylin.weather.core.network.model.NetworkMain
+import playground.app.tobeylin.weather.core.network.model.NetworkSys
 import playground.app.tobeylin.weather.core.network.model.NetworkWeatherItem
 import playground.app.tobeylin.weather.core.network.model.NetworkWind
 
@@ -31,6 +32,7 @@ class WeatherMapperTest {
             ),
             wind = NetworkWind(speed = 3.5, deg = 180),
             dt = 1711296000L,
+            sys = NetworkSys(sunrise = 1711317120L, sunset = 1711362300L),
             name = "Taipei",
         )
 
@@ -47,6 +49,31 @@ class WeatherMapperTest {
         assertEquals("scattered clouds", result.conditionDescription)
         assertEquals(802, result.conditionId)
         assertEquals(1711296000L, result.timestamp)
+        assertEquals(1711317120L, result.sunrise)
+        assertEquals(1711362300L, result.sunset)
+    }
+
+    @Test
+    fun default_sys_maps_zero_sunrise_sunset() {
+        val response = NetworkCurrentWeatherResponse(
+            coord = NetworkCoord(lat = 0.0, lon = 0.0),
+            weather = emptyList(),
+            main = NetworkMain(
+                temp = 20.0,
+                feelsLike = 19.0,
+                tempMin = 18.0,
+                tempMax = 22.0,
+                humidity = 50,
+            ),
+            wind = NetworkWind(speed = 1.0),
+            dt = 1711300000L,
+            name = "Unknown City",
+        )
+
+        val result = response.asExternalModel()
+
+        assertEquals(0L, result.sunrise)
+        assertEquals(0L, result.sunset)
     }
 
     @Test

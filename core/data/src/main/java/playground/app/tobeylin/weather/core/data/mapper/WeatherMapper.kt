@@ -15,4 +15,6 @@ internal fun NetworkCurrentWeatherResponse.asExternalModel(): CurrentWeather = C
     conditionDescription = weather.firstOrNull()?.description ?: "",
     conditionId = weather.firstOrNull()?.id ?: 0,
     timestamp = dt,
+    sunrise = sys.sunrise,
+    sunset = sys.sunset,
 )

@@ -18,6 +18,8 @@ class FakeWeatherRepository : WeatherRepository {
         conditionDescription = "scattered clouds",
         conditionId = 802,
         timestamp = 1711296000L,
+        sunrise = 1711317120L,
+        sunset = 1711362300L,
     )
 
     var dailyForecastsResult: List<DailyForecast> = listOf(
