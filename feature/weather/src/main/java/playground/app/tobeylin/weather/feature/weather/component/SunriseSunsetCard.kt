@@ -54,7 +54,7 @@ fun SunriseSunsetCard(
                 )
                 Text(
                     text = stringResource(R.string.weather_sunrise_sunset_title).uppercase(),
-                    style = MaterialTheme.typography.labelSmall,
+                    style = MaterialTheme.typography.titleLarge,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                     letterSpacing = 1.sp
                 )
