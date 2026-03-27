@@ -17,6 +17,7 @@ import playground.app.tobeylin.weather.core.model.DailyForecast
 import playground.app.tobeylin.weather.feature.weather.state.ForecastUiState
 import playground.app.tobeylin.weather.feature.weather.state.WeatherUiState
 import playground.app.tobeylin.weather.feature.weather.viewmodel.WeatherViewModel
+import playground.app.tobeylin.weather.core.testing.MainDispatcherRule
 import java.text.SimpleDateFormat
 import java.util.Locale
 

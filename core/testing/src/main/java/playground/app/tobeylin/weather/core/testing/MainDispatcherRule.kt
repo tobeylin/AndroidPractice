@@ -1,4 +1,4 @@
-package playground.app.tobeylin.weather.feature.weather
+package playground.app.tobeylin.weather.core.testing
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi

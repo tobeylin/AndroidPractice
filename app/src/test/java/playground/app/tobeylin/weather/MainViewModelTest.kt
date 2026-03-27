@@ -10,6 +10,7 @@ import org.junit.Test
 import playground.app.tobeylin.weather.core.data.FakeRecentCityRepository
 import playground.app.tobeylin.weather.core.data.RecentCityRepository
 import playground.app.tobeylin.weather.core.model.City
+import playground.app.tobeylin.weather.core.testing.MainDispatcherRule
 
 @OptIn(ExperimentalCoroutinesApi::class)
 class MainViewModelTest {
