@@ -20,6 +20,9 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+    testFixtures {
+        enable = true
+    }
 }
 
 dependencies {
@@ -32,4 +35,8 @@ dependencies {
 
     testImplementation(libs.junit)
     testImplementation(libs.kotlinx.coroutines.test)
+
+    testImplementation(testFixtures(project(":core:network")))
+    testFixturesImplementation(project(":core:model"))
+    testFixturesImplementation(libs.kotlinx.coroutines.core)
 }

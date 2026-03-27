@@ -58,4 +58,5 @@ dependencies {
     testImplementation(libs.junit)
     testImplementation(libs.kotlinx.coroutines.test)
     testImplementation(project(":core:testing"))
+    testImplementation(testFixtures(project(":core:data")))
 }
