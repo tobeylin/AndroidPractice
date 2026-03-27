@@ -54,6 +54,10 @@ The project follows the official Android architecture guidance using a three-lay
 ↓ = depends on
 ```
 
+## Development Guide
+
+See [DEVELOPMENT.md](DEVELOPMENT.md) for how this project was built — AI tools, workflow, and technical decisions.
+
 ## Prerequisites
 
 * Android Studio (latest stable)
