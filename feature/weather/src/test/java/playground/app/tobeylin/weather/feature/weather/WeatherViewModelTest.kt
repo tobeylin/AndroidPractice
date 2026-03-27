@@ -27,12 +27,11 @@ class WeatherViewModelTest {
     val mainDispatcherRule = MainDispatcherRule()
 
     private val fakeWeatherRepository = FakeWeatherRepository()
-    private val fakeCityRepository = FakeCityRepository()
     private val fakeRecentCityRepository = FakeRecentCityRepository()
     private val defaultCity = City(name = "Taipei", country = "TW", latitude = 25.033, longitude = 121.565)
 
     private fun createViewModel(weatherRepository: WeatherRepository = fakeWeatherRepository): WeatherViewModel =
-        WeatherViewModel(weatherRepository, fakeCityRepository, fakeRecentCityRepository)
+        WeatherViewModel(weatherRepository, fakeRecentCityRepository)
 
     @Test
     fun initial_state_is_loading() {

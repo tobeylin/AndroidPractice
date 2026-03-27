@@ -9,7 +9,6 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
-import playground.app.tobeylin.weather.core.data.CityRepository
 import playground.app.tobeylin.weather.core.data.RecentCityRepository
 import playground.app.tobeylin.weather.core.data.WeatherRepository
 import playground.app.tobeylin.weather.core.model.City
@@ -25,7 +24,6 @@ import javax.inject.Inject
 @HiltViewModel
 class WeatherViewModel @Inject constructor(
     private val weatherRepository: WeatherRepository,
-    private val cityRepository: CityRepository,
     private val recentCityRepository: RecentCityRepository,
 ) : ViewModel() {
 
